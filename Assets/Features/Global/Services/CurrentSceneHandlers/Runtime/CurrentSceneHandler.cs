@@ -1,12 +1,12 @@
-﻿using Common.Local.ComposedSceneConfig;
-using Cysharp.Threading.Tasks;
-using Global.Services.CurrentSceneHandlers.Logs;
-using Global.Services.ResourcesCleaners.Runtime;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.Local.ComposedSceneConfig;
+using Features.Global.Services.CurrentSceneHandlers.Logs;
+using Features.Global.Services.ResourcesCleaners.Runtime;
+using Features.Global.Services.ScenesFlow.Runtime.Abstract;
 using UnityEngine;
 using VContainer;
 
-namespace Global.Services.CurrentSceneHandlers.Runtime
+namespace Features.Global.Services.CurrentSceneHandlers.Runtime
 {
     public class CurrentSceneHandler : MonoBehaviour, ICurrentSceneHandler
     {

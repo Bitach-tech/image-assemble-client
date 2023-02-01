@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Common.UiTools
+namespace Features.Common.UiTools
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Scrollbar))]

@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-namespace Common.UiTools
+namespace Features.Common.UiTools
 {
     public class FixedScrollRect : ScrollRect
     {

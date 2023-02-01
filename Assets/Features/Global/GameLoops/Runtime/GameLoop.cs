@@ -1,18 +1,18 @@
-﻿using Common.Local.ComposedSceneConfig;
-using Cysharp.Threading.Tasks;
-using GamePlay.Config.Services.Runtime;
-using Global.GameLoops.Abstract;
-using Global.GameLoops.Logs;
-using Global.Services.Common.Scope;
-using Global.Services.CurrentCameras.Runtime;
-using Global.Services.CurrentSceneHandlers.Runtime;
-using Global.Services.GlobalCameras.Runtime;
-using Global.Services.LoadingScreens.Runtime;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.Local.ComposedSceneConfig;
+using Features.GamePlay.Config.Services.Runtime;
+using Features.Global.GameLoops.Abstract;
+using Features.Global.GameLoops.Logs;
+using Features.Global.Services.Common.Scope;
+using Features.Global.Services.CurrentCameras.Runtime;
+using Features.Global.Services.CurrentSceneHandlers.Runtime;
+using Features.Global.Services.GlobalCameras.Runtime;
+using Features.Global.Services.LoadingScreens.Runtime;
+using Features.Global.Services.ScenesFlow.Runtime.Abstract;
 using UnityEngine;
 using VContainer;
 
-namespace Global.GameLoops.Runtime
+namespace Features.Global.GameLoops.Runtime
 {
     public class GameLoop : GlobalGameLoop
     {

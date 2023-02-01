@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using ILogger = Global.Services.Loggers.Runtime.ILogger;
+using ILogger = Features.Global.Services.Loggers.Runtime.ILogger;
 
-namespace GamePlay.Services.LevelCameras.Logs
+namespace Features.GamePlay.Services.LevelCameras.Logs
 {
     public class LevelCameraLogger
     {

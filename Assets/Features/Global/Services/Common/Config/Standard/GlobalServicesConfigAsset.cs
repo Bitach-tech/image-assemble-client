@@ -1,27 +1,27 @@
-﻿using Global.Common;
-using Global.Services.ApplicationProxies.Runtime;
-using Global.Services.CameraUtilities.Runtime;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Config.Abstract;
-using Global.Services.CurrentCameras.Runtime;
-using Global.Services.CurrentSceneHandlers.Runtime;
-using Global.Services.DebugConsoles.Runtime;
-using Global.Services.GlobalCameras.Runtime;
-using Global.Services.InputViews.Runtime;
-using Global.Services.LoadingScreens.Runtime;
-using Global.Services.Loggers.Runtime;
-using Global.Services.MessageBrokers.Runtime;
-using Global.Services.Overlays.Runtime;
-using Global.Services.ResourcesCleaners.Runtime;
-using Global.Services.ScenesFlow.Runtime;
-using Global.Services.ServiceSDK.Bootstrap;
-using Global.Services.SoundsPlayers.Runtime;
-using Global.Services.UiStateMachines.Runtime;
-using Global.Services.Updaters.Runtime;
+﻿using Features.Global.Common;
+using Features.Global.Services.ApplicationProxies.Runtime;
+using Features.Global.Services.CameraUtilities.Runtime;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Config.Abstract;
+using Features.Global.Services.CurrentCameras.Runtime;
+using Features.Global.Services.CurrentSceneHandlers.Runtime;
+using Features.Global.Services.DebugConsoles.Runtime;
+using Features.Global.Services.GlobalCameras.Runtime;
+using Features.Global.Services.InputViews.Runtime;
+using Features.Global.Services.LoadingScreens.Runtime;
+using Features.Global.Services.Loggers.Runtime;
+using Features.Global.Services.MessageBrokers.Runtime;
+using Features.Global.Services.Overlays.Runtime;
+using Features.Global.Services.ResourcesCleaners.Runtime;
+using Features.Global.Services.ScenesFlow.Runtime;
+using Features.Global.Services.ServiceSDK.Bootstrap;
+using Features.Global.Services.SoundsPlayers.Runtime;
+using Features.Global.Services.UiStateMachines.Runtime;
+using Features.Global.Services.Updaters.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Common.Config.Standard
+namespace Features.Global.Services.Common.Config.Standard
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.BootstrapPrefix + "Services",

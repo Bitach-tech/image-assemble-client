@@ -1,8 +1,8 @@
 ﻿using System;
-using Common.UI.UniversalPlates.Setup.Colors;
+using Features.Common.UI.UniversalPlates.Setup.Colors;
 using UnityEngine;
 
-namespace Common.UI.UniversalPlates.Setup.Common
+namespace Features.Common.UI.UniversalPlates.Setup.Common
 {
     [Serializable]
     public class TextPlateConfig

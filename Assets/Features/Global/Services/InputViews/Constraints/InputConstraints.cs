@@ -1,4 +1,4 @@
-﻿namespace Global.Services.InputViews.Constraints
+﻿namespace Features.Global.Services.InputViews.Constraints
 {
     public enum InputConstraints
     {

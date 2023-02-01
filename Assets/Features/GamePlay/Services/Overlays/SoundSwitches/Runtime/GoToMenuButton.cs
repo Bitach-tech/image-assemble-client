@@ -1,10 +1,9 @@
-﻿using System;
-using GamePlay.Services.LevelLoops.Events;
-using Global.Services.MessageBrokers.Runtime;
+﻿using Features.GamePlay.Loop.Events;
+using Features.Global.Services.MessageBrokers.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GamePlay.Services.Overlays.SoundSwitches.Runtime
+namespace Features.GamePlay.Services.Overlays.SoundSwitches.Runtime
 {
     [DisallowMultipleComponent]
     public class GoToMenuButton : MonoBehaviour
@@ -15,7 +14,7 @@ namespace GamePlay.Services.Overlays.SoundSwitches.Runtime
         {
             _button.onClick.AddListener(OnClicked);
         }
-        
+
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnClicked);

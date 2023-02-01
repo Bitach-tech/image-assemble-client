@@ -1,6 +1,6 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Services.Loggers.Runtime;
 
-namespace Global.GameLoops.Logs
+namespace Features.Global.GameLoops.Logs
 {
     public class GameLoopLogger
     {

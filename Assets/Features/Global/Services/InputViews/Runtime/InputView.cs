@@ -1,15 +1,15 @@
 ﻿using System;
-using Global.Services.CameraUtilities.Runtime;
-using Global.Services.Common.Abstract;
-using Global.Services.InputViews.Constraints;
-using Global.Services.InputViews.ConstraintsStorage;
-using Global.Services.InputViews.Logs;
+using Features.Global.Services.CameraUtilities.Runtime;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.InputViews.Constraints;
+using Features.Global.Services.InputViews.ConstraintsStorage;
+using Features.Global.Services.InputViews.Logs;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using VContainer;
 
-namespace Global.Services.InputViews.Runtime
+namespace Features.Global.Services.InputViews.Runtime
 {
     public class InputView : MonoBehaviour, IInputView, IInputViewRebindCallbacks, IGlobalAwakeListener
     {
@@ -174,7 +174,7 @@ namespace Global.Services.InputViews.Runtime
 
                 if (touches.Length < 1)
                     return;
-                
+
                 _position = touches[0].rawPosition;
                 _isLeftMouseButtonPressed = true;
             }

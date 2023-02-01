@@ -1,0 +1,79 @@
+﻿using System;
+using Features.Common.Local.Services.Abstract.Callbacks;
+using Features.GamePlay.Loop.Events;
+using Features.GamePlay.Loop.Logs;
+using Features.GamePlay.Menu.Runtime;
+using Features.GamePlay.Services.LevelCameras.Runtime;
+using Features.Global.Services.CurrentCameras.Runtime;
+using Features.Global.Services.MessageBrokers.Runtime;
+using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
+using UnityEngine;
+using VContainer;
+
+namespace Features.GamePlay.Loop.Runtime
+{
+    [DisallowMultipleComponent]
+    public class LevelLoop :
+        MonoBehaviour,
+        ILocalLoadListener,
+        ILocalSwitchListener
+    {
+        [Inject]
+        private void Construct(
+            ICurrentCamera currentCamera,
+            ILevelCamera levelCamera,
+            IMenuUI menuUI,
+            IAds ads,
+            LevelLoopLogger logger)
+        {
+            _ads = ads;
+            _menuUI = menuUI;
+            _logger = logger;
+            _currentCamera = currentCamera;
+            _levelCamera = levelCamera;
+        }
+
+        private IAds _ads;
+
+        private ICurrentCamera _currentCamera;
+        private ILevelCamera _levelCamera;
+
+        private LevelLoopLogger _logger;
+
+        private IMenuUI _menuUI;
+
+        private IDisposable _playClickListener;
+        private IDisposable _menuClickListener;
+
+        public void OnLoaded()
+        {
+            _currentCamera.SetCamera(_levelCamera.Camera);
+
+            _logger.OnLoaded();
+
+            _menuUI.Open();
+        }
+
+        public void OnEnabled()
+        {
+            _playClickListener = Msg.Listen<PlayClickEvent>(OnPlayClicked);
+            _menuClickListener = Msg.Listen<MenuRequestEvent>(OnMenuClicked);
+        }
+
+        public void OnDisabled()
+        {
+            _playClickListener?.Dispose();
+            _menuClickListener?.Dispose();
+        }
+
+        private void OnPlayClicked(PlayClickEvent data)
+        {
+            _ads.ShowInterstitial();
+        }
+
+        private void OnMenuClicked(MenuRequestEvent data)
+        {
+            _menuUI.Open();
+        }
+    }
+}

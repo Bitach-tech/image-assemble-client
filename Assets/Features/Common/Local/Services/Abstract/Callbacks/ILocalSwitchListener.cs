@@ -1,4 +1,4 @@
-﻿namespace Common.Local.Services.Abstract.Callbacks
+﻿namespace Features.Common.Local.Services.Abstract.Callbacks
 {
     public interface ILocalSwitchListener
     {

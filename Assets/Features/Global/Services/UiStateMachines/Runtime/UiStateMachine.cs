@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Global.Services.InputViews.ConstraintsStorage;
-using Global.Services.UiStateMachines.Logs;
+using Features.Global.Services.InputViews.ConstraintsStorage;
+using Features.Global.Services.UiStateMachines.Logs;
 using UnityEngine;
 using VContainer;
 
-namespace Global.Services.UiStateMachines.Runtime
+namespace Features.Global.Services.UiStateMachines.Runtime
 {
     public class UiStateMachine : MonoBehaviour, IUiStateMachine
     {

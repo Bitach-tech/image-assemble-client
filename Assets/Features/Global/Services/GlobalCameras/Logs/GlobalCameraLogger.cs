@@ -1,6 +1,6 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Services.Loggers.Runtime;
 
-namespace Global.Services.GlobalCameras.Logs
+namespace Features.Global.Services.GlobalCameras.Logs
 {
     public class GlobalCameraLogger
     {

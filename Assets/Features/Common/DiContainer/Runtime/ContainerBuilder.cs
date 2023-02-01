@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Common.DiContainer.Abstract;
+using Features.Common.DiContainer.Abstract;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Common.DiContainer.Runtime
+namespace Features.Common.DiContainer.Runtime
 {
     public class ContainerBuilder : IDependencyRegister, IDependenciesBuilder
     {

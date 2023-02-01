@@ -1,4 +1,4 @@
-﻿namespace Global.GameLoops.Logs
+﻿namespace Features.Global.GameLoops.Logs
 {
     public enum GameLoopLogType
     {

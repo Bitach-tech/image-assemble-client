@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.Services.InputViews.Logs
+namespace Features.Global.Services.InputViews.Logs
 {
     [Serializable]
     public class InputViewLogs : ReadOnlyDictionary<InputViewLogType, bool>

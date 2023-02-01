@@ -1,4 +1,4 @@
-﻿namespace Global.Services.LoadingScreens.Runtime
+﻿namespace Features.Global.Services.LoadingScreens.Runtime
 {
     public interface ILoadingScreen
     {

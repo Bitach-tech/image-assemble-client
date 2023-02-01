@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Common.UI.UniversalPlates.Setup.Common
+namespace Features.Common.UI.UniversalPlates.Setup.Common
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "UiConfig_Common", menuName = "UI/Common")]

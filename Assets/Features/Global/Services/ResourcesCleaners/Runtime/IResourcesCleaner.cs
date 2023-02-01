@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace Global.Services.ResourcesCleaners.Runtime
+namespace Features.Global.Services.ResourcesCleaners.Runtime
 {
     public interface IResourcesCleaner
     {

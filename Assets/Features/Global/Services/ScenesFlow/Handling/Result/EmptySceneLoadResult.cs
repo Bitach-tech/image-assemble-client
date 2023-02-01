@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-namespace Global.Services.ScenesFlow.Handling.Result
+namespace Features.Global.Services.ScenesFlow.Handling.Result
 {
     public class EmptySceneLoadResult : SceneLoadResult
     {

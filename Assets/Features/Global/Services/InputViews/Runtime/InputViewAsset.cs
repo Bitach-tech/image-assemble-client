@@ -1,14 +1,14 @@
-﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Common;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Scenes;
-using Global.Services.InputViews.ConstraintsStorage;
-using Global.Services.InputViews.Logs;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Common;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Abstract.Scenes;
+using Features.Global.Services.InputViews.ConstraintsStorage;
+using Features.Global.Services.InputViews.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.InputViews.Runtime
+namespace Features.Global.Services.InputViews.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "InputView",

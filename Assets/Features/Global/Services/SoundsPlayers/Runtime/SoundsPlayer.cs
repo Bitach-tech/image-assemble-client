@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Global.Services.SoundsPlayers.Runtime
+namespace Features.Global.Services.SoundsPlayers.Runtime
 {
     [DisallowMultipleComponent]
     public class SoundsPlayer : MonoBehaviour

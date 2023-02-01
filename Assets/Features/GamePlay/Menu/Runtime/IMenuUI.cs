@@ -1,4 +1,4 @@
-﻿namespace GamePlay.Menu.Runtime
+﻿namespace Features.GamePlay.Menu.Runtime
 {
     public interface IMenuUI
     {

@@ -1,7 +1,7 @@
-﻿using Common.UI.UniversalPlates.Runtime.Plate;
+﻿using Features.Common.UI.UniversalPlates.Runtime.Plate;
 using UnityEngine;
 
-namespace Common.UI.UniversalPlates.Debug
+namespace Features.Common.UI.UniversalPlates.Debug
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(UniversalPlateColorSetter))]

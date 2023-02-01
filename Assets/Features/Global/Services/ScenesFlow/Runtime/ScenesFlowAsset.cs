@@ -1,14 +1,14 @@
-﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Common;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Scenes;
-using Global.Services.ScenesFlow.Logs;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Common;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Abstract.Scenes;
+using Features.Global.Services.ScenesFlow.Logs;
+using Features.Global.Services.ScenesFlow.Runtime.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.ScenesFlow.Runtime
+namespace Features.Global.Services.ScenesFlow.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "ScenesFlow",

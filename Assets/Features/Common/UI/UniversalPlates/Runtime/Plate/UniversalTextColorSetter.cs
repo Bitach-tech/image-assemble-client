@@ -1,9 +1,9 @@
-﻿using Common.UI.UniversalPlates.Runtime.Abstract;
-using Common.UI.UniversalPlates.Setup.Colors;
+﻿using Features.Common.UI.UniversalPlates.Runtime.Abstract;
+using Features.Common.UI.UniversalPlates.Setup.Colors;
 using TMPro;
 using UnityEngine;
 
-namespace Common.UI.UniversalPlates.Runtime.Plate
+namespace Features.Common.UI.UniversalPlates.Runtime.Plate
 {
     [DisallowMultipleComponent]
     public class UniversalTextColorSetter : UniversalProperty

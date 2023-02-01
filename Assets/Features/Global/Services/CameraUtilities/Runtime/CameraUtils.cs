@@ -1,9 +1,9 @@
-﻿using Global.Services.CameraUtilities.Logs;
-using Global.Services.CurrentCameras.Runtime;
+﻿using Features.Global.Services.CameraUtilities.Logs;
+using Features.Global.Services.CurrentCameras.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace Global.Services.CameraUtilities.Runtime
+namespace Features.Global.Services.CameraUtilities.Runtime
 {
     public class CameraUtils : MonoBehaviour, ICameraUtils
     {

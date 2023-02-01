@@ -1,14 +1,14 @@
-﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Common;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Scenes;
-using Global.Services.ServiceSDK.Advertisment.Abstract;
-using Global.Services.ServiceSDK.Authentications.Runtime;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Common;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Abstract.Scenes;
+using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
+using Features.Global.Services.ServiceSDK.Authentications.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.ServiceSDK.Bootstrap
+namespace Features.Global.Services.ServiceSDK.Bootstrap
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "ServiceSDK",

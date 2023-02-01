@@ -1,13 +1,13 @@
-﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Common;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Scenes;
-using Global.Services.CurrentCameras.Logs;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Common;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Abstract.Scenes;
+using Features.Global.Services.CurrentCameras.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.CurrentCameras.Runtime
+namespace Features.Global.Services.CurrentCameras.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "CurrentCamera",

@@ -1,6 +1,6 @@
 ﻿using VContainer;
 
-namespace Common.DiContainer.Abstract
+namespace Features.Common.DiContainer.Abstract
 {
     public interface IInjectionBuilder
     {

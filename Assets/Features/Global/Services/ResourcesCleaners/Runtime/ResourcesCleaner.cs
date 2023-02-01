@@ -1,10 +1,10 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using Global.Services.ResourcesCleaners.Logs;
+using Features.Global.Services.ResourcesCleaners.Logs;
 using UnityEngine;
 using VContainer;
 
-namespace Global.Services.ResourcesCleaners.Runtime
+namespace Features.Global.Services.ResourcesCleaners.Runtime
 {
     public class ResourcesCleaner : MonoBehaviour, IResourcesCleaner
     {

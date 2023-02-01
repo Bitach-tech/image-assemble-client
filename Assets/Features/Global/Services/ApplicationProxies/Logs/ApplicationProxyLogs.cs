@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.Services.ApplicationProxies.Logs
+namespace Features.Global.Services.ApplicationProxies.Logs
 {
     [Serializable]
     public class ApplicationProxyLogs : ReadOnlyDictionary<ApplicationProxyLogType, bool>

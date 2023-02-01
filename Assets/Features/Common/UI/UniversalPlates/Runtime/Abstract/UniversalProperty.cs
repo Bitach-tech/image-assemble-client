@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Common.UI.UniversalPlates.Runtime.Abstract
+namespace Features.Common.UI.UniversalPlates.Runtime.Abstract
 {
     public abstract class UniversalProperty : MonoBehaviour
     {

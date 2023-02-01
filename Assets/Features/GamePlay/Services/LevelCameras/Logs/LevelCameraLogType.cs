@@ -1,4 +1,4 @@
-﻿namespace GamePlay.Services.LevelCameras.Logs
+﻿namespace Features.GamePlay.Services.LevelCameras.Logs
 {
     public enum LevelCameraLogType
     {

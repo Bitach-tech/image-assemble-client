@@ -1,4 +1,4 @@
-﻿namespace Global.Services.ServiceSDK.Advertisment.Abstract
+﻿namespace Features.Global.Services.ServiceSDK.Advertisment.Abstract
 {
     public enum InterstitialResult
     {

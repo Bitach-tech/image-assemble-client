@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Common.Local.ComposedSceneConfig
+namespace Features.Common.Local.ComposedSceneConfig
 {
     public class LocalServiceTransformer
     {

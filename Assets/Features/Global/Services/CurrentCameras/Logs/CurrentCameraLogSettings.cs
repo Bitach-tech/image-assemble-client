@@ -1,9 +1,9 @@
-﻿using Global.Common;
-using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Common;
+using Features.Global.Services.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.CurrentCameras.Logs
+namespace Features.Global.Services.CurrentCameras.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "CurrentCamera",

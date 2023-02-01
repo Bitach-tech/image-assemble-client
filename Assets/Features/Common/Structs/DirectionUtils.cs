@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Common.Structs
+namespace Features.Common.Structs
 {
     public static class DirectionUtils
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.Services.Updaters.Logs
+namespace Features.Global.Services.Updaters.Logs
 {
     [Serializable]
     public class UpdaterLogs : ReadOnlyDictionary<UpdaterLogType, bool>

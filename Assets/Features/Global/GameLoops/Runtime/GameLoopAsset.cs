@@ -1,12 +1,12 @@
-﻿using Common.DiContainer.Abstract;
-using Global.Common;
-using Global.GameLoops.Abstract;
-using Global.GameLoops.Logs;
-using Global.Services.Common.Abstract;
+﻿using Features.Common.DiContainer.Abstract;
+using Features.Global.Common;
+using Features.Global.GameLoops.Abstract;
+using Features.Global.GameLoops.Logs;
+using Features.Global.Services.Common.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.GameLoops.Runtime
+namespace Features.Global.GameLoops.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "Global",

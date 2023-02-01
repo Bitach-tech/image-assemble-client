@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine.SceneManagement;
 
-namespace Global.Services.Common.Abstract.Scenes
+namespace Features.Global.Services.Common.Abstract.Scenes
 {
     public class InternalScene<T>
     {

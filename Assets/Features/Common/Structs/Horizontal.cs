@@ -1,4 +1,4 @@
-﻿namespace Common.Structs
+﻿namespace Features.Common.Structs
 {
     public enum Horizontal
     {

@@ -1,8 +1,8 @@
-﻿using Global.Services.MessageBrokers.Runtime;
+﻿using Features.Global.Services.MessageBrokers.Runtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Common.UiTools.ButtonEventTriggers
+namespace Features.Common.UiTools.ButtonEventTriggers
 {
     public class ButtonEventTrigger :
         MonoBehaviour,

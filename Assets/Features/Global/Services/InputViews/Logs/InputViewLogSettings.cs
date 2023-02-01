@@ -1,8 +1,8 @@
-﻿using Global.Common;
-using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Common;
+using Features.Global.Services.Loggers.Runtime;
 using UnityEngine;
 
-namespace Global.Services.InputViews.Logs
+namespace Features.Global.Services.InputViews.Logs
 {
     [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "InputView",
         menuName = GlobalAssetsPaths.InputView + "InputView", order = 1)]

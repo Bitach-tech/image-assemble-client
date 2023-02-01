@@ -1,6 +1,6 @@
-﻿using Global.Services.Common.Abstract.Callbacks;
+﻿using Features.Global.Services.Common.Abstract.Callbacks;
 
-namespace Global.Services.Common.Abstract
+namespace Features.Global.Services.Common.Abstract
 {
     public interface IGlobalCallbacks
     {

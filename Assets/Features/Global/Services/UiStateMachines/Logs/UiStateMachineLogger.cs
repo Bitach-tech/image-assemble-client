@@ -1,6 +1,6 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Services.Loggers.Runtime;
 
-namespace Global.Services.UiStateMachines.Logs
+namespace Features.Global.Services.UiStateMachines.Logs
 {
     public class UiStateMachineLogger
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.Services.CurrentSceneHandlers.Logs
+namespace Features.Global.Services.CurrentSceneHandlers.Logs
 {
     [Serializable]
     public class CurrentSceneHandlerLogs : ReadOnlyDictionary<CurrentSceneHandlerLogType, bool>

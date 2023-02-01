@@ -1,6 +1,6 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Services.Loggers.Runtime;
 
-namespace Global.Services.CurrentSceneHandlers.Logs
+namespace Features.Global.Services.CurrentSceneHandlers.Logs
 {
     public class CurrentSceneHandlerLogger
     {

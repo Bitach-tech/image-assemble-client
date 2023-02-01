@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Global.Services.ScenesFlow.Handling.Result;
-using Global.Services.ScenesFlow.Logs;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+using Features.Global.Services.ScenesFlow.Handling.Result;
+using Features.Global.Services.ScenesFlow.Logs;
+using Features.Global.Services.ScenesFlow.Runtime.Abstract;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
 
-namespace Global.Services.ScenesFlow.Runtime
+namespace Features.Global.Services.ScenesFlow.Runtime
 {
     public class ScenesUnloader : MonoBehaviour, ISceneUnloader
     {

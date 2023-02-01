@@ -1,7 +1,7 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Services.Loggers.Runtime;
 using UnityEngine.SceneManagement;
 
-namespace Global.Services.ScenesFlow.Logs
+namespace Features.Global.Services.ScenesFlow.Logs
 {
     public class ScenesFlowLogger
     {

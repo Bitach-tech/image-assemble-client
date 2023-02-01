@@ -1,13 +1,13 @@
-﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Common;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Scenes;
-using Global.Services.CurrentSceneHandlers.Logs;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Common;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Abstract.Scenes;
+using Features.Global.Services.CurrentSceneHandlers.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.CurrentSceneHandlers.Runtime
+namespace Features.Global.Services.CurrentSceneHandlers.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "CurrentSceneHandler",

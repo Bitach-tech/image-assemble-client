@@ -1,4 +1,4 @@
-﻿namespace Global.Services.InputViews.Logs
+﻿namespace Features.Global.Services.InputViews.Logs
 {
     public enum InputViewLogType
     {

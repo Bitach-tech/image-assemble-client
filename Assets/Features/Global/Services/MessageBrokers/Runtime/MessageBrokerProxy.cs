@@ -1,8 +1,8 @@
 ﻿using System;
-using Global.Services.MessageBrokers.Logs;
+using Features.Global.Services.MessageBrokers.Logs;
 using UniRx;
 
-namespace Global.Services.MessageBrokers.Runtime
+namespace Features.Global.Services.MessageBrokers.Runtime
 {
     public class MessageBrokerProxy : IMessageBroker
     {

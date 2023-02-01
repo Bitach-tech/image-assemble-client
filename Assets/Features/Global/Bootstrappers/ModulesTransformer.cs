@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Global.Bootstrappers
+namespace Features.Global.Bootstrappers
 {
     public class ModulesTransformer
     {

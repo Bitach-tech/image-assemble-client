@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Global.Services.Common.Abstract
+namespace Features.Global.Services.Common.Abstract
 {
     public interface IServiceBinder
     {

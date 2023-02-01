@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.Services.ResourcesCleaners.Logs
+namespace Features.Global.Services.ResourcesCleaners.Logs
 {
     [Serializable]
     public class ResourcesCleanerLogs : ReadOnlyDictionary<ResourcesCleanerLogType, bool>

@@ -1,6 +1,6 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Services.Loggers.Runtime;
 
-namespace Global.Services.LoadingScreens.Logs
+namespace Features.Global.Services.LoadingScreens.Logs
 {
     public class LoadingScreenLogger
     {

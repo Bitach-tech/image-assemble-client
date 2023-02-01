@@ -1,14 +1,14 @@
-﻿using Common.DiContainer.Abstract;
-using Common.Local.Services.Abstract;
-using Cysharp.Threading.Tasks;
-using GamePlay.Common.Paths;
-using Global.Services.ScenesFlow.Handling.Data;
-using Global.Services.ScenesFlow.Runtime.Abstract;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Common.Local.Services.Abstract;
+using Features.GamePlay.Common.Paths;
+using Features.Global.Services.ScenesFlow.Handling.Data;
+using Features.Global.Services.ScenesFlow.Runtime.Abstract;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace GamePlay.Services.Background.Runtime
+namespace Features.GamePlay.Services.Background.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "GameBackground",

@@ -1,6 +1,6 @@
-﻿using Global.Services.Loggers.Runtime;
+﻿using Features.Global.Services.Loggers.Runtime;
 
-namespace Global.Services.MessageBrokers.Logs
+namespace Features.Global.Services.MessageBrokers.Logs
 {
     public class MessageBrokerLogger
     {

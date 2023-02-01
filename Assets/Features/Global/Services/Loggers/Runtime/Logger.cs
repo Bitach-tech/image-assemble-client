@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Global.Services.Loggers.Runtime
+namespace Features.Global.Services.Loggers.Runtime
 {
     public class Logger : MonoBehaviour, ILogger
     {

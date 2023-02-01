@@ -1,9 +1,9 @@
-﻿using Common.UI.UniversalPlates.Runtime.Abstract;
-using Common.UI.UniversalPlates.Setup;
+﻿using Features.Common.UI.UniversalPlates.Runtime.Abstract;
+using Features.Common.UI.UniversalPlates.Setup;
 using UnityEngine;
 using UnityEngine.UI.ProceduralImage;
 
-namespace Common.UI.UniversalPlates.Runtime.Plate
+namespace Features.Common.UI.UniversalPlates.Runtime.Plate
 {
     [DisallowMultipleComponent]
     public class UniversalPlateFalloffSetter : UniversalProperty

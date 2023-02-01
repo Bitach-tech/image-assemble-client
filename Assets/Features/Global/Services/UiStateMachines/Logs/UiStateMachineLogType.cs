@@ -1,4 +1,4 @@
-﻿namespace Global.Services.UiStateMachines.Logs
+﻿namespace Features.Global.Services.UiStateMachines.Logs
 {
     public enum UiStateMachineLogType
     {

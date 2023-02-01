@@ -1,6 +1,6 @@
-﻿using Common.DiContainer.Abstract;
+﻿using Features.Common.DiContainer.Abstract;
 
-namespace Common.Local.Services.Abstract
+namespace Features.Common.Local.Services.Abstract
 {
     public interface ILocalCallbacks : ICallbackRegister
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace GamePlay.Menu.Runtime
+namespace Features.GamePlay.Menu.Runtime
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Button))]
@@ -18,7 +18,7 @@ namespace GamePlay.Menu.Runtime
         {
             _button.onClick.AddListener(OnClicked);
         }
-        
+
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnClicked);

@@ -1,4 +1,4 @@
-﻿namespace Global.Services.Updaters.Logs
+﻿namespace Features.Global.Services.Updaters.Logs
 {
     public enum UpdaterLogType
     {

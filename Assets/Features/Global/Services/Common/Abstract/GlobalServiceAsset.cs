@@ -1,9 +1,9 @@
-﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Services.Common.Abstract.Scenes;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Services.Common.Abstract.Scenes;
 using UnityEngine;
 
-namespace Global.Services.Common.Abstract
+namespace Features.Global.Services.Common.Abstract
 {
     public abstract class GlobalServiceAsset : ScriptableObject
     {

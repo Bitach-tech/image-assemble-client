@@ -1,9 +1,9 @@
-﻿using Common.Local.Services.Abstract.Callbacks;
-using Global.Services.Updaters.Runtime.Abstract;
+﻿using Features.Common.Local.Services.Abstract.Callbacks;
+using Features.Global.Services.Updaters.Runtime.Abstract;
 using UnityEngine;
 using VContainer;
 
-namespace GamePlay.Services.Background.Runtime
+namespace Features.GamePlay.Services.Background.Runtime
 {
     public class GameBackground : MonoBehaviour, IUpdatable, ILocalAwakeListener, IGameBackground
     {

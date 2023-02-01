@@ -1,8 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
-using Global.Services.ScenesFlow.Handling.Data;
-using Global.Services.ScenesFlow.Handling.Result;
+using Features.Global.Services.ScenesFlow.Handling.Data;
+using Features.Global.Services.ScenesFlow.Handling.Result;
 
-namespace Global.Services.ScenesFlow.Runtime.Abstract
+namespace Features.Global.Services.ScenesFlow.Runtime.Abstract
 {
     public interface ISceneLoader
     {

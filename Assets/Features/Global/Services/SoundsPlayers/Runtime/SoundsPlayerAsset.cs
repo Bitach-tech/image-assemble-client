@@ -1,11 +1,11 @@
-﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Common;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Scenes;
+﻿using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Common;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Abstract.Scenes;
 using UnityEngine;
 
-namespace Global.Services.SoundsPlayers.Runtime
+namespace Features.Global.Services.SoundsPlayers.Runtime
 {
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "SoundsPlayer",
         menuName = GlobalAssetsPaths.SoundsPlayer + "Service")]

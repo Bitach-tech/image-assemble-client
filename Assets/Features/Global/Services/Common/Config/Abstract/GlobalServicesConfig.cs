@@ -1,7 +1,7 @@
-﻿using Global.Services.Common.Abstract;
+﻿using Features.Global.Services.Common.Abstract;
 using UnityEngine;
 
-namespace Global.Services.Common.Config.Abstract
+namespace Features.Global.Services.Common.Config.Abstract
 {
     public abstract class GlobalServicesConfig : ScriptableObject
     {

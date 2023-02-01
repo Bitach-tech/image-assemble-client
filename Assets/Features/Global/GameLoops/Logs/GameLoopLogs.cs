@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.GameLoops.Logs
+namespace Features.Global.GameLoops.Logs
 {
     [Serializable]
     public class GameLoopLogs : ReadOnlyDictionary<GameLoopLogType, bool>

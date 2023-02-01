@@ -1,8 +1,8 @@
-﻿using Global.Services.MessageBrokers.Runtime;
+﻿using Features.Global.Services.MessageBrokers.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GamePlay.Services.Overlays.SoundSwitches.Runtime
+namespace Features.GamePlay.Services.Overlays.SoundSwitches.Runtime
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Button))]

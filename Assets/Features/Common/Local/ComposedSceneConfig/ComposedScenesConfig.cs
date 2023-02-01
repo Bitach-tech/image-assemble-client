@@ -1,8 +1,8 @@
-﻿using Global.Common;
+﻿using Features.Global.Common;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Common.Local.ComposedSceneConfig
+namespace Features.Common.Local.ComposedSceneConfig
 {
     [CreateAssetMenu(fileName = GlobalAssetsPaths.ConfigPrefix + "ComposedScene",
         menuName = GlobalAssetsPaths.Config + "ComposedScene")]

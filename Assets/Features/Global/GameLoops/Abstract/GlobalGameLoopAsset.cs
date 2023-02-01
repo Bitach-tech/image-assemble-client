@@ -1,8 +1,8 @@
-﻿using Common.DiContainer.Abstract;
-using Global.Services.Common.Abstract;
+﻿using Features.Common.DiContainer.Abstract;
+using Features.Global.Services.Common.Abstract;
 using UnityEngine;
 
-namespace Global.GameLoops.Abstract
+namespace Features.Global.GameLoops.Abstract
 {
     public abstract class GlobalGameLoopAsset : ScriptableObject
     {

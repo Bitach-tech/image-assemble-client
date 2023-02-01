@@ -1,4 +1,4 @@
-﻿namespace Global.Services.ScenesFlow.Logs
+﻿namespace Features.Global.Services.ScenesFlow.Logs
 {
     public enum ScenesFlowLogType
     {

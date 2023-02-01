@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.Services.CurrentCameras.Logs
+namespace Features.Global.Services.CurrentCameras.Logs
 {
     [Serializable]
     public class CurrentCameraLogs : ReadOnlyDictionary<CurrentCameraLogType, bool>

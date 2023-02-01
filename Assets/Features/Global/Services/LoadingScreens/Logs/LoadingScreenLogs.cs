@@ -1,7 +1,7 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.Services.LoadingScreens.Logs
+namespace Features.Global.Services.LoadingScreens.Logs
 {
     [Serializable]
     public class LoadingScreenLogs : ReadOnlyDictionary<LoadingScreenLogType, bool>

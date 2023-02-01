@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace Global.Services.Common.Abstract.Scenes
+namespace Features.Global.Services.Common.Abstract.Scenes
 {
     public interface IGlobalSceneLoader
     {

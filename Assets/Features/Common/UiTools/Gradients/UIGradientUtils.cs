@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Common.UiTools.Gradients
+namespace Features.Common.UiTools.Gradients
 {
     public static class UIGradientUtils
     {

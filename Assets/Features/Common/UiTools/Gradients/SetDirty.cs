@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Common.UiTools.Gradients
+namespace Features.Common.UiTools.Gradients
 {
     public class SetDirty : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GamePlay.Services.Background.Runtime
+namespace Features.GamePlay.Services.Background.Runtime
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(RectTransform))]

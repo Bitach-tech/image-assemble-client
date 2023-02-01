@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Common.DiContainer.Abstract;
-using Common.Local.Services.Abstract;
-using Common.Local.Services.Abstract.Callbacks;
 using Cysharp.Threading.Tasks;
+using Features.Common.DiContainer.Abstract;
+using Features.Common.Local.Services.Abstract;
+using Features.Common.Local.Services.Abstract.Callbacks;
 using VContainer;
 
-namespace Common.Local.ComposedSceneConfig
+namespace Features.Common.Local.ComposedSceneConfig
 {
     public class LocalCallbacks : ILocalCallbacks
     {

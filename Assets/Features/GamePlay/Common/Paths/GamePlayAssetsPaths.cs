@@ -1,4 +1,4 @@
-﻿namespace GamePlay.Common.Paths
+﻿namespace Features.GamePlay.Common.Paths
 {
     public class GamePlayAssetsPaths
     {
@@ -18,9 +18,11 @@
         public const string PaintConfig = _services + "PaintConfig/";
         public const string ColorSelection = _services + "ColorSelection/";
         public const string ToolSelection = _services + "ToolSelection/";
-        public const string LineFactory = _services + "LineFactory/";
+        public const string PuzzleAssembler = _services + "PuzzleAssembler/";
         public const string ToolHandler = _services + "ToolHandler/";
         public const string ImageStorage = _services + "ImageStorage/";
-        public const string PaintLoop = _services + "PaintLoop/";
+        public const string PickHandler = _services + "PickHandler/";
+        public const string LevelOverlay = _services + "LevelOverlay/";
+        public const string PuzzleLoop = _services + "PuzzleLoop/";
     }
 }

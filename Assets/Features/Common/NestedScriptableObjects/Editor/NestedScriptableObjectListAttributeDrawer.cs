@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Common.NestedScriptableObjects.Attributes;
+using Features.Common.NestedScriptableObjects.Attributes;
 using Sirenix.OdinInspector.Editor;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Common.NestedScriptableObjects.Editor
+namespace Features.Common.NestedScriptableObjects.Editor
 {
     [DrawerPriority(DrawerPriorityLevel.SuperPriority)]
     public class NestedScriptableObjectListAttributeDrawer<TList, T>

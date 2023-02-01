@@ -1,8 +1,8 @@
 ﻿using System;
-using Common.DiContainer.Abstract;
+using Features.Common.DiContainer.Abstract;
 using VContainer;
 
-namespace Common.DiContainer.Runtime
+namespace Features.Common.DiContainer.Runtime
 {
     public class Registration : IRegistration, IRegistrationBuilder
     {

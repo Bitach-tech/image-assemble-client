@@ -1,4 +1,4 @@
-﻿namespace Global.Services.ServiceSDK.Authentications.Runtime
+﻿namespace Features.Global.Services.ServiceSDK.Authentications.Runtime
 {
     public interface IAuthentication
     {

@@ -1,15 +1,15 @@
 ﻿using Cysharp.Threading.Tasks;
-using Global.GameLoops.Runtime;
-using Global.Services.Common.Config.Abstract;
-using Global.Services.Common.Scope;
+using Features.Global.GameLoops.Runtime;
+using Features.Global.Services.Common.Config.Abstract;
+using Features.Global.Services.Common.Scope;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
-using ContainerBuilder = Common.DiContainer.Runtime.ContainerBuilder;
+using ContainerBuilder = Features.Common.DiContainer.Runtime.ContainerBuilder;
 
-namespace Global.Bootstrappers
+namespace Features.Global.Bootstrappers
 {
     [DisallowMultipleComponent]
     public class GameBootstrapper : MonoBehaviour

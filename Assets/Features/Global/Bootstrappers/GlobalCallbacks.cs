@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
-using Global.Services.Common.Abstract;
-using Global.Services.Common.Abstract.Callbacks;
+using Features.Common.DiContainer.Abstract;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.Common.Abstract.Callbacks;
 
-namespace Global.Bootstrappers
+namespace Features.Global.Bootstrappers
 {
     public class GlobalCallbacks : IGlobalCallbacks, ICallbackRegister
     {

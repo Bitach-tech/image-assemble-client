@@ -1,6 +1,6 @@
 ﻿using VContainer;
 
-namespace Common.Local.Services.Abstract
+namespace Features.Common.Local.Services.Abstract
 {
     public interface IDependencyResolver
     {

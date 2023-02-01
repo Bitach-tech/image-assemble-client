@@ -1,8 +1,8 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Features.Common.ReadOnlyDictionaries.Runtime;
 using UnityEngine;
 
-namespace Global.Services.Loggers.Runtime
+namespace Features.Global.Services.Loggers.Runtime
 {
     public abstract class LogSettings<TDictionary, TEnum> : ScriptableObject
         where TDictionary : ReadOnlyDictionary<TEnum, bool>

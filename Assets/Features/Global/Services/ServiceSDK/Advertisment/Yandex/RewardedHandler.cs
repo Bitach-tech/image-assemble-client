@@ -1,9 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
-using Global.Services.ServiceSDK.Advertisment.Abstract;
+using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
 using Plugins.YandexGames.Runtime;
 using UnityEngine;
 
-namespace Global.Services.ServiceSDK.Advertisment.Yandex
+namespace Features.Global.Services.ServiceSDK.Advertisment.Yandex
 {
     public class RewardedHandler
     {

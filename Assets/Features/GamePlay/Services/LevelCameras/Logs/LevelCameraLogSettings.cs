@@ -1,8 +1,8 @@
-﻿using GamePlay.Common.Paths;
-using Global.Services.Loggers.Runtime;
+﻿using Features.GamePlay.Common.Paths;
+using Features.Global.Services.Loggers.Runtime;
 using UnityEngine;
 
-namespace GamePlay.Services.LevelCameras.Logs
+namespace Features.GamePlay.Services.LevelCameras.Logs
 {
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.LogsPrefix + "LevelCamera",
         menuName = GamePlayAssetsPaths.LevelCamera + "Logs")]

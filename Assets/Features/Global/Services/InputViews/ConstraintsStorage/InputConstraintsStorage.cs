@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Global.Services.InputViews.Constraints;
-using Global.Services.InputViews.Logs;
+using Features.Global.Services.InputViews.Constraints;
+using Features.Global.Services.InputViews.Logs;
 
-namespace Global.Services.InputViews.ConstraintsStorage
+namespace Features.Global.Services.InputViews.ConstraintsStorage
 {
     public class InputConstraintsStorage : IInputConstraintsStorage
     {

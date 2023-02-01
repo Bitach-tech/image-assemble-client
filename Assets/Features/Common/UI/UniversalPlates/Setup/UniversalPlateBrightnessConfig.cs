@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Common.UI.UniversalPlates.Setup
+namespace Features.Common.UI.UniversalPlates.Setup
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "UiBrightness_", menuName = "UI/Brightness")]

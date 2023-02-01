@@ -1,4 +1,4 @@
-﻿namespace Global.Services.CameraUtilities.Logs
+﻿namespace Features.Global.Services.CameraUtilities.Logs
 {
     public enum CameraUtilsLogType
     {

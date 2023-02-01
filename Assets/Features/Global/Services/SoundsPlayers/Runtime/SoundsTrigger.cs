@@ -1,10 +1,10 @@
 ﻿using System;
-using Common.UiTools.ButtonEventTriggers;
-using Global.Services.Common.Abstract;
-using Global.Services.MessageBrokers.Runtime;
+using Features.Common.UiTools.ButtonEventTriggers;
+using Features.Global.Services.Common.Abstract;
+using Features.Global.Services.MessageBrokers.Runtime;
 using UnityEngine;
 
-namespace Global.Services.SoundsPlayers.Runtime
+namespace Features.Global.Services.SoundsPlayers.Runtime
 {
     [DisallowMultipleComponent]
     public class SoundsTrigger : MonoBehaviour, IGlobalAwakeListener

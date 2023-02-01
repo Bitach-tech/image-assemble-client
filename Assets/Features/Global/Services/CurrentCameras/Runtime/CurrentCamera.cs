@@ -1,8 +1,8 @@
-﻿using Global.Services.CurrentCameras.Logs;
+﻿using Features.Global.Services.CurrentCameras.Logs;
 using UnityEngine;
 using VContainer;
 
-namespace Global.Services.CurrentCameras.Runtime
+namespace Features.Global.Services.CurrentCameras.Runtime
 {
     public class CurrentCamera : MonoBehaviour, ICurrentCamera
     {

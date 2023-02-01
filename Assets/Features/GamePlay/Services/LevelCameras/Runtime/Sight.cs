@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GamePlay.Services.LevelCameras.Runtime
+namespace Features.GamePlay.Services.LevelCameras.Runtime
 {
     public readonly struct Sight
     {

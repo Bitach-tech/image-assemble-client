@@ -1,15 +1,13 @@
 ﻿using System.Collections.Generic;
-using Common.Local.Services.Abstract.Callbacks;
-using Cysharp.Threading.Tasks;
-using GamePlay.Paint.ImageStorage.Runtime;
-using GamePlay.Services.Background.Runtime;
-using Global.Services.MessageBrokers.Runtime;
-using Global.Services.ServiceSDK.Advertisment.Abstract;
-using Global.Services.UiStateMachines.Runtime;
+using Features.Common.Local.Services.Abstract.Callbacks;
+using Features.GamePlay.Level.ImageStorage.Runtime;
+using Features.GamePlay.Services.Background.Runtime;
+using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
+using Features.Global.Services.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace GamePlay.Menu.Runtime
+namespace Features.GamePlay.Menu.Runtime
 {
     [DisallowMultipleComponent]
     public class MenuUI : MonoBehaviour, IMenuUI, IUiState, ILocalAwakeListener, ILocalSwitchListener
@@ -29,16 +27,16 @@ namespace GamePlay.Menu.Runtime
             _constraints = constraints;
         }
 
-        [SerializeField] private PaintImageSelector _selectorPrefab;
+        [SerializeField] private LevelSelector _selectorPrefab;
         [SerializeField] private GameObject _body;
         [SerializeField] private Transform _selectorsRoot;
         [SerializeField] private int _freeCount = 3;
-        
+
         private UiConstraints _constraints;
         private IUiStateMachine _uiStateMachine;
         private IImageStorage _storage;
 
-        private readonly List<PaintImageSelector> _selectors = new();
+        private readonly List<LevelSelector> _selectors = new();
         private IGameBackground _background;
         private IAds _ads;
 
@@ -58,24 +56,24 @@ namespace GamePlay.Menu.Runtime
                 counter++;
                 var selector = Instantiate(_selectorPrefab, _selectorsRoot);
 
-                if (counter <= _freeCount)
-                    selector.Construct(image, false);
-                else
-                    selector.Construct(image, true);
+                //if (counter <= _freeCount)
+                //    selector.Construct(image, false);
+                //else
+                //    selector.Construct(image, true);
                 _selectors.Add(selector);
             }
         }
 
         public void OnEnabled()
         {
-            foreach (var selector in _selectors)
-                selector.Selected += OnSelected;
+            //foreach (var selector in _selectors)
+            //    selector.Selected += OnSelected;
         }
 
         public void OnDisabled()
         {
-            foreach (var selector in _selectors)
-                selector.Selected -= OnSelected;
+            //foreach (var selector in _selectors)
+            //    selector.Selected -= OnSelected;
         }
 
         public void Open()
@@ -96,18 +94,18 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
         }
 
-        private void OnSelected(PaintImage image, bool isRewardable)
-        {
-            ProcessSelection(image, isRewardable).Forget();
-        }
+        //private void OnSelected(PaintImage image, bool isRewardable)
+        //{
+        //    ProcessSelection(image, isRewardable).Forget();
+        //}
 
-        private async UniTaskVoid ProcessSelection(PaintImage image, bool isRewardable)
-        {
-            if (isRewardable == true)
-                await _ads.ShowRewarded();
-            
-            var clicked = new PlayClickEvent(image);
-            Msg.Publish(clicked);
-        }
+        //private async UniTaskVoid ProcessSelection(PaintImage image, bool isRewardable)
+        //{
+        //    if (isRewardable == true)
+        //        await _ads.ShowRewarded();
+        //    
+        //    var clicked = new PlayClickEvent(image);
+        //    Msg.Publish(clicked);
+        //}
     }
 }

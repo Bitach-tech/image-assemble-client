@@ -1,4 +1,4 @@
-﻿namespace Global.Services.Updaters.Runtime.Abstract
+﻿namespace Features.Global.Services.Updaters.Runtime.Abstract
 {
     public interface IUpdatable
     {

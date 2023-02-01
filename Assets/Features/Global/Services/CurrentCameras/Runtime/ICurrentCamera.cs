@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Global.Services.CurrentCameras.Runtime
+namespace Features.Global.Services.CurrentCameras.Runtime
 {
     public interface ICurrentCamera
     {

@@ -1,7 +1,7 @@
-﻿using GamePlay.Common.Paths;
+﻿using Features.GamePlay.Common.Paths;
 using UnityEngine;
 
-namespace GamePlay.Services.LevelCameras.Runtime
+namespace Features.GamePlay.Services.LevelCameras.Runtime
 {
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "LevelCamera",
         menuName = GamePlayAssetsPaths.LevelCamera + "Config")]
