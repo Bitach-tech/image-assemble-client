@@ -1,13 +1,14 @@
 ﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+using Global.System.Loggers.Runtime;
+using Global.System.MessageBrokers.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.MessageBrokers.Logs
+namespace Global.System.MessageBrokers.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "MessageBrokerLog",
-        menuName = GlobalAssetsPaths.MessageBroker + "Logs")]
+    [CreateAssetMenu(fileName = MessageBrokerRouter.LogsName,
+        menuName = MessageBrokerRouter.LogsPath)]
     public class MessageBrokerLogSettings : LogSettings<MessageBrokerLogs, MessageBrokerLogType>
     {
         [SerializeField] [Indent] private LogParameters _logParameters;

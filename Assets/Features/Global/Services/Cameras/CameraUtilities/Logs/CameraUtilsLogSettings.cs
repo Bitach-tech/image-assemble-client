@@ -1,13 +1,13 @@
-﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+﻿using Global.Cameras.CameraUtilities.Common;
+using Global.System.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Cameras.CameraUtilities.Logs
+namespace Global.Cameras.CameraUtilities.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "CurrentCameraUtils",
-        menuName = GlobalAssetsPaths.CameraUtils + "Logs")]
+    [CreateAssetMenu(fileName = CameraUtilsRoutes.LogsName,
+        menuName = CameraUtilsRoutes.LogsPath)]
     public class CameraUtilsLogSettings : LogSettings<CameraUtilsLogs, CameraUtilsLogType>
     {
         [SerializeField] [Indent] private LogParameters _logParameters;

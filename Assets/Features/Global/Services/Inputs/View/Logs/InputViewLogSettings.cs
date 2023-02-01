@@ -1,11 +1,12 @@
 ﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+using Global.Inputs.Common;
+using Global.System.Loggers.Runtime;
 using UnityEngine;
 
-namespace Global.Services.Inputs.View.Logs
+namespace Global.Inputs.View.Logs
 {
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "InputView",
-        menuName = GlobalAssetsPaths.InputView + "InputView", order = 1)]
+    [CreateAssetMenu(fileName = InputRouter.LogsName,
+        menuName = InputRouter.LogsPath)]
     public class InputViewLogSettings : LogSettings<InputViewLogs, InputViewLogType>
     {
         [SerializeField] private LogParameters _parameters;

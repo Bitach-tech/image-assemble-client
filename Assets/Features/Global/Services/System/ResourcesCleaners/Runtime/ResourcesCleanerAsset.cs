@@ -1,17 +1,18 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
-using Global.Services.System.ResourcesCleaners.Logs;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
+using Global.System.ResourcesCleaners.Common;
+using Global.System.ResourcesCleaners.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.ResourcesCleaners.Runtime
+namespace Global.System.ResourcesCleaners.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "ResourcesCleaner",
-        menuName = GlobalAssetsPaths.ResourceCleaner + "Service")]
+    [CreateAssetMenu(fileName = ResourcesCleanerRouter.ServiceName,
+        menuName = ResourcesCleanerRouter.ServicePath)]
     public class ResourcesCleanerAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private ResourcesCleanerLogSettings _logSettings;

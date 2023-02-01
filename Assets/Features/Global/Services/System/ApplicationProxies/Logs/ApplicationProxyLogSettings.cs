@@ -1,13 +1,13 @@
-﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+﻿using Global.System.ApplicationProxies.Common;
+using Global.System.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.ApplicationProxies.Logs
+namespace Global.System.ApplicationProxies.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "ApplicationProxy",
-        menuName = GlobalAssetsPaths.ApplicationProxy + "Logs")]
+    [CreateAssetMenu(fileName = ApplicationProxyRoutes.LogsName,
+        menuName = ApplicationProxyRoutes.LogsPath)]
     public class ApplicationProxyLogSettings : LogSettings<ApplicationProxyLogs, ApplicationProxyLogType>
     {
         [SerializeField] [Indent] private LogParameters _logParameters;

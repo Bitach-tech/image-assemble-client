@@ -1,11 +1,13 @@
 ﻿using Global.Common;
+using Global.System.Loggers.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.Loggers.Runtime.Headers
+namespace Global.System.Loggers.Runtime.Headers
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = "LoggerHeader", menuName = GlobalAssetsPaths.Logger + "Header")]
+    [CreateAssetMenu(fileName = LoggerRoutes.HeaderName,
+        menuName = LoggerRoutes.HeaderPath)]
     public class LoggerHeader : ScriptableObject
     {
         [SerializeField] [HideLabel] private string _name;

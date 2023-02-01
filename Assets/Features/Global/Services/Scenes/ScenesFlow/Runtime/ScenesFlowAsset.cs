@@ -1,18 +1,19 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Scenes.ScenesFlow.Logs;
-using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
+using Global.Scenes.ScenesFlow.Common;
+using Global.Scenes.ScenesFlow.Logs;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Scenes.ScenesFlow.Runtime
+namespace Global.Scenes.ScenesFlow.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "ScenesFlow",
-        menuName = GlobalAssetsPaths.ScenesFlow + "Service")]
+    [CreateAssetMenu(fileName = ScenesFlowRoutes.ServiceName,
+        menuName = ScenesFlowRoutes.ServicePath)]
     public class ScenesFlowAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private ScenesFlowLogSettings _logSettings;

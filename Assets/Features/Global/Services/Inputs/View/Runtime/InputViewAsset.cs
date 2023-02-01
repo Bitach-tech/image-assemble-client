@@ -1,18 +1,19 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Inputs.Constranits.Storage;
-using Global.Services.Inputs.View.Logs;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
+using Global.Inputs.Common;
+using Global.Inputs.Constranits.Storage;
+using Global.Inputs.View.Logs;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Inputs.View.Runtime
+namespace Global.Inputs.View.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "InputView",
-        menuName = GlobalAssetsPaths.InputView + "Service")]
+    [CreateAssetMenu(fileName = InputRouter.ServiceName,
+        menuName = InputRouter.ServicePath)]
     public class InputViewAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private InputViewLogSettings _logSettings;

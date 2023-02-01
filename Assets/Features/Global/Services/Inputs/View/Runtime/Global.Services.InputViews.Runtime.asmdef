@@ -1,5 +1,5 @@
 {
-  "name": "Global.Services.InputViews.Runtime",
+  "name": "Global.Input.View.Runtime",
   "rootNamespace": "",
   "references": [
     "GUID:401398c75a71e5444a495125c9dd1a21",
@@ -14,7 +14,8 @@
     "GUID:b03721a1eeb8491da187242f7870dca2",
     "GUID:9dbe345fbe8e47cb8a0d24c890f0feff",
     "GUID:f51ebe6a0ceec4240a699833d6309b23",
-    "GUID:e07e6ccd9241474dbca4e70862df2bc2"
+    "GUID:e07e6ccd9241474dbca4e70862df2bc2",
+    "GUID:9a30e5b105be423994f0ee27d935f22f"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

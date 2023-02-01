@@ -1,17 +1,18 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
-using Global.Services.UI.UiStateMachines.Logs;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
+using Global.UI.UiStateMachines.Common;
+using Global.UI.UiStateMachines.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.UI.UiStateMachines.Runtime
+namespace Global.UI.UiStateMachines.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "UiStateMachine",
-        menuName = GlobalAssetsPaths.UiStateMachine + "Service")]
+    [CreateAssetMenu(fileName = UiStateMachineRouter.ServiceName,
+        menuName = UiStateMachineRouter.ServicePath)]
     public class UiStateMachineAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private UiStateMachineLogSettings _logSettings;

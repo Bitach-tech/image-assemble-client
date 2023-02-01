@@ -1,13 +1,14 @@
 ﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+using Global.GameLoops.Common;
+using Global.System.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Global.GameLoops.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "GameLoop",
-        menuName = GlobalAssetsPaths.GameLoop + "Logs")]
+    [CreateAssetMenu(fileName = GameLoopRouter.LogsName,
+        menuName = GameLoopRouter.LogsPath)]
     public class GameLoopLogSettings : LogSettings<GameLoopLogs, GameLoopLogType>
     {
         [SerializeField] [Indent] private LogParameters _logParameters;

@@ -1,13 +1,14 @@
 ﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+using Global.System.Loggers.Runtime;
+using Global.UI.UiStateMachines.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.UI.UiStateMachines.Logs
+namespace Global.UI.UiStateMachines.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "UiStateMachine",
-        menuName = GlobalAssetsPaths.UiStateMachine + "Logs")]
+    [CreateAssetMenu(fileName = UiStateMachineRouter.LogsName,
+        menuName = UiStateMachineRouter.LogsPath)]
     public class UiStateMachineLogSettings : LogSettings<UiStateMachineLogs, UiStateMachineLogType>
     {
         [SerializeField] [Indent] private LogParameters _logParameters;

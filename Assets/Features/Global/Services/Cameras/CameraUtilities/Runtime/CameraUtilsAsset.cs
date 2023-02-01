@@ -1,17 +1,17 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
-using Global.Common;
-using Global.Services.Cameras.CameraUtilities.Logs;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
+using Global.Cameras.CameraUtilities.Common;
+using Global.Cameras.CameraUtilities.Logs;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Cameras.CameraUtilities.Runtime
+namespace Global.Cameras.CameraUtilities.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "CameraUtils",
-        menuName = GlobalAssetsPaths.CameraUtils + "Service", order = 1)]
+    [CreateAssetMenu(fileName = CameraUtilsRoutes.ServiceName,
+        menuName = CameraUtilsRoutes.ServicePath)]
     public class CameraUtilsAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private CameraUtilsLogSettings _logSettings;

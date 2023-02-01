@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using Global.GameLoops.Runtime;
-using Global.Services.Setup.Config.Abstract;
-using Global.Services.Setup.Scope;
+using Global.Setup.Abstract;
+using Global.Setup.Scope;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;

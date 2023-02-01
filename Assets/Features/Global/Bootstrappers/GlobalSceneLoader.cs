@@ -1,5 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using Global.Services.Setup.Abstract.Scenes;
+using Global.Setup.Service.Scenes;
 using UnityEngine.SceneManagement;
 
 namespace Global.Bootstrappers

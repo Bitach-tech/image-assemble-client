@@ -1,8 +1,8 @@
 ﻿using Common.ReadOnlyDictionaries.Editor;
-using Global.Services.Inputs.View.Logs;
+using Global.Inputs.View.Logs;
 using UnityEditor;
 
-namespace Global.Services.Inputs.View.Editor
+namespace Global.Inputs.View.Editor
 {
     [ReadOnlyDictionaryPriority]
     [CustomPropertyDrawer(typeof(InputViewLogs))]

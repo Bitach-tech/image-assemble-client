@@ -1,17 +1,18 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
-using Global.Services.System.ApplicationProxies.Logs;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
+using Global.System.ApplicationProxies.Common;
+using Global.System.ApplicationProxies.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.ApplicationProxies.Runtime
+namespace Global.System.ApplicationProxies.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "ApplicationProxy",
-        menuName = GlobalAssetsPaths.ApplicationProxy + "Service")]
+    [CreateAssetMenu(fileName = ApplicationProxyRoutes.ServiceName,
+        menuName = ApplicationProxyRoutes.ServicePath)]
     public class ApplicationProxyAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private ApplicationProxyLogSettings _logSettings;

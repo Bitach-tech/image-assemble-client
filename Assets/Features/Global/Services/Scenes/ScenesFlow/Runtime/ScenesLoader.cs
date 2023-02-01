@@ -1,13 +1,13 @@
 ﻿using Cysharp.Threading.Tasks;
-using Global.Services.Scenes.ScenesFlow.Handling.Data;
-using Global.Services.Scenes.ScenesFlow.Handling.Result;
-using Global.Services.Scenes.ScenesFlow.Logs;
-using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
+using Global.Scenes.ScenesFlow.Handling.Data;
+using Global.Scenes.ScenesFlow.Handling.Result;
+using Global.Scenes.ScenesFlow.Logs;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
 
-namespace Global.Services.Scenes.ScenesFlow.Runtime
+namespace Global.Scenes.ScenesFlow.Runtime
 {
     public class ScenesLoader : MonoBehaviour, ISceneLoader
     {

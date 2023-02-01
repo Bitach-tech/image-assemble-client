@@ -1,15 +1,15 @@
 ﻿using System;
-using Global.Services.Cameras.CameraUtilities.Runtime;
-using Global.Services.Inputs.Constranits.Definition;
-using Global.Services.Inputs.Constranits.Storage;
-using Global.Services.Inputs.View.Logs;
-using Global.Services.Setup.Abstract;
+using Global.Cameras.CameraUtilities.Runtime;
+using Global.Inputs.Constranits.Definition;
+using Global.Inputs.Constranits.Storage;
+using Global.Inputs.View.Logs;
+using Global.Setup.Service;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using VContainer;
 
-namespace Global.Services.Inputs.View.Runtime
+namespace Global.Inputs.View.Runtime
 {
     public class InputView : MonoBehaviour, IInputView, IInputViewRebindCallbacks, IGlobalAwakeListener
     {

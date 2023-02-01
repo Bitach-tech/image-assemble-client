@@ -1,18 +1,19 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
-using Global.Services.UI.LoadingScreens.Logs;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
+using Global.UI.LoadingScreens.Common;
+using Global.UI.LoadingScreens.Logs;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.UI.LoadingScreens.Runtime
+namespace Global.UI.LoadingScreens.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "LoadingScreen",
-        menuName = GlobalAssetsPaths.LoadingScreen + "Service")]
+    [CreateAssetMenu(fileName = LoadingScreenRouter.ServiceName,
+        menuName = LoadingScreenRouter.ServicePath)]
     public class LoadingScreenAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private LoadingScreenLogSettings _logSettings;

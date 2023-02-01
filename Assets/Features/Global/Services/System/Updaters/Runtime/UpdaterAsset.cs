@@ -1,18 +1,19 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
-using Global.Services.System.Updaters.Logs;
-using Global.Services.System.Updaters.Runtime.Abstract;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
+using Global.System.Updaters.Common;
+using Global.System.Updaters.Logs;
+using Global.System.Updaters.Runtime.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.Updaters.Runtime
+namespace Global.System.Updaters.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "Updater",
-        menuName = GlobalAssetsPaths.Updater + "Service")]
+    [CreateAssetMenu(fileName = UpdaterRouter.ServiceName,
+        menuName = UpdaterRouter.ServicePath)]
     public class UpdaterAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private UpdaterLogSettings _logSettings;

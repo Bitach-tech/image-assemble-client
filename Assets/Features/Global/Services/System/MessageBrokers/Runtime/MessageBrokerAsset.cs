@@ -1,17 +1,18 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
-using Global.Services.System.MessageBrokers.Logs;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
+using Global.System.MessageBrokers.Common;
+using Global.System.MessageBrokers.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.MessageBrokers.Runtime
+namespace Global.System.MessageBrokers.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "MessageBroker",
-        menuName = GlobalAssetsPaths.MessageBroker + "Service")]
+    [CreateAssetMenu(fileName = MessageBrokerRouter.ServiceName,
+        menuName = MessageBrokerRouter.ServicePath)]
     public class MessageBrokerAsset : GlobalServiceAsset
     {
         [SerializeField] [Indent] private MessageBrokerLogSettings _logSettings;

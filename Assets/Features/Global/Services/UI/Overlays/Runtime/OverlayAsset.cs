@@ -1,17 +1,18 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Common;
-using Global.Services.Setup.Abstract;
-using Global.Services.Setup.Abstract.Scenes;
+using Global.Setup.Service;
+using Global.Setup.Service.Scenes;
+using Global.UI.Overlays.Common;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.UI.Overlays.Runtime
+namespace Global.UI.Overlays.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.ServicePrefix + "Overlay",
-        menuName = GlobalAssetsPaths.Overlay + "Service")]
+    [CreateAssetMenu(fileName = OverlayRouter.ServiceName,
+        menuName = OverlayRouter.ServicePath)]
     public class OverlayAsset : GlobalServiceAsset
     {
         [SerializeField] [Scene] private string _scene;

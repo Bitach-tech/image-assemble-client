@@ -1,6 +1,6 @@
 ﻿using GamePlay.Level.UI.Overlay.Runtime;
-using Global.Services.External.ServiceSDK.Advertisment.Abstract;
-using Global.Services.UI.UiStateMachines.Runtime;
+using Global.Publisher.Advertisement.Abstract;
+using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
 

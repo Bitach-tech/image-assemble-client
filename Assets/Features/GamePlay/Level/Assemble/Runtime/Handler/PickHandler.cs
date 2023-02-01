@@ -2,8 +2,8 @@
 using Cysharp.Threading.Tasks;
 using GamePlay.Level.Assemble.Runtime.Parts;
 using GamePlay.Level.Assemble.Runtime.Targets;
-using Global.Services.Inputs.View.Runtime;
-using Global.Services.System.Updaters.Runtime.Abstract;
+using Global.Inputs.View.Runtime;
+using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Level.Assemble.Runtime.Handler

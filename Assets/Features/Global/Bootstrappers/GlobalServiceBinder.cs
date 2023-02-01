@@ -1,4 +1,4 @@
-﻿using Global.Services.Setup.Abstract;
+﻿using Global.Setup.Service;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -2,9 +2,9 @@
 using GamePlay.Config.Services.Runtime;
 using Global.Bootstrappers;
 using Global.GameLoops.Abstract;
-using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
-using Global.Services.Setup.Config.Abstract;
-using Global.Services.Setup.Scope;
+using Global.Scenes.ScenesFlow.Runtime.Abstract;
+using Global.Setup.Abstract;
+using Global.Setup.Scope;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;

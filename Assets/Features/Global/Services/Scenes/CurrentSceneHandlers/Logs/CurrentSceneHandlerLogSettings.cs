@@ -1,13 +1,14 @@
 ﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+using Global.Scenes.CurrentSceneHandlers.Common;
+using Global.System.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.Scenes.CurrentSceneHandlers.Logs
+namespace Global.Scenes.CurrentSceneHandlers.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "CurrentSceneHandler",
-        menuName = GlobalAssetsPaths.CurrentSceneHandler + "Logs")]
+    [CreateAssetMenu(fileName = CurrentSceneHandlerRoutes.LogsName,
+        menuName = CurrentSceneHandlerRoutes.LogsPath)]
     public class CurrentSceneHandlerLogSettings : LogSettings<CurrentSceneHandlerLogs, CurrentSceneHandlerLogType>
     {
         [SerializeField] [Indent] private LogParameters _logParameters;

@@ -4,9 +4,9 @@ using GamePlay.Loop.Events;
 using GamePlay.Loop.Logs;
 using GamePlay.Menu.Runtime;
 using GamePlay.Services.LevelCameras.Runtime;
-using Global.Services.Cameras.CurrentCameras.Runtime;
-using Global.Services.External.ServiceSDK.Advertisment.Abstract;
-using Global.Services.System.MessageBrokers.Runtime;
+using Global.Cameras.CurrentCameras.Runtime;
+using Global.Publisher.Advertisement.Abstract;
+using Global.System.MessageBrokers.Runtime;
 using UnityEngine;
 using VContainer;
 

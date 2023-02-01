@@ -1,13 +1,14 @@
 ﻿using Global.Common;
-using Global.Services.System.Loggers.Runtime;
+using Global.System.Loggers.Runtime;
+using Global.System.Updaters.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Services.System.Updaters.Logs
+namespace Global.System.Updaters.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
-    [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "Updater",
-        menuName = GlobalAssetsPaths.Updater + "Logs")]
+    [CreateAssetMenu(fileName = UpdaterRouter.LogsName,
+        menuName = UpdaterRouter.LogsPath)]
     public class UpdaterLogSettings : LogSettings<UpdaterLogs, UpdaterLogType>
     {
         [SerializeField] [Indent] private LogParameters _logParameters;
