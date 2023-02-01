@@ -1,15 +1,12 @@
 ﻿using System.Collections.Generic;
 using Global.Inputs.Constranits.Storage;
 using Global.UI.UiStateMachines.Logs;
-using UnityEngine;
-using VContainer;
 
 namespace Global.UI.UiStateMachines.Runtime
 {
-    public class UiStateMachine : MonoBehaviour, IUiStateMachine
+    public class UiStateMachine : IUiStateMachine
     {
-        [Inject]
-        private void Construct(
+        public UiStateMachine(
             IInputConstraintsStorage constraintsStorage,
             UiStateMachineLogger logger)
         {
@@ -17,13 +14,13 @@ namespace Global.UI.UiStateMachines.Runtime
             _constraintsStorage = constraintsStorage;
         }
 
-        private readonly Dictionary<IUiState, StateHandle> _handles = new();
+        private readonly IInputConstraintsStorage _constraintsStorage;
+        private readonly UiStateMachineLogger _logger;
 
+        private readonly Dictionary<IUiState, StateHandle> _handles = new();
         private readonly Stack<StateHandle> _stack = new();
-        private IInputConstraintsStorage _constraintsStorage;
 
         private IUiState _head;
-        private UiStateMachineLogger _logger;
 
         public void EnterAsSingle(IUiState state)
         {

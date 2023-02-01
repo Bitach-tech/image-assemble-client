@@ -1,5 +1,4 @@
-﻿using Global.Common;
-using Global.System.Loggers.Common;
+﻿using Global.System.Loggers.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

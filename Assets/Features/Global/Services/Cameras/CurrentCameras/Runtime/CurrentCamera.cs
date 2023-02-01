@@ -1,20 +1,18 @@
 ﻿using Global.Cameras.CurrentCameras.Logs;
 using UnityEngine;
-using VContainer;
 
 namespace Global.Cameras.CurrentCameras.Runtime
 {
-    public class CurrentCamera : MonoBehaviour, ICurrentCamera
+    public class CurrentCamera : ICurrentCamera
     {
-        [Inject]
-        private void Construct(CurrentCameraLogger logger)
+        public CurrentCamera(CurrentCameraLogger logger)
         {
             _logger = logger;
         }
 
-        private Camera _current;
+        private readonly CurrentCameraLogger _logger;
 
-        private CurrentCameraLogger _logger;
+        private Camera _current;
 
         public Camera Current
         {

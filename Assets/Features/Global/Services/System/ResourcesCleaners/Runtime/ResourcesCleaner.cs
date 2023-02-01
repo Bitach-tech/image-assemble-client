@@ -1,20 +1,17 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using Global.System.ResourcesCleaners.Logs;
-using UnityEngine;
-using VContainer;
 
 namespace Global.System.ResourcesCleaners.Runtime
 {
-    public class ResourcesCleaner : MonoBehaviour, IResourcesCleaner
+    public class ResourcesCleaner : IResourcesCleaner
     {
-        [Inject]
-        private void Construct(ResourcesCleanerLogger logger)
+        public ResourcesCleaner(ResourcesCleanerLogger logger)
         {
             _logger = logger;
         }
 
-        private ResourcesCleanerLogger _logger;
+        private readonly ResourcesCleanerLogger _logger;
 
         public async UniTask CleanUp()
         {

@@ -2,7 +2,7 @@
 
 namespace Global.System.Loggers.Runtime
 {
-    public class Logger : MonoBehaviour, ILogger
+    public class Logger : ILogger
     {
         private readonly MessageBuilder _messageBuilder = new();
 

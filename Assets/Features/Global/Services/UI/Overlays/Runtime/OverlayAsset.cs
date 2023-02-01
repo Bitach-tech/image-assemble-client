@@ -1,6 +1,5 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
-using Global.Common;
 using Global.Setup.Service;
 using Global.Setup.Service.Scenes;
 using Global.UI.Overlays.Common;
@@ -13,11 +12,11 @@ namespace Global.UI.Overlays.Runtime
     [InlineEditor]
     [CreateAssetMenu(fileName = OverlayRouter.ServiceName,
         menuName = OverlayRouter.ServicePath)]
-    public class OverlayAsset : GlobalServiceAsset
+    public class OverlayAsset : ScriptableObject, IGlobalServiceAsyncFactory
     {
         [SerializeField] [Scene] private string _scene;
 
-        public override async UniTask Create(
+        public async UniTask Create(
             IDependencyRegister builder,
             IGlobalServiceBinder serviceBinder,
             IGlobalSceneLoader sceneLoader,

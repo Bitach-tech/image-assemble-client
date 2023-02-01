@@ -1,5 +1,4 @@
 ﻿using Common.DiContainer.Abstract;
-using Global.Common;
 using Global.GameLoops.Abstract;
 using Global.GameLoops.Common;
 using Global.GameLoops.Logs;

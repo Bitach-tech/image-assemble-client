@@ -1,22 +1,23 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using Common.Local.Services.Abstract.Callbacks;
+using Cysharp.Threading.Tasks;
 using Plugins.YandexGames.Runtime;
 using UnityEngine;
 
 namespace Global.Publisher.Advertisement.Abstract
 {
     [DisallowMultipleComponent]
-    public class Ads : MonoBehaviour, IAds
+    public class Ads : IAds, ILocalSwitchListener
     {
         private UniTaskCompletionSource<RewardAdResult> _rewardedCompletion;
 
-        private void OnEnable()
+        public void OnEnabled()
         {
             YandexSDK.instance.onRewardedAdReward += OnRewardShowed;
             YandexSDK.instance.onRewardedAdClosed += OnRewardClosed;
             YandexSDK.instance.onRewardedAdError += OnRewardError;
         }
 
-        private void OnDisable()
+        public void OnDisabled()
         {
             YandexSDK.instance.onRewardedAdReward -= OnRewardShowed;
             YandexSDK.instance.onRewardedAdClosed -= OnRewardClosed;

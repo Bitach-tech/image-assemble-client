@@ -3,21 +3,18 @@ using Global.Scenes.ScenesFlow.Handling.Data;
 using Global.Scenes.ScenesFlow.Handling.Result;
 using Global.Scenes.ScenesFlow.Logs;
 using Global.Scenes.ScenesFlow.Runtime.Abstract;
-using UnityEngine;
 using UnityEngine.SceneManagement;
-using VContainer;
 
 namespace Global.Scenes.ScenesFlow.Runtime
 {
-    public class ScenesLoader : MonoBehaviour, ISceneLoader
+    public class ScenesLoader : ISceneLoader
     {
-        [Inject]
-        private void Construct(ScenesFlowLogger logger)
+        public ScenesLoader(ScenesFlowLogger logger)
         {
             _logger = logger;
         }
 
-        private ScenesFlowLogger _logger;
+        private readonly ScenesFlowLogger _logger;
 
         public async UniTask<T> Load<T>(SceneLoadData<T> scene) where T : SceneLoadResult
         {

@@ -6,7 +6,7 @@ namespace Global.Publisher.Common
     {
         private const string _paths = GlobalAssetsPaths.Root + "Publisher/";
         private const string _servicePrefix = GlobalAssetsPrefixes.Service + "Audio/";
-        
+
         public const string ServiceName = _servicePrefix + "Publisher";
         public const string ServicePath = _paths + "Service";
     }

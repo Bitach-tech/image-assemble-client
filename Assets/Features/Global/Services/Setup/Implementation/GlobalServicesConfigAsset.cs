@@ -2,7 +2,7 @@
 using Global.Cameras.CameraUtilities.Runtime;
 using Global.Cameras.CurrentCameras.Runtime;
 using Global.Cameras.GlobalCameras.Runtime;
-using Global.Debug.Console.Runtime;
+using Global.Debugs.Console.Runtime;
 using Global.Inputs.View.Runtime;
 using Global.Publisher.Bootstrap;
 using Global.Scenes.CurrentSceneHandlers.Runtime;
@@ -45,9 +45,9 @@ namespace Global.Setup.Implementation
         [SerializeField] private OverlayAsset _overlay;
         [SerializeField] private PublisherSdkAsset _publisherSdk;
 
-        public override GlobalServiceAsset[] GetAssets()
+        public override IGlobalServiceFactory[] GetFactories()
         {
-            return new GlobalServiceAsset[]
+            return new IGlobalServiceFactory[]
             {
                 _applicationProxy,
                 _cameraUtils,
@@ -55,7 +55,6 @@ namespace Global.Setup.Implementation
                 _currentSceneHandler,
                 _globalCamera,
                 _inputView,
-                _loadingScreen,
                 _logger,
                 _resourcesCleaner,
                 _scenesFlow,
@@ -64,8 +63,16 @@ namespace Global.Setup.Implementation
                 _messageBroker,
                 _uiStateMachine,
                 _soundsPlayer,
-                _overlay,
                 _publisherSdk
+            };
+        }
+
+        public override IGlobalServiceAsyncFactory[] GetAsyncFactories()
+        {
+            return new IGlobalServiceAsyncFactory[]
+            {
+                _loadingScreen,
+                _overlay
             };
         }
     }

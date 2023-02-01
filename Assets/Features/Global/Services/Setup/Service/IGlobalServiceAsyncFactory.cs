@@ -6,7 +6,7 @@ namespace Global.Setup.Service
 {
     public interface IGlobalServiceAsyncFactory
     {
-        public abstract UniTask Create(
+        public UniTask Create(
             IDependencyRegister builder,
             IGlobalServiceBinder serviceBinder,
             IGlobalSceneLoader sceneLoader,

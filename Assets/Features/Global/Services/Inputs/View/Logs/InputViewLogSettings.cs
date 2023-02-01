@@ -1,5 +1,4 @@
-﻿using Global.Common;
-using Global.Inputs.Common;
+﻿using Global.Inputs.Common;
 using Global.System.Loggers.Runtime;
 using UnityEngine;
 

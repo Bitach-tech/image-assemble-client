@@ -1,8 +1,5 @@
 ﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
-using Global.Common;
 using Global.Setup.Service;
-using Global.Setup.Service.Scenes;
 using Global.System.Updaters.Common;
 using Global.System.Updaters.Logs;
 using Global.System.Updaters.Runtime.Abstract;
@@ -14,16 +11,12 @@ namespace Global.System.Updaters.Runtime
     [InlineEditor]
     [CreateAssetMenu(fileName = UpdaterRouter.ServiceName,
         menuName = UpdaterRouter.ServicePath)]
-    public class UpdaterAsset : GlobalServiceAsset
+    public class UpdaterAsset : ScriptableObject, IGlobalServiceFactory
     {
         [SerializeField] [Indent] private UpdaterLogSettings _logSettings;
         [SerializeField] [Indent] private Updater _prefab;
 
-        public override async UniTask Create(
-            IDependencyRegister builder,
-            IGlobalServiceBinder serviceBinder,
-            IGlobalSceneLoader sceneLoader,
-            IGlobalCallbacks callbacks)
+        public void Create(IDependencyRegister builder, IGlobalServiceBinder serviceBinder, IGlobalCallbacks callbacks)
         {
             var updater = Instantiate(_prefab);
             updater.name = "Updater";

@@ -7,14 +7,12 @@ using Global.Setup.Service;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using VContainer;
 
 namespace Global.Inputs.View.Runtime
 {
-    public class InputView : MonoBehaviour, IInputView, IInputViewRebindCallbacks, IGlobalAwakeListener
+    public class InputView : IInputView, IInputViewRebindCallbacks, IGlobalAwakeListener
     {
-        [Inject]
-        private void Construct(
+        public InputView(
             InputViewLogger logger,
             ICameraUtils cameraUtils,
             IInputConstraintsStorage constraintsStorage)
@@ -22,16 +20,20 @@ namespace Global.Inputs.View.Runtime
             _constraintsStorage = constraintsStorage;
             _logger = logger;
             _cameraUtils = cameraUtils;
+
+            _controls = new Controls();
+            _gamePlay = _controls.GamePlay;
+            _debug = _controls.Debug;
         }
 
-        private ICameraUtils _cameraUtils;
-        private IInputConstraintsStorage _constraintsStorage;
+        private readonly ICameraUtils _cameraUtils;
+        private readonly IInputConstraintsStorage _constraintsStorage;
 
-        private Controls _controls;
-        private Controls.DebugActions _debug;
-        private Controls.GamePlayActions _gamePlay;
+        private readonly InputViewLogger _logger;
 
-        private InputViewLogger _logger;
+        private readonly Controls _controls;
+        private readonly Controls.DebugActions _debug;
+        private readonly Controls.GamePlayActions _gamePlay;
 
         private bool _isLeftMouseButtonPressed;
         private Vector2 _position;
@@ -50,11 +52,7 @@ namespace Global.Inputs.View.Runtime
 
         public void OnAwake()
         {
-            _controls = new Controls();
             _controls.Enable();
-
-            _gamePlay = _controls.GamePlay;
-            _debug = _controls.Debug;
 
             Listen();
         }

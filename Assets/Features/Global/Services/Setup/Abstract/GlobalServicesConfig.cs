@@ -5,6 +5,7 @@ namespace Global.Setup.Abstract
 {
     public abstract class GlobalServicesConfig : ScriptableObject
     {
-        public abstract GlobalServiceAsset[] GetAssets();
+        public abstract IGlobalServiceFactory[] GetFactories();
+        public abstract IGlobalServiceAsyncFactory[] GetAsyncFactories();
     }
 }

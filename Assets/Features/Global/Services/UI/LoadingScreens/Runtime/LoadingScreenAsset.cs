@@ -1,6 +1,5 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
-using Global.Common;
 using Global.Setup.Service;
 using Global.Setup.Service.Scenes;
 using Global.UI.LoadingScreens.Common;
@@ -14,12 +13,12 @@ namespace Global.UI.LoadingScreens.Runtime
     [InlineEditor]
     [CreateAssetMenu(fileName = LoadingScreenRouter.ServiceName,
         menuName = LoadingScreenRouter.ServicePath)]
-    public class LoadingScreenAsset : GlobalServiceAsset
+    public class LoadingScreenAsset : ScriptableObject, IGlobalServiceAsyncFactory
     {
         [SerializeField] [Indent] private LoadingScreenLogSettings _logSettings;
         [SerializeField] [Indent] [Scene] private string _scene;
 
-        public override async UniTask Create(
+        public async UniTask Create(
             IDependencyRegister builder,
             IGlobalServiceBinder serviceBinder,
             IGlobalSceneLoader sceneLoader,

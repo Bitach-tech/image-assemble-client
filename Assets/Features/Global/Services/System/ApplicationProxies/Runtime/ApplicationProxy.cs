@@ -3,7 +3,7 @@
 namespace Global.System.ApplicationProxies.Runtime
 {
     [DisallowMultipleComponent]
-    public class ApplicationProxy : MonoBehaviour, IApplicationFlow
+    public class ApplicationProxy : IApplicationFlow
     {
         public void Quit()
         {

@@ -1,5 +1,4 @@
-﻿using Global.Common;
-using NaughtyAttributes;
+﻿using NaughtyAttributes;
 using UnityEngine;
 
 namespace Common.Local.ComposedSceneConfig

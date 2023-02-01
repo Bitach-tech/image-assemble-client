@@ -3,21 +3,18 @@ using Cysharp.Threading.Tasks;
 using Global.Scenes.ScenesFlow.Handling.Result;
 using Global.Scenes.ScenesFlow.Logs;
 using Global.Scenes.ScenesFlow.Runtime.Abstract;
-using UnityEngine;
 using UnityEngine.SceneManagement;
-using VContainer;
 
 namespace Global.Scenes.ScenesFlow.Runtime
 {
-    public class ScenesUnloader : MonoBehaviour, ISceneUnloader
+    public class ScenesUnloader : ISceneUnloader
     {
-        [Inject]
-        private void Construct(ScenesFlowLogger logger)
+        public ScenesUnloader(ScenesFlowLogger logger)
         {
             _logger = logger;
         }
 
-        private ScenesFlowLogger _logger;
+        private readonly ScenesFlowLogger _logger;
 
         public async UniTask Unload(SceneLoadResult result)
         {

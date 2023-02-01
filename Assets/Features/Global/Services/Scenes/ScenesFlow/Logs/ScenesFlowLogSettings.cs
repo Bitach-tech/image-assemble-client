@@ -1,5 +1,4 @@
-﻿using Global.Common;
-using Global.Scenes.ScenesFlow.Common;
+﻿using Global.Scenes.ScenesFlow.Common;
 using Global.System.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;

@@ -3,15 +3,12 @@ using Cysharp.Threading.Tasks;
 using Global.Scenes.CurrentSceneHandlers.Logs;
 using Global.Scenes.ScenesFlow.Runtime.Abstract;
 using Global.System.ResourcesCleaners.Runtime;
-using UnityEngine;
-using VContainer;
 
 namespace Global.Scenes.CurrentSceneHandlers.Runtime
 {
-    public class CurrentSceneHandler : MonoBehaviour, ICurrentSceneHandler
+    public class CurrentSceneHandler : ICurrentSceneHandler
     {
-        [Inject]
-        private void Construct(
+        public CurrentSceneHandler(
             ISceneUnloader unloader,
             IResourcesCleaner resourcesCleaner,
             CurrentSceneHandlerLogger logger)
@@ -21,11 +18,12 @@ namespace Global.Scenes.CurrentSceneHandlers.Runtime
             _resourcesCleaner = resourcesCleaner;
         }
 
-        private ComposedSceneLoadResult _current;
-        private CurrentSceneHandlerLogger _logger;
+        private readonly CurrentSceneHandlerLogger _logger;
 
-        private IResourcesCleaner _resourcesCleaner;
-        private ISceneUnloader _unloader;
+        private readonly IResourcesCleaner _resourcesCleaner;
+        private readonly ISceneUnloader _unloader;
+
+        private ComposedSceneLoadResult _current;
 
         public void OnLoaded(ComposedSceneLoadResult loaded)
         {

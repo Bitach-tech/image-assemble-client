@@ -1,21 +1,19 @@
 ﻿using Global.Cameras.CameraUtilities.Logs;
 using Global.Cameras.CurrentCameras.Runtime;
 using UnityEngine;
-using VContainer;
 
 namespace Global.Cameras.CameraUtilities.Runtime
 {
-    public class CameraUtils : MonoBehaviour, ICameraUtils
+    public class CameraUtils : ICameraUtils
     {
-        [Inject]
-        private void Construct(ICurrentCamera currentCamera, CameraUtilsLogger logger)
+        public CameraUtils(ICurrentCamera currentCamera, CameraUtilsLogger logger)
         {
             _currentCamera = currentCamera;
             _logger = logger;
         }
 
-        private ICurrentCamera _currentCamera;
-        private CameraUtilsLogger _logger;
+        private readonly ICurrentCamera _currentCamera;
+        private readonly CameraUtilsLogger _logger;
 
         public Vector2 ScreenToWorld(Vector2 screen)
         {

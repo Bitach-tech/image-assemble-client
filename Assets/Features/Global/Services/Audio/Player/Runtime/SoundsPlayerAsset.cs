@@ -1,8 +1,6 @@
 ﻿using Common.DiContainer.Abstract;
-using Cysharp.Threading.Tasks;
 using Global.Audio.Player.Common;
 using Global.Setup.Service;
-using Global.Setup.Service.Scenes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,14 +9,13 @@ namespace Global.Audio.Player.Runtime
     [InlineEditor]
     [CreateAssetMenu(fileName = AudioRoutes.ServiceName,
         menuName = AudioRoutes.ServicePath)]
-    public class SoundsPlayerAsset : GlobalServiceAsset
+    public class SoundsPlayerAsset : ScriptableObject, IGlobalServiceFactory
     {
         [SerializeField] private SoundsPlayer _prefab;
 
-        public override async UniTask Create(
+        public void Create(
             IDependencyRegister builder,
             IGlobalServiceBinder serviceBinder,
-            IGlobalSceneLoader sceneLoader,
             IGlobalCallbacks callbacks)
         {
             var player = Instantiate(_prefab);

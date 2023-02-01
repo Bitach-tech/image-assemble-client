@@ -6,10 +6,10 @@ namespace Global.System.MessageBrokers.Runtime
 {
     public class MessageBrokerProxy : IMessageBroker
     {
-        public MessageBrokerProxy(MessageBrokerLogger logger)
+        public MessageBrokerProxy(MessageBrokerLogger logger, MessageBroker messageBroker)
         {
             _logger = logger;
-            _messageBroker = new MessageBroker();
+            _messageBroker = messageBroker;
 
             Msg.Inject(this);
         }
