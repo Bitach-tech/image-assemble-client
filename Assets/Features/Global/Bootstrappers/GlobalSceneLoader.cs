@@ -6,7 +6,7 @@ namespace Global.Bootstrappers
 {
     public class GlobalSceneLoader : IGlobalSceneLoader
     {
-        public async UniTask<InternalSceneLoadResult<T>> Load<T>(InternalScene<T> scene)
+        public async UniTask<InternalSceneLoadResult<T>> LoadAsync<T>(InternalScene<T> scene)
         {
             var targetScene = new Scene();
 

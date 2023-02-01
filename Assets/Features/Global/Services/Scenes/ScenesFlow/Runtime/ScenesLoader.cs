@@ -34,8 +34,6 @@ namespace Global.Scenes.ScenesFlow.Runtime
                 SceneManager.sceneLoaded -= OnSceneLoaded;
             }
 
-            Debug.Log($"Load scene: {scene.Name}");
-
             var handle = SceneManager.LoadSceneAsync(scene.Name, LoadSceneMode.Additive);
             var task = handle.ToUniTask();
             await task;

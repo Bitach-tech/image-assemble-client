@@ -27,7 +27,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16766d251bb64551bf7532d8686f2fe0, type: 3}
   m_Name: LogSettings_LoadingScreenLog
   m_EditorClassIdentifier: 
-  _isEnabled: 1
+  _isEnabled: 0
   _logs:
     _keys: 0000000001000000
     _values: 0101

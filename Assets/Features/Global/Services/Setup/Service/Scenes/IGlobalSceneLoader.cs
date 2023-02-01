@@ -4,6 +4,6 @@ namespace Global.Setup.Service.Scenes
 {
     public interface IGlobalSceneLoader
     {
-        UniTask<InternalSceneLoadResult<T>> Load<T>(InternalScene<T> scene);
+        UniTask<InternalSceneLoadResult<T>> LoadAsync<T>(InternalScene<T> scene);
     }
 }

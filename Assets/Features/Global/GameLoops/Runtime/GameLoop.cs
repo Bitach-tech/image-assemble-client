@@ -55,7 +55,6 @@ namespace Global.GameLoops.Runtime
         public override void Begin()
         {
             _logger.OnLoadLevel();
-            Debug.Log(1);
             LoadScene(_game).Forget();
         }
 

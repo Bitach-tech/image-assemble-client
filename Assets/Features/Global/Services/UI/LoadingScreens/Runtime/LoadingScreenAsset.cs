@@ -25,7 +25,7 @@ namespace Global.UI.LoadingScreens.Runtime
             IGlobalSceneLoader sceneLoader,
             IGlobalCallbacks callbacks)
         {
-            var result = await sceneLoader.Load(new InternalScene<LoadingScreen>(_scene));
+            var result = await sceneLoader.LoadAsync(new InternalScene<LoadingScreen>(_scene));
 
             var loadingScreen = result.Searched;
 

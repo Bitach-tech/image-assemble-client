@@ -23,10 +23,8 @@ namespace Global.UI.Overlays.Runtime
             IGlobalSceneLoader sceneLoader,
             IGlobalCallbacks callbacks)
         {
-            Debug.Log("Overlay 0");
             var data = new InternalScene<OverlayBootstrapper>(_scene);
-            var result = await sceneLoader.Load(data);
-            Debug.Log("Overlay 1");
+            var result = await sceneLoader.LoadAsync(data);
 
             var bootstrapper = result.Searched;
 

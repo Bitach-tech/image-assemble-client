@@ -1,4 +1,5 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Diagnostics;
+using Cysharp.Threading.Tasks;
 using Global.GameLoops.Runtime;
 using Global.Setup.Abstract;
 using Global.Setup.Scope;
@@ -8,6 +9,7 @@ using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 using ContainerBuilder = Common.DiContainer.Runtime.ContainerBuilder;
+using Debug = UnityEngine.Debug;
 
 namespace Global.Bootstrappers
 {
@@ -22,28 +24,28 @@ namespace Global.Bootstrappers
 
         private void Awake()
         {
-            Bootstrap().Forget();
-        }
-
-        private async UniTaskVoid Bootstrap()
-        {
-            var servicesScene = new Scene();
-
+            var watch = new Stopwatch();
+            watch.Start();
+            
             SceneManager.sceneLoaded += OnSceneLoaded;
+
+            SceneManager.LoadScene(_servicesScene, LoadSceneMode.Additive);
 
             void OnSceneLoaded(Scene scene, LoadSceneMode mode)
             {
-                servicesScene = scene;
+                SceneManager.sceneLoaded -= OnSceneLoaded;
+
+                Debug.Log($"Service scene loaded: {watch.ElapsedMilliseconds}");
+                watch.Stop();
+                
+                Bootstrap(scene).Forget();
             }
+        }
 
-            await SceneManager.LoadSceneAsync(_servicesScene, LoadSceneMode.Additive).ToUniTask();
-
-            Debug.Log($"{servicesScene.name}   {_servicesScene}");
-            await UniTask.WaitUntil(() => servicesScene.name == _servicesScene);
-            Debug.Log(0);
-
-
-            SceneManager.sceneLoaded -= OnSceneLoaded;
+        private async UniTaskVoid Bootstrap(Scene servicesScene)
+        {
+            var watch = new Stopwatch();
+            watch.Start();
 
             var binder = new GlobalServiceBinder(servicesScene);
             var sceneLoader = new GlobalSceneLoader();
@@ -52,21 +54,22 @@ namespace Global.Bootstrappers
 
             var services = _services.GetAssets();
             var servicesTasks = new UniTask[services.Length];
-
-            Debug.Log(1);
+            
+            Debug.Log($"Services assets received: {watch.ElapsedMilliseconds}");
+            watch.Restart();
 
             var gameLoop = _gameLoop.Create(dependencyRegister, binder);
-            Debug.Log(2);
-
 
             for (var i = 0; i < servicesTasks.Length; i++)
                 servicesTasks[i] = services[i].Create(dependencyRegister, binder, sceneLoader, callbacks);
 
-            Debug.Log(3);
-
+            Debug.Log($"Tasks created: {watch.ElapsedMilliseconds}");
+            watch.Restart();
+            
             await UniTask.WhenAll(servicesTasks);
-
-            Debug.Log(4);
+            
+            Debug.Log($"Tasks awaited: {watch.ElapsedMilliseconds}");
+            watch.Restart();
 
             var scope = Instantiate(_scope);
             scope.IsRoot = true;
@@ -74,37 +77,30 @@ namespace Global.Bootstrappers
 
             using (LifetimeScope.Enqueue(OnConfiguration))
             {
-                Debug.Log(5);
-
                 await UniTask.Create(async () => scope.Build());
-                Debug.Log(6);
             }
 
             void OnConfiguration(IContainerBuilder builder)
             {
-                Debug.Log(7);
-
                 dependencyRegister.RegisterAll(builder);
-                Debug.Log(8);
             }
-
-            Debug.Log(9);
-
+            
+            Debug.Log($"Container built: {watch.ElapsedMilliseconds}");
+            watch.Restart();
 
             dependencyRegister.ResolveAllWithCallbacks(scope.Container, callbacks);
 
-            Debug.Log(10);
-
-
             await callbacks.InvokeFlowCallbacks();
 
-            Debug.Log(11);
-
+            Debug.Log($"Callbacks invoked: {watch.ElapsedMilliseconds}");
+            watch.Restart();
+            
             gameLoop.OnAwake();
-            Debug.Log(12);
 
             gameLoop.Begin();
-            Debug.Log(13);
+            
+            Debug.Log($"Game loop started: {watch.ElapsedMilliseconds}");
+            watch.Stop();
         }
     }
 }
