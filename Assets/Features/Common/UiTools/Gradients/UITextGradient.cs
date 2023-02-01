@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Features.Common.UiTools.Gradients
+namespace Common.UiTools.Gradients
 {
     [AddComponentMenu("UI/Effects/Text Gradient")]
     public class UITextGradient : BaseMeshEffect

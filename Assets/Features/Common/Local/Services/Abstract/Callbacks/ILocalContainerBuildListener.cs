@@ -1,6 +1,6 @@
-﻿using Features.Common.DiContainer.Abstract;
+﻿using Common.DiContainer.Abstract;
 
-namespace Features.Common.Local.Services.Abstract.Callbacks
+namespace Common.Local.Services.Abstract.Callbacks
 {
     public interface ILocalContainerBuildListener
     {

@@ -1,7 +1,7 @@
-﻿using Features.Common.Local.Services.Abstract;
+﻿using Common.Local.Services.Abstract;
 using UnityEngine;
 
-namespace Features.Common.Local.ComposedSceneConfig
+namespace Common.Local.ComposedSceneConfig
 {
     public class LocalServiceBinder : ILocalServiceBinder
     {

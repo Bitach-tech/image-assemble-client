@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Features.GamePlay.Level.Assemble.Runtime.Parts;
-using Features.GamePlay.Level.Assemble.Runtime.Targets;
-using Features.Global.Services.InputViews.Runtime;
-using Features.Global.Services.Updaters.Runtime.Abstract;
+using GamePlay.Level.Assemble.Runtime.Parts;
+using GamePlay.Level.Assemble.Runtime.Targets;
+using Global.Services.Inputs.View.Runtime;
+using Global.Services.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Runtime.Handler
+namespace GamePlay.Level.Assemble.Runtime.Handler
 {
     public class PickHandler : IUpdatable
     {

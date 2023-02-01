@@ -1,10 +1,10 @@
-﻿using Features.GamePlay.Level.UI.Overlay.Runtime;
-using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
-using Features.Global.Services.UiStateMachines.Runtime;
+﻿using GamePlay.Level.UI.Overlay.Runtime;
+using Global.Services.External.ServiceSDK.Advertisment.Abstract;
+using Global.Services.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace Features.GamePlay.Level.UI.Root.Runtime
+namespace GamePlay.Level.UI.Root.Runtime
 {
     [DisallowMultipleComponent]
     public class LevelUiRoot : MonoBehaviour, IUiState, ILevelUiRoot

@@ -1,7 +1,7 @@
-﻿using Features.GamePlay.Common.Paths;
+﻿using GamePlay.Common.Paths;
 using UnityEngine;
 
-namespace Features.GamePlay.Menu.Runtime.Alert
+namespace GamePlay.Menu.Runtime.Alert
 {
     [CreateAssetMenu(fileName = "Config_AlertScreen", menuName = MenuAssetsPaths.Root + "AlertConfig")]
     public class AlertScreenConfigAsset : ScriptableObject

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Features.Common.UiTools.ButtonReponses
+namespace Common.UiTools.ButtonReponses
 {
     [DisallowMultipleComponent]
     public class ButtonResponse : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler

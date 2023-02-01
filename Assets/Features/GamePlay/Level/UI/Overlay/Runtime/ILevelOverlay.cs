@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Level.UI.Overlay.Runtime
+﻿namespace GamePlay.Level.UI.Overlay.Runtime
 {
     public interface ILevelOverlay
     {

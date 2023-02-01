@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Features.GamePlay.Menu.Runtime
+namespace GamePlay.Menu.Runtime
 {
     [DisallowMultipleComponent]
     public class LevelSelector : MonoBehaviour

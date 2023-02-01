@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
-using Features.Common.Local.Services.Abstract;
-using Features.Global.Services.ScenesFlow.Handling.Data;
-using Features.Global.Services.ScenesFlow.Runtime.Abstract;
+using Global.Services.Scenes.ScenesFlow.Handling.Data;
+using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
-using ContainerBuilder = Features.Common.DiContainer.Runtime.ContainerBuilder;
+using ContainerBuilder = Common.DiContainer.Runtime.ContainerBuilder;
 
-namespace Features.Common.Local.ComposedSceneConfig
+namespace Common.Local.ComposedSceneConfig
 {
     public abstract class ComposedSceneAsset : ScriptableObject
     {

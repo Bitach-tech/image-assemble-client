@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Loop.Logs
+﻿namespace GamePlay.Loop.Logs
 {
     public enum LevelLoopLogType
     {

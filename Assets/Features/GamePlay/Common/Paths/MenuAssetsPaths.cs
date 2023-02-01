@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Common.Paths
+﻿namespace GamePlay.Common.Paths
 {
     public static class MenuAssetsPaths
     {

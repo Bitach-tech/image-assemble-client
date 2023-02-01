@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Features.Global.GameLoops.Abstract
+namespace Global.GameLoops.Abstract
 {
     public abstract class GlobalGameLoop : MonoBehaviour
     {

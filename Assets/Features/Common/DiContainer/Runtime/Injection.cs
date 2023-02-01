@@ -1,8 +1,8 @@
-﻿using Features.Common.DiContainer.Abstract;
+﻿using Common.DiContainer.Abstract;
 using UnityEngine;
 using VContainer;
 
-namespace Features.Common.DiContainer.Runtime
+namespace Common.DiContainer.Runtime
 {
     public class Injection : IInjectionBuilder
     {

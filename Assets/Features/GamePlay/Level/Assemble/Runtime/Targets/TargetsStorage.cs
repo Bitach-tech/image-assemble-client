@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Features.Common.Local.Services.Abstract.Callbacks;
+using Common.Local.Services.Abstract.Callbacks;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Runtime.Targets
+namespace GamePlay.Level.Assemble.Runtime.Targets
 {
     [DisallowMultipleComponent]
     public class TargetsStorage : MonoBehaviour, ITargetsStorage, ILocalAwakeListener

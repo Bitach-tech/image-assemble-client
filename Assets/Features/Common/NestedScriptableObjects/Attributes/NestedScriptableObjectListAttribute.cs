@@ -9,7 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Features.Common.NestedScriptableObjects.Attributes
+namespace Common.NestedScriptableObjects.Attributes
 {
     [IncludeMyAttributes]
 #if UNITY_EDITOR

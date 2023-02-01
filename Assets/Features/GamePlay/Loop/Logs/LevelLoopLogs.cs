@@ -1,7 +1,7 @@
 ﻿using System;
-using Features.Common.ReadOnlyDictionaries.Runtime;
+using Common.ReadOnlyDictionaries.Runtime;
 
-namespace Features.GamePlay.Loop.Logs
+namespace GamePlay.Loop.Logs
 {
     [Serializable]
     public class LevelLoopLogs : ReadOnlyDictionary<LevelLoopLogType, bool>

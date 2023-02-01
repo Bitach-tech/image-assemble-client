@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Features.GamePlay.Common.Paths;
-using Features.GamePlay.Level.ImageStorage.Runtime;
+using GamePlay.Common.Paths;
+using GamePlay.Level.ImageStorage.Runtime;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.ImageStorage.Editor
+namespace GamePlay.Level.ImageStorage.Editor
 {
     [CreateAssetMenu(fileName = "ImageProcessor",
         menuName = GamePlayAssetsPaths.ImageStorage + "Processor")]

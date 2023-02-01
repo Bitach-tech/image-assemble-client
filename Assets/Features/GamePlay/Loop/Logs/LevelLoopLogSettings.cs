@@ -1,9 +1,9 @@
-﻿using Features.GamePlay.Common.Paths;
-using Features.Global.Services.Loggers.Runtime;
+﻿using GamePlay.Common.Paths;
+using Global.Services.System.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Loop.Logs
+namespace GamePlay.Loop.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.LogsPrefix + "LevelLoop",

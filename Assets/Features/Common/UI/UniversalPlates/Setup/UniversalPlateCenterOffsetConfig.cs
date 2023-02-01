@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.Common.UI.UniversalPlates.Setup
+namespace Common.UI.UniversalPlates.Setup
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "UiCenterOffset_", menuName = "UI/CenterOffset")]

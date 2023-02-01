@@ -1,8 +1,8 @@
-﻿using Features.Common.UI.UniversalPlates.Runtime.Abstract;
+﻿using Common.UI.UniversalPlates.Runtime.Abstract;
 using UnityEditor;
 using UnityEngine;
 
-namespace Features.Common.UI.UniversalPlates.Editor
+namespace Common.UI.UniversalPlates.Editor
 {
     [InitializeOnLoad]
     public class UniversalUpdater

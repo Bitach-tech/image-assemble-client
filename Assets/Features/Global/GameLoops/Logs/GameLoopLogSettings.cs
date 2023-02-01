@@ -1,9 +1,9 @@
-﻿using Features.Global.Common;
-using Features.Global.Services.Loggers.Runtime;
+﻿using Global.Common;
+using Global.Services.System.Loggers.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.Global.GameLoops.Logs
+namespace Global.GameLoops.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     [CreateAssetMenu(fileName = GlobalAssetsPaths.LogsPrefix + "GameLoop",

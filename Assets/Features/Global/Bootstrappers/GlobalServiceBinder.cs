@@ -1,8 +1,8 @@
-﻿using Features.Global.Services.Common.Abstract;
+﻿using Global.Services.Setup.Abstract;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Features.Global.Bootstrappers
+namespace Global.Bootstrappers
 {
     public class GlobalServiceBinder : IGlobalServiceBinder
     {

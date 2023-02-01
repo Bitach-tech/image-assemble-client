@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Threading;
+using Common.Local.Services.Abstract.Callbacks;
 using Cysharp.Threading.Tasks;
-using Features.Common.Local.Services.Abstract.Callbacks;
-using Features.GamePlay.Level.Assemble.Runtime.Background;
-using Features.GamePlay.Level.Assemble.Runtime.Handler;
-using Features.GamePlay.Level.Assemble.Runtime.Parts;
-using Features.GamePlay.Level.Assemble.Runtime.StartPositions;
-using Features.GamePlay.Level.Assemble.Runtime.Targets;
-using Features.GamePlay.Level.ImageStorage.Runtime;
-using Features.Global.Services.MessageBrokers.Runtime;
-using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
+using GamePlay.Level.Assemble.Runtime.Background;
+using GamePlay.Level.Assemble.Runtime.Handler;
+using GamePlay.Level.Assemble.Runtime.Parts;
+using GamePlay.Level.Assemble.Runtime.StartPositions;
+using GamePlay.Level.Assemble.Runtime.Targets;
+using GamePlay.Level.ImageStorage.Runtime;
+using Global.Services.External.ServiceSDK.Advertisment.Abstract;
+using Global.Services.System.MessageBrokers.Runtime;
 using UnityEngine;
 using VContainer;
 using Random = UnityEngine.Random;
 
-namespace Features.GamePlay.Level.Assemble.Runtime
+namespace GamePlay.Level.Assemble.Runtime
 {
     [DisallowMultipleComponent]
     public class PuzzleAssembler : MonoBehaviour, IPuzzleAssembler, ILocalAwakeListener, ILocalSwitchListener

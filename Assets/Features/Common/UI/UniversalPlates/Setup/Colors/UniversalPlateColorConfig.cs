@@ -1,7 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.Common.UI.UniversalPlates.Setup.Colors
+namespace Common.UI.UniversalPlates.Setup.Colors
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "UiPlateColor_", menuName = "UI/PlateColor")]

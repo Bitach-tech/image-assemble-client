@@ -1,4 +1,4 @@
-﻿namespace Features.Global.Common
+﻿namespace Global.Common
 {
     public static class GlobalAssetsPaths
     {

@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Services.Overlays.SoundSwitches.Runtime
+﻿namespace GamePlay.Services.Overlays.SoundSwitches.Runtime
 {
     public readonly struct SoundSwitchClickEvent
     {

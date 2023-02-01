@@ -1,9 +1,9 @@
-﻿using Cysharp.Threading.Tasks;
-using Features.Common.DiContainer.Abstract;
-using Features.Global.Services.ScenesFlow.Runtime.Abstract;
+﻿using Common.DiContainer.Abstract;
+using Cysharp.Threading.Tasks;
+using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
 using UnityEngine;
 
-namespace Features.Common.Local.Services.Abstract
+namespace Common.Local.Services.Abstract
 {
     public abstract class LocalServiceAsset : ScriptableObject
     {

@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using UnityEngine;
 using VContainer;
 
-namespace Features.GamePlay.Level.ImageStorage.Runtime
+namespace GamePlay.Level.ImageStorage.Runtime
 {
     [DisallowMultipleComponent]
     public class ImageStorage : MonoBehaviour, IImageStorage

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Runtime.Parts
+namespace GamePlay.Level.Assemble.Runtime.Parts
 {
     public class PartsStorage : MonoBehaviour, IPartsStorage
     {

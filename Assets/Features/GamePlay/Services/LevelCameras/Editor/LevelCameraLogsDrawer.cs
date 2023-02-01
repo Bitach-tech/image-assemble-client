@@ -1,8 +1,8 @@
-﻿using Features.Common.ReadOnlyDictionaries.Editor;
-using Features.GamePlay.Services.LevelCameras.Logs;
+﻿using Common.ReadOnlyDictionaries.Editor;
+using GamePlay.Services.LevelCameras.Logs;
 using UnityEditor;
 
-namespace Features.GamePlay.Services.LevelCameras.Editor
+namespace GamePlay.Services.LevelCameras.Editor
 {
     [ReadOnlyDictionaryPriority]
     [CustomPropertyDrawer(typeof(LevelCameraLogs))]

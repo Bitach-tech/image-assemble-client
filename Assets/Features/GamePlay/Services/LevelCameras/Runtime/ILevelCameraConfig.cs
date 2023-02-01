@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Features.GamePlay.Services.LevelCameras.Runtime
+namespace GamePlay.Services.LevelCameras.Runtime
 {
     public interface ILevelCameraConfig
     {

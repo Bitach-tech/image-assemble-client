@@ -1,6 +1,6 @@
 ﻿using VContainer;
 
-namespace Features.Common.DiContainer.Abstract
+namespace Common.DiContainer.Abstract
 {
     public interface IDependenciesBuilder
     {

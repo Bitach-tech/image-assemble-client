@@ -1,7 +1,7 @@
-﻿using Features.GamePlay.Common.Paths;
+﻿using GamePlay.Common.Paths;
 using UnityEngine;
 
-namespace Features.Common.UiTools.ButtonReponses
+namespace Common.UiTools.ButtonReponses
 {
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "ButtonResponse",
         menuName = GamePlayAssetsPaths.Config + "ButtonResponse")]

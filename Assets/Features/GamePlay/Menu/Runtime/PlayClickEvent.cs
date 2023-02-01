@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Menu.Runtime
+﻿namespace GamePlay.Menu.Runtime
 {
     public readonly struct PlayClickEvent
     {

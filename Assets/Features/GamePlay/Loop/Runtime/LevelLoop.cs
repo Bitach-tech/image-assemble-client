@@ -1,16 +1,16 @@
 ﻿using System;
-using Features.Common.Local.Services.Abstract.Callbacks;
-using Features.GamePlay.Loop.Events;
-using Features.GamePlay.Loop.Logs;
-using Features.GamePlay.Menu.Runtime;
-using Features.GamePlay.Services.LevelCameras.Runtime;
-using Features.Global.Services.CurrentCameras.Runtime;
-using Features.Global.Services.MessageBrokers.Runtime;
-using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
+using Common.Local.Services.Abstract.Callbacks;
+using GamePlay.Loop.Events;
+using GamePlay.Loop.Logs;
+using GamePlay.Menu.Runtime;
+using GamePlay.Services.LevelCameras.Runtime;
+using Global.Services.Cameras.CurrentCameras.Runtime;
+using Global.Services.External.ServiceSDK.Advertisment.Abstract;
+using Global.Services.System.MessageBrokers.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace Features.GamePlay.Loop.Runtime
+namespace GamePlay.Loop.Runtime
 {
     [DisallowMultipleComponent]
     public class LevelLoop :

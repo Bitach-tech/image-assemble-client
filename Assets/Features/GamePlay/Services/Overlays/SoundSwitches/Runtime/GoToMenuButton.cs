@@ -1,9 +1,9 @@
-﻿using Features.GamePlay.Loop.Events;
-using Features.Global.Services.MessageBrokers.Runtime;
+﻿using GamePlay.Loop.Events;
+using Global.Services.System.MessageBrokers.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Features.GamePlay.Services.Overlays.SoundSwitches.Runtime
+namespace GamePlay.Services.Overlays.SoundSwitches.Runtime
 {
     [DisallowMultipleComponent]
     public class GoToMenuButton : MonoBehaviour

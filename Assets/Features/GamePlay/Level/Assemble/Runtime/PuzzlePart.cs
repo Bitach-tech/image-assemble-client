@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Runtime
+namespace GamePlay.Level.Assemble.Runtime
 {
     [DisallowMultipleComponent]
     public class PuzzlePart : MonoBehaviour

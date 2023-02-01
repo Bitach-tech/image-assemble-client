@@ -1,8 +1,8 @@
-﻿using Features.GamePlay.Common.Paths;
+﻿using GamePlay.Common.Paths;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Services.Background.Runtime
+namespace GamePlay.Services.Background.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "GameBackground",

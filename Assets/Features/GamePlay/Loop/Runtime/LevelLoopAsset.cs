@@ -1,13 +1,13 @@
-﻿using Cysharp.Threading.Tasks;
-using Features.Common.DiContainer.Abstract;
-using Features.Common.Local.Services.Abstract;
-using Features.GamePlay.Common.Paths;
-using Features.GamePlay.Loop.Logs;
-using Features.Global.Services.ScenesFlow.Runtime.Abstract;
+﻿using Common.DiContainer.Abstract;
+using Common.Local.Services.Abstract;
+using Cysharp.Threading.Tasks;
+using GamePlay.Common.Paths;
+using GamePlay.Loop.Logs;
+using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Loop.Runtime
+namespace GamePlay.Loop.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "LevelLoop",

@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using UnityEditor;
 using UnityEngine;
 
-namespace Features.Common.ReadOnlyDictionaries.Editor
+namespace Common.ReadOnlyDictionaries.Editor
 {
     [CustomPropertyDrawer(typeof(ReadOnlyDictionary<,>))]
     public abstract class ReadOnlyDictionaryPropertyDrawer : PropertyDrawer

@@ -1,9 +1,9 @@
-﻿using Features.Common.Local.Services.Abstract.Callbacks;
-using Features.Global.Services.UiStateMachines.Runtime;
+﻿using Common.Local.Services.Abstract.Callbacks;
+using Global.Services.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace Features.GamePlay.Level.UI.Overlay.Runtime
+namespace GamePlay.Level.UI.Overlay.Runtime
 {
     [DisallowMultipleComponent]
     public class LevelOverlayRoot : MonoBehaviour, IUiState, ILocalAwakeListener, ILocalSwitchListener, ILevelOverlay

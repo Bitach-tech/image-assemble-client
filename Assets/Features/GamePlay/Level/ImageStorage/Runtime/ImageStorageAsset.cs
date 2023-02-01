@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
+using Common.DiContainer.Abstract;
+using Common.Local.Services.Abstract;
+using Common.NestedScriptableObjects.Attributes;
 using Cysharp.Threading.Tasks;
-using Features.Common.DiContainer.Abstract;
-using Features.Common.Local.Services.Abstract;
-using Features.Common.NestedScriptableObjects.Attributes;
-using Features.GamePlay.Common.Paths;
-using Features.Global.Services.ScenesFlow.Runtime.Abstract;
+using GamePlay.Common.Paths;
+using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.ImageStorage.Runtime
+namespace GamePlay.Level.ImageStorage.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "ImageStorage",

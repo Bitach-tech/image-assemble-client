@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Features.Global.Services.ScenesFlow.Handling.Data;
-using Features.Global.Services.ScenesFlow.Handling.Result;
-using Features.Global.Services.ScenesFlow.Runtime.Abstract;
+using Global.Services.Scenes.ScenesFlow.Handling.Data;
+using Global.Services.Scenes.ScenesFlow.Handling.Result;
+using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
 
-namespace Features.Common.Local.ComposedSceneConfig
+namespace Common.Local.ComposedSceneConfig
 {
     public class ComposedSceneLoader : ISceneLoader
     {

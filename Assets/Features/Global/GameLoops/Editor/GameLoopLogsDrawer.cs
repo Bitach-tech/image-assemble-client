@@ -1,8 +1,8 @@
-﻿using Features.Common.ReadOnlyDictionaries.Editor;
-using Features.Global.GameLoops.Logs;
+﻿using Common.ReadOnlyDictionaries.Editor;
+using Global.GameLoops.Logs;
 using UnityEditor;
 
-namespace Features.Global.GameLoops.Editor
+namespace Global.GameLoops.Editor
 {
     [ReadOnlyDictionaryPriority]
     [CustomPropertyDrawer(typeof(GameLoopLogs))]

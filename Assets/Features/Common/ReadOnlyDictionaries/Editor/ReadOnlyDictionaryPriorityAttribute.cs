@@ -1,6 +1,6 @@
 ﻿using Sirenix.OdinInspector.Editor;
 
-namespace Features.Common.ReadOnlyDictionaries.Editor
+namespace Common.ReadOnlyDictionaries.Editor
 {
     public class ReadOnlyDictionaryPriorityAttribute : DrawerPriorityAttribute
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Runtime.StartPositions
+namespace GamePlay.Level.Assemble.Runtime.StartPositions
 {
     public interface IRandomStartPositions
     {

@@ -1,8 +1,8 @@
-﻿using Features.Common.UI.UniversalPlates.Setup.Colors;
+﻿using Common.UI.UniversalPlates.Setup.Colors;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.Common.UI.UniversalPlates.Setup.Common
+namespace Common.UI.UniversalPlates.Setup.Common
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "UiConfig_CommonColors", menuName = "UI/CommonColors")]

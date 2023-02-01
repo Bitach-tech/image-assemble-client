@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using Features.Common.Local.ComposedSceneConfig;
-using Features.Common.Local.Services.Abstract;
-using Features.GamePlay.Common.Paths;
-using Features.GamePlay.Loop.Runtime;
-using Features.GamePlay.Menu.Runtime;
-using Features.GamePlay.Services.Background.Runtime;
-using Features.GamePlay.Services.Common.Scope;
-using Features.GamePlay.Services.LevelCameras.Runtime;
+using Common.Local.ComposedSceneConfig;
+using Common.Local.Services.Abstract;
+using GamePlay.Common.Paths;
+using GamePlay.Loop.Runtime;
+using GamePlay.Menu.Runtime;
+using GamePlay.Services.Background.Runtime;
+using GamePlay.Services.Common.Scope;
+using GamePlay.Services.LevelCameras.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.GamePlay.Config.Services.Runtime
+namespace GamePlay.Config.Services.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = "Level", menuName = GamePlayAssetsPaths.Root + "Scene")]

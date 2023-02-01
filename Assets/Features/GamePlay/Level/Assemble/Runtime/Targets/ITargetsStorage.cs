@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Features.GamePlay.Level.Assemble.Runtime.Targets
+namespace GamePlay.Level.Assemble.Runtime.Targets
 {
     public interface ITargetsStorage
     {

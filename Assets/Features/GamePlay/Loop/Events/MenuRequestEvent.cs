@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Loop.Events
+﻿namespace GamePlay.Loop.Events
 {
     public readonly struct MenuRequestEvent
     {

@@ -1,6 +1,6 @@
-﻿using Features.GamePlay.Level.ImageStorage.Runtime;
+﻿using GamePlay.Level.ImageStorage.Runtime;
 
-namespace Features.GamePlay.Level.Assemble.Runtime
+namespace GamePlay.Level.Assemble.Runtime
 {
     public readonly struct AssembledEvent
     {

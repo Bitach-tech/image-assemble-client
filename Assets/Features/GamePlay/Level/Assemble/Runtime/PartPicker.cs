@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
-using Features.GamePlay.Level.Assemble.Runtime.Parts;
+using GamePlay.Level.Assemble.Runtime.Parts;
 
-namespace Features.GamePlay.Level.Assemble.Runtime
+namespace GamePlay.Level.Assemble.Runtime
 {
     public class PartPicker
     {

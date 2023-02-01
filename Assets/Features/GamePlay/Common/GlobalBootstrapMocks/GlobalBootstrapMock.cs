@@ -1,18 +1,18 @@
 ﻿using Cysharp.Threading.Tasks;
-using Features.GamePlay.Config.Services.Runtime;
-using Features.Global.Bootstrappers;
-using Features.Global.GameLoops.Abstract;
-using Features.Global.Services.Common.Config.Abstract;
-using Features.Global.Services.Common.Scope;
-using Features.Global.Services.ScenesFlow.Runtime.Abstract;
+using GamePlay.Config.Services.Runtime;
+using Global.Bootstrappers;
+using Global.GameLoops.Abstract;
+using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
+using Global.Services.Setup.Config.Abstract;
+using Global.Services.Setup.Scope;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
-using ContainerBuilder = Features.Common.DiContainer.Runtime.ContainerBuilder;
+using ContainerBuilder = Common.DiContainer.Runtime.ContainerBuilder;
 
-namespace Features.GamePlay.Common.GlobalBootstrapMocks
+namespace GamePlay.Common.GlobalBootstrapMocks
 {
     [DisallowMultipleComponent]
     public class GlobalBootstrapMock : MonoBehaviour

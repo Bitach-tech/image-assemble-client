@@ -1,7 +1,7 @@
-﻿using Features.Common.Structs;
+﻿using Common.Structs;
 using UnityEngine;
 
-namespace Features.GamePlay.Services.Background.Runtime
+namespace GamePlay.Services.Background.Runtime
 {
     public class CellLine
     {

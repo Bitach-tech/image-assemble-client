@@ -1,8 +1,8 @@
-﻿using Features.GamePlay.Common.Paths;
+﻿using GamePlay.Common.Paths;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Runtime
+namespace GamePlay.Level.Assemble.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ConfigPrefix + "PickHandler",

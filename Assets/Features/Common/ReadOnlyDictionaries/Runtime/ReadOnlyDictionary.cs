@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Features.Common.ReadOnlyDictionaries.Runtime
+namespace Common.ReadOnlyDictionaries.Runtime
 {
     public abstract class ReadOnlyDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
     {

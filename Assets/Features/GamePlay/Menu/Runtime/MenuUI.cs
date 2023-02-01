@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using Features.Common.Local.Services.Abstract.Callbacks;
-using Features.GamePlay.Level.ImageStorage.Runtime;
-using Features.GamePlay.Services.Background.Runtime;
-using Features.Global.Services.ServiceSDK.Advertisment.Abstract;
-using Features.Global.Services.UiStateMachines.Runtime;
+using Common.Local.Services.Abstract.Callbacks;
+using GamePlay.Level.ImageStorage.Runtime;
+using GamePlay.Services.Background.Runtime;
+using Global.Services.External.ServiceSDK.Advertisment.Abstract;
+using Global.Services.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
 
-namespace Features.GamePlay.Menu.Runtime
+namespace GamePlay.Menu.Runtime
 {
     [DisallowMultipleComponent]
     public class MenuUI : MonoBehaviour, IMenuUI, IUiState, ILocalAwakeListener, ILocalSwitchListener

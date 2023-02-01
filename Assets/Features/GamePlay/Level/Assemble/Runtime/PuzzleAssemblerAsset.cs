@@ -1,19 +1,19 @@
-﻿using Cysharp.Threading.Tasks;
-using Features.Common.DiContainer.Abstract;
-using Features.Common.Local.Services.Abstract;
-using Features.GamePlay.Common.Paths;
-using Features.GamePlay.Level.Assemble.Runtime.Background;
-using Features.GamePlay.Level.Assemble.Runtime.Handler;
-using Features.GamePlay.Level.Assemble.Runtime.Parts;
-using Features.GamePlay.Level.Assemble.Runtime.StartPositions;
-using Features.GamePlay.Level.Assemble.Runtime.Targets;
-using Features.Global.Services.ScenesFlow.Handling.Data;
-using Features.Global.Services.ScenesFlow.Runtime.Abstract;
+﻿using Common.DiContainer.Abstract;
+using Common.Local.Services.Abstract;
+using Cysharp.Threading.Tasks;
+using GamePlay.Common.Paths;
+using GamePlay.Level.Assemble.Runtime.Background;
+using GamePlay.Level.Assemble.Runtime.Handler;
+using GamePlay.Level.Assemble.Runtime.Parts;
+using GamePlay.Level.Assemble.Runtime.StartPositions;
+using GamePlay.Level.Assemble.Runtime.Targets;
+using Global.Services.Scenes.ScenesFlow.Handling.Data;
+using Global.Services.Scenes.ScenesFlow.Runtime.Abstract;
 using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Runtime
+namespace GamePlay.Level.Assemble.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "PuzzleAssemble",

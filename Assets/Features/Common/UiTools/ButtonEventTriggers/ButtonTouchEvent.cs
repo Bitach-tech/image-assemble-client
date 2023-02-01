@@ -1,4 +1,4 @@
-﻿namespace Features.Common.UiTools.ButtonEventTriggers
+﻿namespace Common.UiTools.ButtonEventTriggers
 {
     public readonly struct ButtonTouchEvent
     {

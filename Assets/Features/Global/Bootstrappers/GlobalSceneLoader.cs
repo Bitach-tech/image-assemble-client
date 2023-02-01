@@ -1,8 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
-using Features.Global.Services.Common.Abstract.Scenes;
+using Global.Services.Setup.Abstract.Scenes;
 using UnityEngine.SceneManagement;
 
-namespace Features.Global.Bootstrappers
+namespace Global.Bootstrappers
 {
     public class GlobalSceneLoader : IGlobalSceneLoader
     {

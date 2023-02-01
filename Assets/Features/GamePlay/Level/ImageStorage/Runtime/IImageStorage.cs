@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Features.GamePlay.Level.ImageStorage.Runtime
+namespace GamePlay.Level.ImageStorage.Runtime
 {
     public interface IImageStorage
     {

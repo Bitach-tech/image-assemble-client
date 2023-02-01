@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Features.Common.Local.Services.Abstract.Callbacks;
-using Features.Global.Services.ScenesFlow.Handling.Result;
+using Common.Local.Services.Abstract.Callbacks;
+using Global.Services.Scenes.ScenesFlow.Handling.Result;
 using VContainer.Unity;
 
-namespace Features.Common.Local.ComposedSceneConfig
+namespace Common.Local.ComposedSceneConfig
 {
     public class ComposedSceneLoadResult
     {

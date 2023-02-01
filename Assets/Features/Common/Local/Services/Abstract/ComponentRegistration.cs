@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Features.Common.Local.Services.Abstract
+namespace Common.Local.Services.Abstract
 {
     public class ComponentRegistration
     {

@@ -1,9 +1,9 @@
-﻿using Features.GamePlay.Level.Assemble.Runtime;
+﻿using GamePlay.Level.Assemble.Runtime;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.Assemble.Editor
+namespace GamePlay.Level.Assemble.Editor
 {
     [DisallowMultipleComponent]
     public class PuzzlePartScanner : MonoBehaviour
