@@ -7,6 +7,6 @@ namespace Global.Audio.Player.Common
         private const string _paths = GlobalAssetsPaths.Root + "Audio/";
 
         public const string ServicePath = _paths + "Service";
-        public const string ServiceName = GlobalAssetsPrefixes.Service + "CameraUtils";
+        public const string ServiceName = GlobalAssetsPrefixes.Service + "AudioPlayer";
     }
 }

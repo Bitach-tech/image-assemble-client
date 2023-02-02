@@ -2,6 +2,7 @@
 using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
 using GamePlay.Common.Paths;
+using GamePlay.Level.UI.Overlay.Common;
 using Global.Scenes.ScenesFlow.Handling.Data;
 using Global.Scenes.ScenesFlow.Runtime.Abstract;
 using Global.UI.UiStateMachines.Runtime;
@@ -12,14 +13,14 @@ using UnityEngine;
 namespace GamePlay.Level.UI.Overlay.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "ToolSelection",
-        menuName = GamePlayAssetsPaths.LevelOverlay + "Service")]
-    public class LevelOverlayAsset : LocalServiceAsset
+    [CreateAssetMenu(fileName = LevelOverlayRoutes.ServiceName,
+        menuName = LevelOverlayRoutes.ServicePath)]
+    public class LevelOverlayAsset : ScriptableObject, ILocalServiceAsyncFactory
     {
         [SerializeField] private UiConstraints _constraints;
         [SerializeField] [Scene] private string _scene;
 
-        public override async UniTask Create(
+        public async UniTask Create(
             IDependencyRegister builder,
             ILocalServiceBinder serviceBinder,
             ISceneLoader sceneLoader,

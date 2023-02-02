@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using Common.Local.ComposedSceneConfig;
+﻿using Common.Local.ComposedSceneConfig;
 using Common.Local.Services.Abstract;
+using GamePlay.Background.Runtime;
 using GamePlay.Common.Paths;
+using GamePlay.Common.Scope;
+using GamePlay.LevelCameras.Runtime;
 using GamePlay.Loop.Runtime;
 using GamePlay.Menu.Runtime;
-using GamePlay.Services.Background.Runtime;
-using GamePlay.Services.Common.Scope;
-using GamePlay.Services.LevelCameras.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using VContainer.Unity;
@@ -21,32 +20,29 @@ namespace GamePlay.Config.Services.Runtime
         [SerializeField] private LevelLoopAsset _levelLoop;
         [SerializeField] private MenuUIAsset _menuUi;
         [SerializeField] private GameBackgroundAsset _background;
-        // [SerializeField] private ToolHandlerAsset _toolHandler;
-        // [SerializeField] private PaintCanvasAsset _canvas;
-        // [SerializeField] private ColorSelectionUiAsset _colorSelectionUI;
-        // [SerializeField] private ToolSelectionUiAsset _toolSelectionUI;
-        // [SerializeField] private ImageStorageAsset _imageStorage;
-        // [SerializeField] private PaintLoopAsset _paintLoop;
 
         [SerializeField] private LevelScope _scopePrefab;
 
-        protected override LocalServiceAsset[] AssignServices()
+        protected override ILocalServiceFactory[] GetFactories()
         {
-            var list = new List<LocalServiceAsset>
+            var services = new ILocalServiceFactory[]
             {
                 _levelCamera,
                 _levelLoop,
-                _menuUi,
-                _background
-                // _toolHandler,
-                // _canvas,
-                // _colorSelectionUI,
-                // _toolSelectionUI,
-                // _imageStorage,
-                // _paintLoop
             };
 
-            return list.ToArray();
+            return services;
+        }
+
+        protected override ILocalServiceAsyncFactory[] GetAsyncFactories()
+        {
+            var services = new ILocalServiceAsyncFactory[]
+            {
+                _menuUi,
+                _background
+            };
+
+            return services;
         }
 
         protected override LifetimeScope AssignScope()

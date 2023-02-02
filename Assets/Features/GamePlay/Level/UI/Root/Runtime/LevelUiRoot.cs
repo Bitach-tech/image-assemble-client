@@ -2,15 +2,12 @@
 using Global.Publisher.Advertisement.Abstract;
 using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
-using VContainer;
 
 namespace GamePlay.Level.UI.Root.Runtime
 {
-    [DisallowMultipleComponent]
-    public class LevelUiRoot : MonoBehaviour, IUiState, ILevelUiRoot
+    public class LevelUiRoot : IUiState, ILevelUiRoot
     {
-        [Inject]
-        private void Construct(
+        public LevelUiRoot(
             IUiStateMachine uiStateMachine,
             IAds ads,
             ILevelOverlay overlay,
@@ -18,16 +15,15 @@ namespace GamePlay.Level.UI.Root.Runtime
         {
             _overlay = overlay;
             _uiStateMachine = uiStateMachine;
-            _constraints = constraints;
+            Constraints = constraints;
         }
 
-        private UiConstraints _constraints;
-        private IUiStateMachine _uiStateMachine;
+        private readonly IUiStateMachine _uiStateMachine;
 
         private readonly WaitForSeconds _wait = new(180f);
-        private ILevelOverlay _overlay;
+        private readonly ILevelOverlay _overlay;
 
-        public UiConstraints Constraints => _constraints;
+        public UiConstraints Constraints { get; }
         public string Name => "Paint";
 
         public void Open()
@@ -36,23 +32,12 @@ namespace GamePlay.Level.UI.Root.Runtime
             _overlay.Open();
         }
 
-        public void ShowAssembledScreen()
-        {
-            _overlay.ShowAssembledScreen();
-        }
-
-        public void HideAssembledScreen()
-        {
-            _overlay.HideAssembledScreen();
-        }
-
         public void Recover()
         {
         }
 
         public void Exit()
         {
-            StopAllCoroutines();
         }
     }
 }

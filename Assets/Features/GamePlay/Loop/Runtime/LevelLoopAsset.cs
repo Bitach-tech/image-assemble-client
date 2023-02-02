@@ -1,38 +1,27 @@
 ﻿using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
-using Cysharp.Threading.Tasks;
 using GamePlay.Common.Paths;
+using GamePlay.Loop.Common;
 using GamePlay.Loop.Logs;
-using Global.Scenes.ScenesFlow.Runtime.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GamePlay.Loop.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "LevelLoop",
-        menuName = GamePlayAssetsPaths.LevelLoop + "Service")]
-    public class LevelLoopAsset : LocalServiceAsset
+    [CreateAssetMenu(fileName = LevelLoopRoutes.ServiceName,
+        menuName = LevelLoopRoutes.ServicePath)]
+    public class LevelLoopAsset : ScriptableObject, ILocalServiceFactory
     {
         [SerializeField] [Indent] private LevelLoopLogSettings _logSettings;
-        [SerializeField] [Indent] private LevelLoop _prefab;
 
-        public override async UniTask Create(
-            IDependencyRegister builder,
-            ILocalServiceBinder serviceBinder,
-            ISceneLoader sceneLoader,
-            ILocalCallbacks callbacks)
+        public void Create(IDependencyRegister builder, ILocalServiceBinder serviceBinder, ILocalCallbacks callbacks)
         {
-            var levelLoop = Instantiate(_prefab);
-            levelLoop.name = "LevelLoop";
-
             builder.Register<LevelLoopLogger>()
                 .WithParameter(_logSettings);
 
-            builder.RegisterComponent(levelLoop)
+            builder.Register<LevelLoop>()
                 .AsCallbackListener();
-
-            serviceBinder.AddToModules(levelLoop);
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using GamePlay.Services.Overlays.SoundSwitches.Runtime;
+using GamePlay.Overlays.SoundSwitches.Runtime;
 using Global.Setup.Service;
 using Global.System.MessageBrokers.Runtime;
 using UnityEngine;

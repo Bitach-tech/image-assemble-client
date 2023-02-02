@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common.Local.Services.Abstract.Callbacks;
+using GamePlay.Background.Runtime;
 using GamePlay.Level.ImageStorage.Runtime;
-using GamePlay.Services.Background.Runtime;
 using Global.Publisher.Advertisement.Abstract;
 using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;

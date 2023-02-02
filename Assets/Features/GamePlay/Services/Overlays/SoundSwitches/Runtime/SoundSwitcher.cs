@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace GamePlay.Services.Overlays.SoundSwitches.Runtime
+namespace GamePlay.Overlays.SoundSwitches.Runtime
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Button))]

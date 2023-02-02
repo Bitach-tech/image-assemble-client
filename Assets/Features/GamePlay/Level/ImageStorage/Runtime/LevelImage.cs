@@ -1,35 +1,38 @@
 ﻿using GamePlay.Common.Paths;
+using GamePlay.Level.ImageStorage.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GamePlay.Level.ImageStorage.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = "PaintImage",
-        menuName = GamePlayAssetsPaths.ImageStorage + "Image")]
+    [CreateAssetMenu(fileName = ImageStorageRoutes.ImageName,
+        menuName = ImageStorageRoutes.ImagePath)]
     public class LevelImage : ScriptableObject
     {
-        [SerializeField] private Sprite _preview;
-        [SerializeField] private Sprite _background;
-        [SerializeField] private Sprite[] _images;
+        [SerializeField] private Sprite[] _level0;
+        [SerializeField] private Sprite[] _level1;
+        [SerializeField] private Sprite[] _level2;
+        [SerializeField] private Sprite[] _level3;
 
-        public Sprite Preview => _preview;
-        public Sprite Background => _background;
-        public Sprite[] Images => _images;
-
-        public void SetPreview(Sprite preview)
+        public void SetLevel0(Sprite[] sprites)
         {
-            _preview = preview;
+            _level0 = sprites;
         }
 
-        public void SetBackground(Sprite background)
+        public void SetLevel1(Sprite[] sprites)
         {
-            _background = background;
+            _level1 = sprites;
         }
-
-        public void SetImages(Sprite[] images)
+        public void SetLevel2(Sprite[] sprites)
         {
-            _images = images;
+            _level2 = sprites;
+        }
+        
+        public void SetLevel3(Sprite[] sprites)
+        {
+            _level3 = sprites;
         }
     }
 }

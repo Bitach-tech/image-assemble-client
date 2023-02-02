@@ -1,7 +1,7 @@
 ﻿using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
-using GamePlay.Common.Paths;
+using GamePlay.Menu.Common;
 using Global.Scenes.ScenesFlow.Handling.Data;
 using Global.Scenes.ScenesFlow.Runtime.Abstract;
 using Global.UI.UiStateMachines.Runtime;
@@ -12,13 +12,14 @@ using UnityEngine;
 namespace GamePlay.Menu.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = MenuAssetsPaths.ServicePrefix + "UI", menuName = MenuAssetsPaths.UI)]
-    public class MenuUIAsset : LocalServiceAsset
+    [CreateAssetMenu(fileName = MenuRoutes.ServiceName,
+        menuName = MenuRoutes.ServicePath)]
+    public class MenuUIAsset : ScriptableObject, ILocalServiceAsyncFactory
     {
         [SerializeField] private UiConstraints _constraints;
         [SerializeField] [Scene] private string _scene;
 
-        public override async UniTask Create(
+        public async UniTask Create(
             IDependencyRegister builder,
             ILocalServiceBinder serviceBinder,
             ISceneLoader sceneLoader,

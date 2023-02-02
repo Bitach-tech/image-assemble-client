@@ -1,8 +1,6 @@
 ﻿using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
-using Cysharp.Threading.Tasks;
-using GamePlay.Common.Paths;
-using Global.Scenes.ScenesFlow.Runtime.Abstract;
+using GamePlay.Level.UI.Root.Common;
 using Global.UI.UiStateMachines.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -10,27 +8,17 @@ using UnityEngine;
 namespace GamePlay.Level.UI.Root.Runtime
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = GamePlayAssetsPaths.ServicePrefix + "PaintLoop",
-        menuName = GamePlayAssetsPaths.PuzzleLoop + "Service")]
-    public class LevelUiRootAsset : LocalServiceAsset
+    [CreateAssetMenu(fileName = LevelUiRootRoutes.ServiceName,
+        menuName = LevelUiRootRoutes.ServicePath)]
+    public class LevelUiRootAsset : ScriptableObject, ILocalServiceFactory
     {
         [SerializeField] private UiConstraints _constraints;
-        [SerializeField] private LevelUiRoot _prefab;
 
-        public override async UniTask Create(
-            IDependencyRegister builder,
-            ILocalServiceBinder serviceBinder,
-            ISceneLoader sceneLoader,
-            ILocalCallbacks callbacks)
+        public void Create(IDependencyRegister builder, ILocalServiceBinder serviceBinder, ILocalCallbacks callbacks)
         {
-            var loop = Instantiate(_prefab);
-            loop.name = "PaintLoop";
-
-            builder.RegisterComponent(loop)
+            builder.Register<LevelUiRoot>()
                 .WithParameter(_constraints)
                 .As<ILevelUiRoot>();
-
-            serviceBinder.AddToModules(loop);
         }
     }
 }

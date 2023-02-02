@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using GamePlay.Common.Paths;
+using GamePlay.Level.ImageStorage.Common;
 using GamePlay.Level.ImageStorage.Runtime;
 using Sirenix.OdinInspector;
 using UnityEditor;
@@ -10,19 +11,11 @@ using UnityEngine;
 
 namespace GamePlay.Level.ImageStorage.Editor
 {
-    [CreateAssetMenu(fileName = "ImageProcessor",
-        menuName = GamePlayAssetsPaths.ImageStorage + "Processor")]
+    [CreateAssetMenu(fileName = ImageStorageRoutes.ProcessorName,
+        menuName = ImageStorageRoutes.ProcessorPath)]
     public class ImagesProcessor : ScriptableObject
     {
-        [SerializeField] private Vector2Int _gridSize = new(10, 6);
-        [SerializeField] private float _cellSize;
-        [SerializeField] private float _padding;
-
-        [SerializeField] private Vector2 _offset;
-        [SerializeField] private Vector2 _previewSize;
-
-        [SerializeField] private Vector2 _backgroundPosition;
-        [SerializeField] private Vector2 _backgroundSize;
+        [SerializeField] private int[] _levelsSlices = { 4, 6, 8, 10 };
 
         [SerializeField] private Texture2D[] _images;
 
@@ -46,44 +39,27 @@ namespace GamePlay.Level.ImageStorage.Editor
             var fileName = Path.GetFileNameWithoutExtension(assetPath);
 
             var rects = new List<Rect>();
+            var width = texture.width;
 
-            var position = new Vector2(_offset.x, texture.height - _offset.y - _cellSize);
-            var step = _padding;
-
-            for (var y = 0; y < _gridSize.y; y++)
-            for (var x = 0; x < _gridSize.x; x++)
+            foreach (var slice in _levelsSlices)
             {
-                var rectPosition = position;
-                rectPosition.x += x * step;
-                rectPosition.y -= y * step;
-
-                var rect = new Rect
+                var height = Mathf.FloorToInt((float)texture.height / slice);
+                
+                for (var i = 0; i < slice; i++)
                 {
-                    position = rectPosition,
-                    size = new Vector2(_cellSize, _cellSize)
-                };
+                    var rectPosition = new Vector2(0f, height * i);
 
-                rects.Add(rect);
+                    var rect = new Rect
+                    {
+                        position = rectPosition,
+                        size = new Vector2(width, height)
+                    };
+
+                    rects.Add(rect);
+                }
             }
 
-            var preview = new Rect
-            {
-                position = new Vector2(
-                    texture.width / 2f - _previewSize.x / 2f,
-                    texture.height / 2f - _previewSize.y / 2f),
-                size = _previewSize
-            };
-
-            var background = new Rect
-            {
-                position = _backgroundPosition,
-                size = _backgroundSize
-            };
-
-            rects.Add(preview);
-            rects.Add(background);
-
-            var rectNum = 0;
+            var rectCounter = 0;
 
             var spriteSheet = new SpriteMetaData[rects.Count];
 
@@ -94,7 +70,7 @@ namespace GamePlay.Level.ImageStorage.Editor
                     pivot = Vector2.down,
                     alignment = (int)SpriteAlignment.Center,
                     rect = rects[i],
-                    name = fileName + "_" + rectNum++
+                    name = fileName + "_" + rectCounter++
                 };
 
                 spriteSheet[i] = data;
@@ -108,7 +84,6 @@ namespace GamePlay.Level.ImageStorage.Editor
             int GetOrder(Sprite sprite)
             {
                 var target = sprite.name.Replace($"{fileName}_", "");
-                Debug.Log($"{fileName} {sprite.name} {target}");
                 var order = int.Parse(target);
 
                 return order;
@@ -119,20 +94,53 @@ namespace GamePlay.Level.ImageStorage.Editor
                 .OrderBy(GetOrder)
                 .ToArray();
 
-            var backgroundIndex = sprites.Length - 1;
-            var previewIndex = sprites.Length - 2;
+            asset.SetLevel0(PickRange(sprites, 0));
+            asset.SetLevel1(PickRange(sprites, 1));
+            asset.SetLevel2(PickRange(sprites, 2));
+            asset.SetLevel3(PickRange(sprites, 3));
+        }
 
-            Debug.Log($"Indexes: {previewIndex} {backgroundIndex}");
-            Debug.Log($"Names: {sprites[previewIndex].name} {sprites[backgroundIndex].name}");
+        private Sprite[] PickRange(Sprite[] sprites, int level)
+        {
+            switch (level)
+            {
+                case 0:
+                {
+                    var result = sprites[.._levelsSlices[0]];
+                    Debug.Log(result.Length);
+                    return result;
+                }
+                case 1:
+                {
+                    var startIndex = _levelsSlices[0];
+                    var endIndex = startIndex + _levelsSlices[1];
+                    
+                    var result = sprites[startIndex..endIndex];
+                    Debug.Log($"{startIndex}  {endIndex}");
 
-            for (var i = 0; i < sprites.Length; i++)
-                Debug.Log($"[{i}]: {sprites[i].name}");
+                    return result;
+                }
+                case 2:
+                {
+                    var startIndex = _levelsSlices[0] + _levelsSlices[1];
+                    var endIndex = startIndex + _levelsSlices[2];
 
-            asset.SetPreview(sprites[previewIndex]);
-            asset.SetBackground(sprites[backgroundIndex]);
+                    var result = sprites[startIndex..endIndex];
+                    Debug.Log($"{startIndex}  {endIndex}");
+                    return result;
+                }
+                case 3:
+                {
+                    var startIndex = _levelsSlices[0] + _levelsSlices[1] + _levelsSlices[2];
+                    var endIndex = startIndex + _levelsSlices[3];
 
-            Array.Resize(ref sprites, sprites.Length - 2);
-            asset.SetImages(sprites);
+                    var result = sprites[startIndex..endIndex];
+                    Debug.Log($"{startIndex}  {endIndex}");
+                    return result;
+                }
+            }
+
+            return null;
         }
     }
 }

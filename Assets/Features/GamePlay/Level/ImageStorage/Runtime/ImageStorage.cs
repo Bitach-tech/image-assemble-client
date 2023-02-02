@@ -1,20 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using UnityEngine;
-using VContainer;
 
 namespace GamePlay.Level.ImageStorage.Runtime
 {
-    [DisallowMultipleComponent]
-    public class ImageStorage : MonoBehaviour, IImageStorage
+    public class ImageStorage : IImageStorage
     {
-        [Inject]
-        private void Construct(LevelImage[] images)
+        public ImageStorage(LevelImage[] images)
         {
             _images = images;
         }
 
-        private LevelImage[] _images;
+        private readonly LevelImage[] _images;
 
         public IReadOnlyList<LevelImage> GetImages()
         {

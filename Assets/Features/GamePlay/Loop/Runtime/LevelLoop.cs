@@ -1,25 +1,20 @@
 ﻿using System;
 using Common.Local.Services.Abstract.Callbacks;
+using GamePlay.LevelCameras.Runtime;
 using GamePlay.Loop.Events;
 using GamePlay.Loop.Logs;
 using GamePlay.Menu.Runtime;
-using GamePlay.Services.LevelCameras.Runtime;
 using Global.Cameras.CurrentCameras.Runtime;
 using Global.Publisher.Advertisement.Abstract;
 using Global.System.MessageBrokers.Runtime;
-using UnityEngine;
-using VContainer;
 
 namespace GamePlay.Loop.Runtime
 {
-    [DisallowMultipleComponent]
     public class LevelLoop :
-        MonoBehaviour,
         ILocalLoadListener,
         ILocalSwitchListener
     {
-        [Inject]
-        private void Construct(
+        public LevelLoop(
             ICurrentCamera currentCamera,
             ILevelCamera levelCamera,
             IMenuUI menuUI,
@@ -33,14 +28,14 @@ namespace GamePlay.Loop.Runtime
             _levelCamera = levelCamera;
         }
 
-        private IAds _ads;
+        private readonly IAds _ads;
 
-        private ICurrentCamera _currentCamera;
-        private ILevelCamera _levelCamera;
+        private readonly ICurrentCamera _currentCamera;
+        private readonly ILevelCamera _levelCamera;
 
-        private LevelLoopLogger _logger;
+        private readonly LevelLoopLogger _logger;
 
-        private IMenuUI _menuUI;
+        private readonly IMenuUI _menuUI;
 
         private IDisposable _playClickListener;
         private IDisposable _menuClickListener;
