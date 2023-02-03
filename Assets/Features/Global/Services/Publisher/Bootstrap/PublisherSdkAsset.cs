@@ -15,7 +15,8 @@ namespace Global.Publisher.Bootstrap
         public void Create(IDependencyRegister builder, IGlobalServiceBinder serviceBinder, IGlobalCallbacks callbacks)
         {
             builder.Register<Ads>()
-                .As<IAds>();
+                .As<IAds>()
+                .AsCallbackListener();
         }
     }
 }

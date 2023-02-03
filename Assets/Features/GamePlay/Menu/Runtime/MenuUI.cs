@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Common.Local.Services.Abstract.Callbacks;
+using Cysharp.Threading.Tasks;
 using GamePlay.Background.Runtime;
-using GamePlay.Level.ImageStorage.Runtime;
+using GamePlay.Loop.Difficulties;
 using Global.Publisher.Advertisement.Abstract;
+using Global.System.MessageBrokers.Runtime;
 using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
@@ -14,7 +16,6 @@ namespace GamePlay.Menu.Runtime
     {
         [Inject]
         private void Construct(
-            IImageStorage storage,
             IUiStateMachine uiStateMachine,
             IGameBackground background,
             IAds ads,
@@ -22,21 +23,17 @@ namespace GamePlay.Menu.Runtime
         {
             _ads = ads;
             _background = background;
-            _storage = storage;
             _uiStateMachine = uiStateMachine;
             _constraints = constraints;
         }
 
-        [SerializeField] private LevelSelector _selectorPrefab;
         [SerializeField] private GameObject _body;
-        [SerializeField] private Transform _selectorsRoot;
-        [SerializeField] private int _freeCount = 3;
+        [SerializeField] private int _freeCounter = 5;
+        [SerializeField] private List<LevelSelector> _selectors = new();
 
         private UiConstraints _constraints;
         private IUiStateMachine _uiStateMachine;
-        private IImageStorage _storage;
 
-        private readonly List<LevelSelector> _selectors = new();
         private IGameBackground _background;
         private IAds _ads;
 
@@ -47,33 +44,25 @@ namespace GamePlay.Menu.Runtime
         {
             _body.SetActive(false);
 
-            var images = _storage.GetImages();
-
-            var counter = 0;
-
-            foreach (var image in images)
+            for (var i = 0; i < _selectors.Count; i++)
             {
-                counter++;
-                var selector = Instantiate(_selectorPrefab, _selectorsRoot);
-
-                //if (counter <= _freeCount)
-                //    selector.Construct(image, false);
-                //else
-                //    selector.Construct(image, true);
-                _selectors.Add(selector);
+                if (i >= _freeCounter)
+                    _selectors[i].Construct(true);
+                else
+                    _selectors[i].Construct(false);
             }
         }
 
         public void OnEnabled()
         {
-            //foreach (var selector in _selectors)
-            //    selector.Selected += OnSelected;
+            foreach (var selector in _selectors)
+                selector.Selected += OnSelected;
         }
 
         public void OnDisabled()
         {
-            //foreach (var selector in _selectors)
-            //    selector.Selected -= OnSelected;
+            foreach (var selector in _selectors)
+                selector.Selected -= OnSelected;
         }
 
         public void Open()
@@ -94,18 +83,18 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
         }
 
-        //private void OnSelected(PaintImage image, bool isRewardable)
-        //{
-        //    ProcessSelection(image, isRewardable).Forget();
-        //}
+        private void OnSelected(LevelDifficulty difficulty, bool isRewardable)
+        {
+            ProcessSelection(difficulty, isRewardable).Forget();
+        }
 
-        //private async UniTaskVoid ProcessSelection(PaintImage image, bool isRewardable)
-        //{
-        //    if (isRewardable == true)
-        //        await _ads.ShowRewarded();
-        //    
-        //    var clicked = new PlayClickEvent(image);
-        //    Msg.Publish(clicked);
-        //}
+        private async UniTaskVoid ProcessSelection(LevelDifficulty difficulty, bool isRewardable)
+        {
+            if (isRewardable == true)
+                await _ads.ShowRewarded();
+            
+            var clicked = new PlayClickEvent(difficulty);
+            Msg.Publish(clicked);
+        }
     }
 }

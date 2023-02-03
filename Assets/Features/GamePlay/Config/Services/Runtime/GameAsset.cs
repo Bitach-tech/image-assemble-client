@@ -1,8 +1,13 @@
 ﻿using Common.Local.ComposedSceneConfig;
 using Common.Local.Services.Abstract;
+using Features.GamePlay.Level.UI.Win.Runtime;
 using GamePlay.Background.Runtime;
 using GamePlay.Common.Paths;
 using GamePlay.Common.Scope;
+using GamePlay.Level.Assemble.Runtime;
+using GamePlay.Level.ImageStorage.Runtime;
+using GamePlay.Level.UI.Overlay.Runtime;
+using GamePlay.Level.UI.Root.Runtime;
 using GamePlay.LevelCameras.Runtime;
 using GamePlay.Loop.Runtime;
 using GamePlay.Menu.Runtime;
@@ -20,6 +25,11 @@ namespace GamePlay.Config.Services.Runtime
         [SerializeField] private LevelLoopAsset _levelLoop;
         [SerializeField] private MenuUIAsset _menuUi;
         [SerializeField] private GameBackgroundAsset _background;
+        [SerializeField] private AssemblerAsset _assembler;
+        [SerializeField] private ImageStorageAsset _imageStorage;
+        [SerializeField] private LevelOverlayAsset _levelOverlay;
+        [SerializeField] private LevelUiRootAsset _uiRootAsset;
+        [SerializeField] private WinScreenAsset _winScreenAsset;
 
         [SerializeField] private LevelScope _scopePrefab;
 
@@ -29,6 +39,8 @@ namespace GamePlay.Config.Services.Runtime
             {
                 _levelCamera,
                 _levelLoop,
+                _imageStorage,
+                _uiRootAsset
             };
 
             return services;
@@ -39,7 +51,10 @@ namespace GamePlay.Config.Services.Runtime
             var services = new ILocalServiceAsyncFactory[]
             {
                 _menuUi,
-                _background
+                _background,
+                _assembler,
+                _levelOverlay,
+                _winScreenAsset
             };
 
             return services;

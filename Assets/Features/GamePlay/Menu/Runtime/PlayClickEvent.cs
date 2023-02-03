@@ -1,12 +1,14 @@
-﻿namespace GamePlay.Menu.Runtime
+﻿using GamePlay.Loop.Difficulties;
+
+namespace GamePlay.Menu.Runtime
 {
     public readonly struct PlayClickEvent
     {
-        //public PlayClickEvent(PaintImage image)
-        //{
-        //    Image = image;
-        //}
+        public PlayClickEvent(LevelDifficulty difficulty)
+        {
+            Difficulty = difficulty;
+        }
 
-        //public readonly PaintImage Image;
+        public readonly LevelDifficulty Difficulty;
     }
 }

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GlobalService_GlobalCamera
   m_EditorClassIdentifier: 
   _logSettings: {fileID: 11400000, guid: ae0a363b108f34e48a591b1a38d7f500, type: 2}
-  _prefab: {fileID: 6419607167493485886, guid: 553476d43ee9c0e4f8a12459397c017b, type: 3}
+  _prefab: {fileID: 3157061553804735492, guid: 47b513f62aee89d4c9a701df48816b34, type: 3}

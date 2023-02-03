@@ -16,5 +16,26 @@ namespace GamePlay.Level.ImageStorage.Runtime
         {
             return new ReadOnlyCollection<LevelImage>(_images);
         }
+
+        public IReadOnlyList<LevelImage> GetShuffledImages()
+        {
+            var list = new List<LevelImage>(_images);
+            Shuffle(list);
+            
+            return new ReadOnlyCollection<LevelImage>(list);
+        }
+        
+        private void Shuffle(IList<LevelImage> array)
+        {
+            var random = new System.Random();
+
+            var index = array.Count;
+
+            while (index > 1)
+            {
+                var randomIndex = random.Next(index--);
+                (array[index], array[randomIndex]) = (array[randomIndex], array[index]);
+            }
+        }
     }
 }

@@ -233,6 +233,7 @@ namespace Plugins.YandexGames.Runtime
         {
             AudioListener.pause = false;
             Time.timeScale = 1;
+            Debug.Log("Close");
             onRewardedAdClosed?.Invoke(placement);
         }
 

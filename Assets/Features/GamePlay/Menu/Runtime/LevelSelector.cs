@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using GamePlay.Loop.Difficulties;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace GamePlay.Menu.Runtime
@@ -6,14 +8,13 @@ namespace GamePlay.Menu.Runtime
     [DisallowMultipleComponent]
     public class LevelSelector : MonoBehaviour
     {
-        [SerializeField] private Image _image;
+        [SerializeField] private LevelDifficulty _difficulty;
         [SerializeField] private GameObject _adSign;
         [SerializeField] private Button _button;
 
-        //private PaintImage _current;
         private bool _isRewardable;
 
-        //public event Action<PaintImage, bool> Selected;
+        public event Action<LevelDifficulty, bool> Selected;
 
         private void OnEnable()
         {
@@ -25,21 +26,22 @@ namespace GamePlay.Menu.Runtime
             _button.onClick.RemoveListener(OnClicked);
         }
 
-        // public void Construct(PaintImage image, bool isRewardable)
-        // {
-        //     _isRewardable = isRewardable;
-        //     _current = image;
-        //     _image.sprite = image.Image;
-        //
-        //     if (_isRewardable == true)
-        //         _adSign.SetActive(true);
-        // }
+         public void Construct(bool isRewardable)
+         {
+             _isRewardable = isRewardable;
+        
+             if (_isRewardable == true)
+                 _adSign.SetActive(true);
+             else
+                 _adSign.SetActive(false);
+         }
 
         private void OnClicked()
         {
             _adSign.SetActive(false);
 
-            //Selected?.Invoke(_current, _isRewardable);
+            Selected?.Invoke(_difficulty, _isRewardable);
+
             _isRewardable = false;
         }
     }

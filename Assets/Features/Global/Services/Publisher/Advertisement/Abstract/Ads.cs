@@ -1,23 +1,23 @@
 ﻿using Common.Local.Services.Abstract.Callbacks;
 using Cysharp.Threading.Tasks;
+using Global.Setup.Service;
 using Plugins.YandexGames.Runtime;
 using UnityEngine;
 
 namespace Global.Publisher.Advertisement.Abstract
 {
-    [DisallowMultipleComponent]
-    public class Ads : IAds, ILocalSwitchListener
+    public class Ads : IAds, IGlobalAwakeListener
     {
         private UniTaskCompletionSource<RewardAdResult> _rewardedCompletion;
 
-        public void OnEnabled()
+        public void OnAwake()
         {
             YandexSDK.instance.onRewardedAdReward += OnRewardShowed;
             YandexSDK.instance.onRewardedAdClosed += OnRewardClosed;
             YandexSDK.instance.onRewardedAdError += OnRewardError;
         }
-
-        public void OnDisabled()
+        
+        private void OnDestroy()
         {
             YandexSDK.instance.onRewardedAdReward -= OnRewardShowed;
             YandexSDK.instance.onRewardedAdClosed -= OnRewardClosed;
@@ -37,7 +37,7 @@ namespace Global.Publisher.Advertisement.Abstract
 
             var result = await _rewardedCompletion.Task;
             AudioListener.pause = false;
-
+            Debug.Log("Asdas");
             return result;
         }
 
@@ -48,6 +48,8 @@ namespace Global.Publisher.Advertisement.Abstract
 
         private void OnRewardClosed(int data)
         {
+            Debug.Log("Aassssssdas");
+
             _rewardedCompletion.TrySetResult(RewardAdResult.Canceled);
         }
 

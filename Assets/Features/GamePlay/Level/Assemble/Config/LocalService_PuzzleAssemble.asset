@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30eeeecb803a4e439a2f6b3ef4c96725, type: 3}
   m_Name: LocalService_PuzzleAssemble
   m_EditorClassIdentifier: 
-  _scene: Puzzle
-  _config: {fileID: 11400000, guid: 20944333206c27b41b5975396a66fc26, type: 2}
-  _prefab: {fileID: 1649378567058281646, guid: 7fc8b8d01066dde48a537d505588e088, type: 3}
+  _constraints: {fileID: 11400000, guid: 933e3be5afc5a764fb3b425e8ec5cd09, type: 2}
+  _scene: UI_Assemble

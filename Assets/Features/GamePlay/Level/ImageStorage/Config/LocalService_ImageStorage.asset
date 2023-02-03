@@ -20,5 +20,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfedeb63ec3a42c45ac67e3d7c71aadc, type: 2}
   - {fileID: 11400000, guid: c9be3e7d91e150b48b091e7ad59c87b7, type: 2}
   - {fileID: 11400000, guid: 74854a4d740092a419c11caabc5b75ae, type: 2}
-  - {fileID: 11400000, guid: 6d65532656ce143488db20148d3576ca, type: 2}
-  _prefab: {fileID: 7311291299993652114, guid: a2c47b2b7ef7c144890f7a498db8f0f5, type: 3}

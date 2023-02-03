@@ -29,5 +29,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Features/GamePlay/Level/UI/Overlay/Config/UI_LevelOverlay.unity
     guid: 678a0960cf34ff94bb2058c53a7d247f
+  - enabled: 1
+    path: Assets/Features/GamePlay/Level/UI/Win/Config/UI_WinScreen.unity
+    guid: ebc8643b40ba2d64485957e6a4436ab3
+  - enabled: 1
+    path: Assets/Features/GamePlay/Level/Assemble/Config/UI_Assemble.unity
+    guid: d07f611f8c91d6145af4e6125fb82586
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 5a3ed49a556d3114ebe26d284bf8363e, type: 2}

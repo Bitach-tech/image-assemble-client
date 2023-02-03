@@ -1,0 +1,22 @@
+﻿{
+  "name": "GamePlay.Assembler.Editor",
+  "rootNamespace": "",
+  "references": [
+    "GUID:5f85ab5dc178ff54c81b21f197b82d14",
+    "GUID:18e9d57ec63640c99ded4f46129f46dc",
+    "GUID:cfba8c61bd67424180fc0af3d0eaa9b5",
+    "GUID:d945054fb520ae0408f2ec087ffa5163",
+    "GUID:94f05903d4b6439a8b84f8f5bdf27729"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -22,7 +22,7 @@ namespace GamePlay.Level.UI.Overlay.Runtime
         private UiConstraints _constraints;
 
         public UiConstraints Constraints => _constraints;
-        public string Name => "ToolSelection";
+        public string Name => "LevelOverlay";
 
         private void Awake()
         {

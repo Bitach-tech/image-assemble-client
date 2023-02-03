@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5722cd434ec44e52ad8384070e333966, type: 3}
   m_Name: LocalService_LevelLoop
   m_EditorClassIdentifier: 
+  _randomCount: 5
   _logSettings: {fileID: 11400000, guid: 31207c82d090b844aa4b7757eb91c258, type: 2}
-  _prefab: {fileID: 4947052624251553994, guid: 9d8e86b7e5aa2284aa2727ba5c91f167, type: 3}
