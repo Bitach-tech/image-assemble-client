@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using GamePlay.Common.Paths;
 using GamePlay.Level.ImageStorage.Common;
 using GamePlay.Level.ImageStorage.Runtime;
 using Sirenix.OdinInspector;
@@ -39,11 +38,11 @@ namespace GamePlay.Level.ImageStorage.Editor
             var fileName = Path.GetFileNameWithoutExtension(assetPath);
 
             var rects = new List<Rect>();
-            
+
             foreach (var slice in _levelsSlices)
             {
                 var height = Mathf.FloorToInt((float)texture.height / slice);
-                
+
                 for (var i = 0; i < slice; i++)
                 {
                     var rectPosition = new Vector2(0, height * i);
@@ -57,13 +56,13 @@ namespace GamePlay.Level.ImageStorage.Editor
                     rects.Add(rect);
                 }
             }
-            
+
             var preview = new Rect
             {
                 position = Vector2.zero,
                 size = new Vector2(texture.width, texture.height)
             };
-            
+
             rects.Add(preview);
 
             var rectCounter = 0;
@@ -105,7 +104,7 @@ namespace GamePlay.Level.ImageStorage.Editor
             asset.SetLevel1(PickRange(sprites, 1));
             asset.SetLevel2(PickRange(sprites, 2));
             asset.SetLevel3(PickRange(sprites, 3));
-            
+
             asset.SetPreview(sprites[^1]);
         }
 
@@ -116,14 +115,14 @@ namespace GamePlay.Level.ImageStorage.Editor
                 case 0:
                 {
                     var result = sprites[.._levelsSlices[0]];
-                    
+
                     return result.Reverse().ToArray();
                 }
                 case 1:
                 {
                     var startIndex = _levelsSlices[0];
                     var endIndex = startIndex + _levelsSlices[1];
-                    
+
                     var result = sprites[startIndex..endIndex];
 
                     return result.Reverse().ToArray();
@@ -134,7 +133,7 @@ namespace GamePlay.Level.ImageStorage.Editor
                     var endIndex = startIndex + _levelsSlices[2];
 
                     var result = sprites[startIndex..endIndex];
-                    
+
                     return result.Reverse().ToArray();
                 }
                 case 3:
@@ -143,7 +142,7 @@ namespace GamePlay.Level.ImageStorage.Editor
                     var endIndex = startIndex + _levelsSlices[3];
 
                     var result = sprites[startIndex..endIndex];
-                    
+
                     return result.Reverse().ToArray();
                 }
             }

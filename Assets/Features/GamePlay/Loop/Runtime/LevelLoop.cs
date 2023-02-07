@@ -12,7 +12,6 @@ using GamePlay.Menu.Runtime;
 using Global.Cameras.CurrentCameras.Runtime;
 using Global.Publisher.Advertisement.Abstract;
 using Global.System.MessageBrokers.Runtime;
-using UnityEngine;
 
 namespace GamePlay.Loop.Runtime
 {
@@ -106,7 +105,7 @@ namespace GamePlay.Loop.Runtime
                 images.Add(storedImages[counter]);
                 counter++;
             }
-            
+
             _assembler.Begin(images.ToArray(), data.Difficulty);
         }
 

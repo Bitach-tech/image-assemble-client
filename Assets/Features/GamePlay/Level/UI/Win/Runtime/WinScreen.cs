@@ -1,5 +1,4 @@
-﻿using System;
-using GamePlay.Loop.Events;
+﻿using GamePlay.Loop.Events;
 using Global.System.MessageBrokers.Runtime;
 using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
@@ -20,7 +19,7 @@ namespace Features.GamePlay.Level.UI.Win.Runtime
 
         [SerializeField] private GameObject _body;
         [SerializeField] private Button _menuButton;
-        
+
         private UiConstraints _constraints;
         private IUiStateMachine _stateMachine;
 
@@ -36,7 +35,7 @@ namespace Features.GamePlay.Level.UI.Win.Runtime
         {
             _menuButton.onClick.AddListener(OnMenuClicked);
         }
-        
+
         private void OnDisable()
         {
             _menuButton.onClick.RemoveListener(OnMenuClicked);
@@ -48,7 +47,7 @@ namespace Features.GamePlay.Level.UI.Win.Runtime
             _stateMachine.EnterAsStack(this);
             _body.SetActive(true);
         }
-        
+
         public void Recover()
         {
             _body.SetActive(true);

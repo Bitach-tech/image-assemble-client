@@ -14,9 +14,9 @@ namespace GamePlay.Level.Assemble.Runtime
         public void Show(Sprite[] correctImage, Sprite[][] otherImages)
         {
             var length = correctImage.Length;
-            
+
             CreateOnDemand(length);
-            
+
             _active.Clear();
 
             for (var i = 0; i < length; i++)
@@ -44,14 +44,12 @@ namespace GamePlay.Level.Assemble.Runtime
         public bool IsAssembled()
         {
             foreach (var active in _active)
-            {
                 if (active.IsCorrect == false)
                     return false;
-            }
 
             return true;
         }
-        
+
         private void CreateOnDemand(int total)
         {
             var delta = total - _views.Length;

@@ -1,5 +1,4 @@
-﻿using Common.Local.Services.Abstract.Callbacks;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Global.Setup.Service;
 using Plugins.YandexGames.Runtime;
 using UnityEngine;
@@ -16,7 +15,7 @@ namespace Global.Publisher.Advertisement.Abstract
             YandexSDK.instance.onRewardedAdClosed += OnRewardClosed;
             YandexSDK.instance.onRewardedAdError += OnRewardError;
         }
-        
+
         private void OnDestroy()
         {
             YandexSDK.instance.onRewardedAdReward -= OnRewardShowed;

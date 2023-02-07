@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Codice.Client.ChangeTrackerService;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -49,11 +47,11 @@ namespace GamePlay.Level.Assemble.Runtime
             var size = _root.sizeDelta;
             size.y = correct.rect.height;
             _root.sizeDelta = size;
-            
+
             size = _view.sizeDelta;
             size.y = correct.rect.height;
             _view.sizeDelta = size;
-            
+
             var all = new List<Sprite>(others) { correct };
             _viewsCount = all.Count;
 
@@ -78,7 +76,7 @@ namespace GamePlay.Level.Assemble.Runtime
                 var viewSize = view.rectTransform.sizeDelta;
                 viewSize.y = size.y;
                 view.rectTransform.sizeDelta = viewSize;
-                
+
                 view.gameObject.SetActive(true);
                 view.sprite = all[i];
             }
@@ -120,7 +118,7 @@ namespace GamePlay.Level.Assemble.Runtime
 
             MoveTo(_current);
         }
-        
+
         private void MoveTo(int index)
         {
             var position = -_width * index;
@@ -141,7 +139,7 @@ namespace GamePlay.Level.Assemble.Runtime
         {
             _leftButton.gameObject.SetActive(true);
             _rightButton.gameObject.SetActive(true);
-            
+
             if (_current == 0)
                 _leftButton.gameObject.SetActive(false);
 

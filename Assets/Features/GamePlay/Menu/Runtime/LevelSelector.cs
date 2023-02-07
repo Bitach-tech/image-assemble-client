@@ -26,15 +26,15 @@ namespace GamePlay.Menu.Runtime
             _button.onClick.RemoveListener(OnClicked);
         }
 
-         public void Construct(bool isRewardable)
-         {
-             _isRewardable = isRewardable;
-        
-             if (_isRewardable == true)
-                 _adSign.SetActive(true);
-             else
-                 _adSign.SetActive(false);
-         }
+        public void Construct(bool isRewardable)
+        {
+            _isRewardable = isRewardable;
+
+            if (_isRewardable == true)
+                _adSign.SetActive(true);
+            else
+                _adSign.SetActive(false);
+        }
 
         private void OnClicked()
         {

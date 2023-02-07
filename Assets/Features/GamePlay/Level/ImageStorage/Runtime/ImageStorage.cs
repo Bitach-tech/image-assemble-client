@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace GamePlay.Level.ImageStorage.Runtime
@@ -21,13 +22,13 @@ namespace GamePlay.Level.ImageStorage.Runtime
         {
             var list = new List<LevelImage>(_images);
             Shuffle(list);
-            
+
             return new ReadOnlyCollection<LevelImage>(list);
         }
-        
+
         private void Shuffle(IList<LevelImage> array)
         {
-            var random = new System.Random();
+            var random = new Random();
 
             var index = array.Count;
 

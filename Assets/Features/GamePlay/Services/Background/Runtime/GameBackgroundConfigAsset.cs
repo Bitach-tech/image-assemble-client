@@ -1,5 +1,4 @@
 ﻿using GamePlay.Background.Common;
-using GamePlay.Common.Paths;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

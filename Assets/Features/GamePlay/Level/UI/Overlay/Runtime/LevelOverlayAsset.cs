@@ -1,7 +1,6 @@
 ﻿using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
 using Cysharp.Threading.Tasks;
-using GamePlay.Common.Paths;
 using GamePlay.Level.UI.Overlay.Common;
 using Global.Scenes.ScenesFlow.Handling.Data;
 using Global.Scenes.ScenesFlow.Runtime.Abstract;

@@ -17,7 +17,7 @@ namespace Features.GamePlay.Level.UI.Win.Runtime
     {
         [SerializeField] private UiConstraints _constraints;
         [SerializeField] [Scene] private string _scene;
-        
+
         public async UniTask Create(IDependencyRegister builder,
             ILocalServiceBinder serviceBinder,
             ISceneLoader sceneLoader,

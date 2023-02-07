@@ -7,7 +7,7 @@ namespace Global.UI.LoadingScreens.Runtime
     public class LoadingAnimation : MonoBehaviour
     {
         [SerializeField] [Min(0f)] private float _speed;
-        
+
         [SerializeField] private ProceduralImage _image;
 
         private float _progress;

@@ -2,7 +2,6 @@
 using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
 using Common.NestedScriptableObjects.Attributes;
-using GamePlay.Common.Paths;
 using GamePlay.Level.ImageStorage.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;

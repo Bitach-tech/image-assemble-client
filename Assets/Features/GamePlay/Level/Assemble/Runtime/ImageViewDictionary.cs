@@ -5,8 +5,7 @@ using GamePlay.Loop.Difficulties;
 namespace GamePlay.Level.Assemble.Runtime
 {
     [Serializable]
-    public class ImageViewDictionary : ReadOnlyDictionary<LevelDifficulty,ImageView>
+    public class ImageViewDictionary : ReadOnlyDictionary<LevelDifficulty, ImageView>
     {
-        
     }
 }

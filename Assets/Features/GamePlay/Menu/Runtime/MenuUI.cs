@@ -45,12 +45,10 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
 
             for (var i = 0; i < _selectors.Count; i++)
-            {
                 if (i >= _freeCounter)
                     _selectors[i].Construct(true);
                 else
                     _selectors[i].Construct(false);
-            }
         }
 
         public void OnEnabled()
@@ -92,7 +90,7 @@ namespace GamePlay.Menu.Runtime
         {
             if (isRewardable == true)
                 await _ads.ShowRewarded();
-            
+
             var clicked = new PlayClickEvent(difficulty);
             Msg.Publish(clicked);
         }

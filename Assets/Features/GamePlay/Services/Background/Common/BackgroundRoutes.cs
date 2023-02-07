@@ -8,7 +8,7 @@ namespace GamePlay.Background.Common
 
         public const string ServicePath = _paths + "Service";
         public const string ServiceName = GamePlayAssetsPrefixes.Service + "Background";
-        
+
         public const string ConfigPath = _paths + "Config";
         public const string ConfigName = GamePlayAssetsPrefixes.Config + "Background";
     }
