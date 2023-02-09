@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 namespace GamePlay.Level.Assemble.Runtime
@@ -11,8 +14,15 @@ namespace GamePlay.Level.Assemble.Runtime
 
         private readonly List<PartView> _active = new();
 
+        private void Awake()
+        {
+            transform.localScale = Vector3.zero;
+        }
+
         public void Show(Sprite[] correctImage, Sprite[][] otherImages)
         {
+            transform.DOScale(Vector3.one, 1f);
+
             var length = correctImage.Length;
 
             CreateOnDemand(length);
@@ -66,6 +76,37 @@ namespace GamePlay.Level.Assemble.Runtime
                 var view = Instantiate(_views[0], _views[0].transform.parent);
                 _views[startLength + i] = view;
             }
+        }
+
+        public async UniTask Hide(CancellationToken cancellation)
+        {
+            var completion = new UniTaskCompletionSource();
+            
+            var delay = 1500;
+
+            await UniTask.Delay(delay, DelayType.DeltaTime, PlayerLoopTiming.Update, cancellation);
+
+            void OnHidden()
+            {
+                completion.TrySetResult();
+            }
+
+            var sequence = DOTween.Sequence();
+
+            sequence.Append(transform.DOScale(Vector3.zero, 1f));
+            sequence.AppendCallback(OnHidden);
+            sequence.Play();
+
+            await using(cancellation.Register(() =>
+                   {
+                       Debug.Log("Canceled");
+                       completion.TrySetCanceled();
+                   }))
+            {
+                await completion.Task;
+            }
+            
+            Debug.Log("Played");
         }
     }
 }

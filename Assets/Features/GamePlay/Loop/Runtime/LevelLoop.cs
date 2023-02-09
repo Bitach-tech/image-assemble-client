@@ -111,6 +111,7 @@ namespace GamePlay.Loop.Runtime
 
         private void OnMenuClicked(MenuRequestEvent data)
         {
+            _assembler.Stop();
             _menuUI.Open();
         }
     }

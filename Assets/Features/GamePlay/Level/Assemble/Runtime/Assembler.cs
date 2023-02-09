@@ -88,6 +88,10 @@ namespace GamePlay.Level.Assemble.Runtime
                 _preview.sprite = image.Preview;
 
                 await UniTask.WaitUntil(() => view.IsAssembled() == true, PlayerLoopTiming.Update, _cancellation.Token);
+                
+                view.Lock();
+
+                await view.Hide(_cancellation.Token);
             }
 
             Msg.Publish(new AssembledEvent());
