@@ -1,8 +1,8 @@
 ﻿using Common.ReadOnlyDictionaries.Editor;
-using Global.System.ResourcesCleaners.Logs;
+using Global.ResourcesCleaners.Logs;
 using UnityEditor;
 
-namespace Global.System.ResourcesCleaners.Editor
+namespace Global.ResourcesCleaners.Editor
 {
     [ReadOnlyDictionaryPriority]
     [CustomPropertyDrawer(typeof(ResourcesCleanerLogs))]

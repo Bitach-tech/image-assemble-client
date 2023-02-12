@@ -1,4 +1,4 @@
-﻿using Global.System.Loggers.Runtime;
+﻿using Global.Loggers.Runtime;
 using UnityEngine.SceneManagement;
 
 namespace Global.Scenes.ScenesFlow.Logs

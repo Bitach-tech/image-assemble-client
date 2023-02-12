@@ -1,4 +1,4 @@
-﻿namespace Global.System.ApplicationProxies.Runtime
+﻿namespace Global.ApplicationProxies.Runtime
 {
     public interface IApplicationFlow
     {

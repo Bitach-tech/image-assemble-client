@@ -1,6 +1,6 @@
-﻿using Global.System.Loggers.Runtime;
+﻿using Global.Loggers.Runtime;
 
-namespace Global.System.MessageBrokers.Logs
+namespace Global.MessageBrokers.Logs
 {
     public class MessageBrokerLogger
     {

@@ -1,6 +1,6 @@
 ﻿using Global.Common;
 
-namespace Global.System.ApplicationProxies.Common
+namespace Global.ApplicationProxies.Common
 {
     public static class ApplicationProxyRoutes
     {

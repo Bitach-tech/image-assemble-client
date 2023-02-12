@@ -1,4 +1,4 @@
-﻿using Global.System.Loggers.Runtime;
+﻿using Global.Loggers.Runtime;
 using Global.UI.LoadingScreens.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;

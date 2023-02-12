@@ -1,12 +1,12 @@
 ﻿using Common.DiContainer.Abstract;
+using Global.MessageBrokers.Common;
+using Global.MessageBrokers.Logs;
 using Global.Setup.Service;
-using Global.System.MessageBrokers.Common;
-using Global.System.MessageBrokers.Logs;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
 
-namespace Global.System.MessageBrokers.Runtime
+namespace Global.MessageBrokers.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = MessageBrokerRouter.ServiceName,

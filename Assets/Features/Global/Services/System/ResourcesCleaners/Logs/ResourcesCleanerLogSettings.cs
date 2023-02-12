@@ -1,9 +1,9 @@
-﻿using Global.System.Loggers.Runtime;
-using Global.System.ResourcesCleaners.Common;
+﻿using Global.Loggers.Runtime;
+using Global.ResourcesCleaners.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.System.ResourcesCleaners.Logs
+namespace Global.ResourcesCleaners.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     [CreateAssetMenu(fileName = ResourcesCleanerRouter.LogsName,

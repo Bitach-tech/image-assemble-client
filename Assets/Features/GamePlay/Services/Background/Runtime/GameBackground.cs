@@ -1,5 +1,5 @@
 ﻿using Common.Local.Services.Abstract.Callbacks;
-using Global.System.Updaters.Runtime.Abstract;
+using Global.Updaters.Runtime.Abstract;
 using UnityEngine;
 using VContainer;
 

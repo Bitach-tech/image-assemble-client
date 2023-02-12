@@ -1,4 +1,4 @@
-﻿namespace Global.System.Loggers.Runtime
+﻿namespace Global.Loggers.Runtime
 {
     public interface ILogger
     {

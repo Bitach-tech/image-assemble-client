@@ -1,4 +1,4 @@
-﻿namespace Global.System.Updaters.Runtime.Abstract
+﻿namespace Global.Updaters.Runtime.Abstract
 {
     public interface IPostFixedUpdatable
     {

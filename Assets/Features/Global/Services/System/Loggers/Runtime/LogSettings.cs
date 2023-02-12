@@ -2,7 +2,7 @@
 using Common.ReadOnlyDictionaries.Runtime;
 using UnityEngine;
 
-namespace Global.System.Loggers.Runtime
+namespace Global.Loggers.Runtime
 {
     public abstract class LogSettings<TDictionary, TEnum> : ScriptableObject
         where TDictionary : ReadOnlyDictionary<TEnum, bool>

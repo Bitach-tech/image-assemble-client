@@ -1,6 +1,6 @@
 ﻿using Global.Common;
 
-namespace Global.System.Loggers.Common
+namespace Global.Loggers.Common
 {
     public static class LoggerRoutes
     {

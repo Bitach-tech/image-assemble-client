@@ -1,7 +1,7 @@
 ﻿using System;
 using UniRx;
 
-namespace Global.System.MessageBrokers.Runtime
+namespace Global.MessageBrokers.Runtime
 {
     public static class Msg
     {
