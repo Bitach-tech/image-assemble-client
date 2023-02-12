@@ -1,5 +1,5 @@
 ﻿using GamePlay.Level.UI.Overlay.Runtime;
-using Global.Publisher.Advertisement.Abstract;
+using Global.Publisher.Abstract.Advertisment;
 using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
 

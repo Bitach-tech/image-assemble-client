@@ -1,46 +1,51 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using Eiko.YaSDK.Editor;
+#endif
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace Plugins.YandexGames.Runtime
+namespace Eiko.YaSDK
 {
-    public class YandexSDK : MonoBehaviour
-    {
-#if UNITY_EDITOR
-        [HideInInspector] public CanvasAddEditor editorCanvas;
-#endif
+    public class YandexSDK : MonoBehaviour {
+
+    #if UNITY_EDITOR
+        [HideInInspector]
+        public CanvasAddEditor editorCanvas;
+    #endif
         public const int ReloadAdsSeconds = 30;
 
+    
         public static YandexSDK instance;
-
         [DllImport("__Internal")]
         private static extern void GetUserData();
-
         [DllImport("__Internal")]
         private static extern void ShowFullscreenAd();
-
+        /// <summary>
+        /// Returns an int value which is sent to index.html
+        /// </summary>
+        /// <param name="placement"></param>
+        /// <returns></returns>
         [DllImport("__Internal")]
         private static extern int ShowRewardedAd(string placement);
-
+        //[DllImport("__Internal")]
+        //private static extern void GerReward();
         [DllImport("__Internal")]
         private static extern void AuthenticateUser();
-
         [DllImport("__Internal")]
         private static extern void InitPurchases();
-
         [DllImport("__Internal")]
         private static extern void Purchase(string id);
-
         [DllImport("__Internal")]
         private static extern string GetLang();
 
         [DllImport("__Internal")]
         private static extern void Review();
+        
 
-        [DllImport("__Internal")]
-        private static extern void SetLeaderBoard(int score);
 
         public event Action addsOnReloaded;
         public event Action onUserDataReceived;
@@ -85,32 +90,27 @@ namespace Plugins.YandexGames.Runtime
 
         public string Lang = "ru";
 
-        private void Awake()
-        {
-            if (instance == null)
-            {
+        private void Awake() {
+            if (instance == null) {
                 instance = this;
                 DontDestroyOnLoad(gameObject);
-/*#if !UNITY_EDITOR && UNITY_WEBGL
+#if !UNITY_EDITOR && UNITY_WEBGL
                 Lang = GetLang();
-#endif*/
+#endif
             }
-            else
-            {
+            else {
                 Destroy(gameObject);
             }
-
             StartCoroutine(WaitAddReload());
 #if UNITY_EDITOR
-            editorCanvas = Instantiate(editorCanvas);
+            editorCanvas =  Instantiate(editorCanvas);
 #endif
         }
 
         /// <summary>
         /// Call this to ask user to authenticate
         /// </summary>
-        public void Authenticate()
-        {
+        public void Authenticate() {
 #if !UNITY_EDITOR && UNITY_WEBGL
             AuthenticateUser();
 #endif
@@ -119,9 +119,8 @@ namespace Plugins.YandexGames.Runtime
         /// <summary>
         /// Call this to show interstitial ad. Don't call frequently. There is a 3 minute delay after each show.
         /// </summary>
-        public void ShowInterstitial()
-        {
-            if (addsAvailable)
+        public void ShowInterstitial() {
+            if(addsAvailable)
             {
                 StartCoroutine(WaitAddReload());
 #if !UNITY_EDITOR && UNITY_WEBGL
@@ -141,8 +140,7 @@ namespace Plugins.YandexGames.Runtime
         /// Call this to show rewarded ad
         /// </summary>
         /// <param name="placement"></param>
-        public void ShowRewarded(string placement)
-        {
+        public void ShowRewarded(string placement) {
 #if !UNITY_EDITOR && UNITY_WEBGL
             int placemantId = ShowRewardedAd(placement);
 #else
@@ -150,39 +148,36 @@ namespace Plugins.YandexGames.Runtime
 #endif
             rewardedAdPlacementsAsInt.Enqueue(placemantId);
             rewardedAdsPlacements.Enqueue(placement);
+            Time.timeScale = 0;
             AudioListener.pause = true;
 #if UNITY_EDITOR
             editorCanvas.OpenReward(placemantId);
-
+            
 #endif
         }
 
         /// <summary>
         /// Call this to receive user data
         /// </summary>
-        public void RequestUserData()
-        {
+        public void RequestUserData() {
 #if !UNITY_EDITOR && UNITY_WEBGL
             GetUserData();
 #endif
         }
-
-        public void InitializePurchases()
-        {
+    
+        public void InitializePurchases() {
 #if !UNITY_EDITOR && UNITY_WEBGL
             InitPurchases();
 #endif
         }
 
-        public void ProcessPurchase(string id)
-        {
+        public void ProcessPurchase(string id) {
 #if !UNITY_EDITOR && UNITY_WEBGL
             Purchase(id);
 #endif
         }
-
-        public void StoreUserData(string data)
-        {
+    
+        public void StoreUserData(string data) {
             user = JsonUtility.FromJson<UserData>(data);
             onUserDataReceived?.Invoke();
         }
@@ -190,8 +185,7 @@ namespace Plugins.YandexGames.Runtime
         /// <summary>
         /// Callback from index.html
         /// </summary>
-        public void OnInterstitialShown()
-        {
+        public void OnInterstitialShown() {
             Time.timeScale = 1;
             onInterstitialShown?.Invoke();
         }
@@ -200,8 +194,7 @@ namespace Plugins.YandexGames.Runtime
         /// Callback from index.html
         /// </summary>
         /// <param name="error"></param>
-        public void OnInterstitialError(string error)
-        {
+        public void OnInterstitialError(string error) {
             Time.timeScale = 1;
             onInterstitialFailed?.Invoke(error);
         }
@@ -210,8 +203,7 @@ namespace Plugins.YandexGames.Runtime
         /// Callback from index.html
         /// </summary>
         /// <param name="placement"></param>
-        public void OnRewardedOpen(int placement)
-        {
+        public void OnRewardedOpen(int placement) {
             onRewardedAdOpened?.Invoke(placement);
         }
 
@@ -219,21 +211,21 @@ namespace Plugins.YandexGames.Runtime
         /// Callback from index.html
         /// </summary>
         /// <param name="placement"></param>
-        public void OnRewarded(int placement)
-        {
+        public void OnRewarded(int placement) {
             Time.timeScale = 1;
-            onRewardedAdReward?.Invoke(rewardedAdsPlacements.Dequeue());
+            if (placement == rewardedAdPlacementsAsInt.Dequeue()) {
+                onRewardedAdReward?.Invoke(rewardedAdsPlacements.Dequeue());
+            }
+
         }
 
         /// <summary>
         /// Callback from index.html
         /// </summary>
         /// <param name="placement"></param>
-        public void OnRewardedClose(int placement)
-        {
+        public void OnRewardedClose(int placement) {
             AudioListener.pause = false;
             Time.timeScale = 1;
-            Debug.Log("Close");
             onRewardedAdClosed?.Invoke(placement);
         }
 
@@ -241,8 +233,7 @@ namespace Plugins.YandexGames.Runtime
         /// Callback from index.html
         /// </summary>
         /// <param name="placement"></param>
-        public void OnRewardedError(string placement)
-        {
+        public void OnRewardedError(string placement) {
             Time.timeScale = 1;
             AudioListener.pause = false;
             onRewardedAdError?.Invoke(placement);
@@ -254,8 +245,7 @@ namespace Plugins.YandexGames.Runtime
         /// Callback from index.html
         /// </summary>
         /// <param name="id"></param>
-        public void OnPurchaseSuccess(string id)
-        {
+        public void OnPurchaseSuccess(string id) {
             onPurchaseSuccess?.Invoke(id);
         }
 
@@ -263,20 +253,18 @@ namespace Plugins.YandexGames.Runtime
         /// Callback from index.html
         /// </summary>
         /// <param name="error"></param>
-        public void OnPurchaseFailed(string error)
-        {
+        public void OnPurchaseFailed(string error) {
             onPurchaseFailed?.Invoke(error);
         }
-
+    
         /// <summary>
         /// Browser tab has been closed
         /// </summary>
         /// <param name="error"></param>
-        public void OnClose()
-        {
+        public void OnClose() {
             onClose?.Invoke();
         }
-
+    
         public IEnumerator WaitAddReload()
         {
             addsAvailable = false;
@@ -284,20 +272,19 @@ namespace Plugins.YandexGames.Runtime
             addsAvailable = true;
             addsOnReloaded?.Invoke();
         }
-
         public void ShowReview(Action<ReviewCallback> action = null)
         {
             actionReview = action;
             if (IsReviewed)
             {
                 OnReview(JsonUtility.ToJson(
-                    new ReviewCallback()
-                    {
-                        CanReview = false,
-                        FeedbackSent = false,
-                        Reason = IsReviewed ? "GAME_RATED" : "Success"
-                    }));
-
+                new ReviewCallback()
+                {
+                    CanReview = false,
+                    FeedbackSent = false,
+                    Reason = IsReviewed ? "GAME_RATED" : "Success"
+                }));
+                
                 return;
             }
 #if !UNITY_EDITOR && UNITY_WEBGL
@@ -306,16 +293,14 @@ namespace Plugins.YandexGames.Runtime
             editorCanvas.ShowReview();
 #endif
         }
-
         public void OnReview(string callback)
         {
             ReviewCallback review = JsonUtility.FromJson<ReviewCallback>(callback);
-            if (review.FeedbackSent)
+            if(review.FeedbackSent)
             {
                 IsReviewed = true;
             }
-
-            actionReview?.Invoke(review);
+            actionReview?.Invoke(review);            
         }
     }
 
@@ -326,8 +311,7 @@ namespace Plugins.YandexGames.Runtime
         public bool FeedbackSent;
     }
 
-    public struct UserData
-    {
+    public struct UserData {
         public string id;
         public string name;
         public string avatarUrlSmall;

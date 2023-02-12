@@ -34,17 +34,15 @@ mergeInto(LibraryManager.library, {
   },
 
   GetLang: function () {
-    var lang = sdk.environment.i18n.lang;
-    var bufferSize = lengthBytesUTF8(lang) + 1;
+    var urlParams = window.location.search.replace( '?', '');
+    var returnStr = new URLSearchParams(urlParams).get("lang");
+    var bufferSize = lengthBytesUTF8(returnStr) + 1;
     var buffer = _malloc(bufferSize);
-    stringToUTF8(lang, buffer, bufferSize);
+    stringToUTF8(returnStr, buffer, bufferSize);
     return buffer;
   },
   Review: function () {
     ShowReview();
-  },
-
-SetLeaderBoard: function(score){
-    SetLeaderBoard(score);
   }
+
 });

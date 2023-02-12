@@ -1,11 +1,11 @@
 ﻿using GamePlay.Loop.Events;
-using Global.System.MessageBrokers.Runtime;
+using Global.MessageBrokers.Runtime;
 using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
-namespace Features.GamePlay.Level.UI.Win.Runtime
+namespace GamePlay.Level.UI.Win.Runtime
 {
     [DisallowMultipleComponent]
     public class WinScreen : MonoBehaviour, IWinScreen, IUiState

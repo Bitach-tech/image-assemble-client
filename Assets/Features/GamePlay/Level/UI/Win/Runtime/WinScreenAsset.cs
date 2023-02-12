@@ -9,7 +9,7 @@ using NaughtyAttributes;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Features.GamePlay.Level.UI.Win.Runtime
+namespace GamePlay.Level.UI.Win.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = WinRoutes.ServiceName, menuName = WinRoutes.ServicePath)]

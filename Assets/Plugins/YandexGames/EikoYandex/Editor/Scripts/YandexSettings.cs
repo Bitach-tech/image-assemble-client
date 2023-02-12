@@ -1,71 +1,83 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-namespace Plugins.YandexGames.EikoYandex.Editor.Scripts
+public class YandexSettings : EditorWindow
 {
-    public class YandexSettings : EditorWindow
+    public const string CssPath = "TemplateData/style.css";
+    public const string lanscape = "width: 100%; height: 100%;";
+    public const string Portrait = "aspect-ratio: 0.5625;";
+    public const string ReplaceTag = "!DisplayMode!";
+
+    public YandexSettingsWraper wraper;
+
+    [MenuItem("Yandex/Settings")]
+    static void Init()
     {
-        private const string _cssPath = "TemplateData/style.css";
-        private const string _lanscape = "width: 100%; height: 100%;";
-        private const string _portrait = "aspect-ratio: 0.5625;";
-        private const string _replaceTag = "!DisplayMode!";
-
-        private YandexSettingsWrapper _wrapper;
-
-        [MenuItem("Yandex/Settings")]
-        static void Init()
+        YandexSettings window = (YandexSettings)EditorWindow.GetWindow(typeof(YandexSettings));
+        if(EditorPrefs.HasKey(nameof(YandexSettings)))
         {
-            YandexSettings window = (YandexSettings)EditorWindow.GetWindow(typeof(YandexSettings));
-            if (EditorPrefs.HasKey(nameof(YandexSettings)))
-            {
-                window._wrapper = JsonUtility.FromJson<YandexSettingsWrapper>(
+            window.wraper = JsonUtility.FromJson<YandexSettingsWraper>(
                     EditorPrefs.GetString(nameof(YandexSettings)));
-            }
-            else
-            {
-                window._wrapper = new YandexSettingsWrapper();
-            }
-
-            window.Show();
         }
-
-        private void OnDisable()
+        else
         {
-            EditorPrefs.SetString(
-                nameof(YandexSettings),
-                JsonUtility.ToJson(_wrapper)
+            window.wraper = new YandexSettingsWraper();
+        }
+        window.Show();
+    }
+    private void OnDisable()
+    {
+        EditorPrefs.SetString(
+            nameof(YandexSettings), 
+            JsonUtility.ToJson(wraper)
             );
-        }
-
-        private void OnGUI()
+    }
+    private void OnGUI()
+    {
+        if(wraper==null)
         {
-            if (_wrapper == null)
-                return;
-
-            _wrapper.mode = (DisplayMode)EditorGUILayout.EnumPopup("DisplayMode", _wrapper.mode);
+            Debug.Log("aaa");   
         }
-
-        [PostProcessBuild(1)]
-        public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject)
+        wraper.mode = (DisplayMode)EditorGUILayout.EnumPopup("DisplayMode", wraper.mode);
+    }
+    [PostProcessBuild(1)]
+    public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject)
+    {
+        if(target == BuildTarget.WebGL)
         {
-            if (target != BuildTarget.WebGL)
-                return;
-            
-            var yandex = JsonUtility.FromJson<YandexSettingsWrapper>(
+            YandexSettingsWraper YA =  JsonUtility.FromJson<YandexSettingsWraper>(
                 EditorPrefs.GetString(nameof(YandexSettings)));
 
-            var pathToCss = Path.Combine(pathToBuiltProject, _cssPath);
-            string str;
+            var pathToCss = Path.Combine(pathToBuiltProject, CssPath);
+            string str = string.Empty;
 
-            using (var reader = File.OpenText(pathToCss))
+            using (StreamReader reader = File.OpenText(pathToCss))
+            {
                 str = reader.ReadToEnd();
+            }
 
-            str = str.Replace(_replaceTag, yandex.mode == DisplayMode.Portrait ? _portrait : _lanscape);
+            str = str.Replace(ReplaceTag, YA.mode == DisplayMode.Portrait? Portrait : lanscape);
 
-            using (var file = new StreamWriter(pathToCss))
+            using (StreamWriter file = new StreamWriter(pathToCss))
+            {
                 file.Write(str);
+            }
         }
     }
+}
+[Serializable]
+public class YandexSettingsWraper
+{
+    public DisplayMode mode = DisplayMode.Landscape;
+}
+[Serializable]
+public enum DisplayMode
+{
+    Portrait,
+    Landscape
 }

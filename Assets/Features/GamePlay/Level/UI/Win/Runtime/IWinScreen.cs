@@ -1,4 +1,4 @@
-﻿namespace Features.GamePlay.Level.UI.Win.Runtime
+﻿namespace GamePlay.Level.UI.Win.Runtime
 {
     public interface IWinScreen
     {
