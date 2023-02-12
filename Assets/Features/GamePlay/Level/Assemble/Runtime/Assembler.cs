@@ -17,8 +17,9 @@ namespace GamePlay.Level.Assemble.Runtime
     public class Assembler : MonoBehaviour, IAssembler, IUiState
     {
         [Inject]
-        private void Construct(IUiStateMachine uiStateMachine, UiConstraints constraints)
+        private void Construct(IUiStateMachine uiStateMachine, IUpdater updater, UiConstraints constraints)
         {
+            _updater = updater;
             _constraints = constraints;
             _uiStateMachine = uiStateMachine;
         }
@@ -84,14 +85,14 @@ namespace GamePlay.Level.Assemble.Runtime
                 for (var i = 0; i < list.Count; i++)
                     others[i] = PickSprites(list[i], difficulty);
 
-                view.Show(correct, others);
+                view.Show(correct, others, _updater);
                 _preview.sprite = image.Preview;
 
                 await UniTask.WaitUntil(() => view.IsAssembled() == true, PlayerLoopTiming.Update, _cancellation.Token);
                 
                 view.Lock();
 
-                await view.Hide(_cancellation.Token);
+                await view.Hide(_cancellation.Token, _updater);
             }
 
             Msg.Publish(new AssembledEvent());

@@ -40,7 +40,7 @@ namespace Global.Publisher.Yandex.Debugs.Purchases
         {
             _body.SetActive(true);
 
-            _key.text = key;
+            _key.text = $"key: {key}";
             
             _current = key;
         }

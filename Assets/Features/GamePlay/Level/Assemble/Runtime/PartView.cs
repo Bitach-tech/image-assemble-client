@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Global.Updaters.Runtime.Abstract;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -7,13 +8,15 @@ using Random = UnityEngine.Random;
 namespace GamePlay.Level.Assemble.Runtime
 {
     [DisallowMultipleComponent]
-    public class PartView : MonoBehaviour
+    public class PartView : MonoBehaviour, IUpdatable
     {
+        private const float _speed = 2500f;
+        private const float _epsilon = 1f;
+
         [SerializeField] private Button _leftButton;
         [SerializeField] private Button _rightButton;
 
         [SerializeField] private RectTransform _root;
-        [SerializeField] private RectTransform _view;
 
         [SerializeField] private Image[] _views;
 
@@ -21,7 +24,9 @@ namespace GamePlay.Level.Assemble.Runtime
         private float _width;
         private int _current;
         private int _viewsCount;
-        private int _correctIndex;
+        private float _correctX;
+
+        private Vector2 _targetPosition;
 
         public bool IsCorrect => _isCorrect;
 
@@ -44,13 +49,7 @@ namespace GamePlay.Level.Assemble.Runtime
 
         public void Construct(Sprite correct, Sprite[] others)
         {
-            var size = _root.sizeDelta;
-            size.y = correct.rect.height;
-            _root.sizeDelta = size;
-
-            size = _view.sizeDelta;
-            size.y = correct.rect.height;
-            _view.sizeDelta = size;
+            _isCorrect = false;
 
             var all = new List<Sprite>(others) { correct };
             _viewsCount = all.Count;
@@ -67,15 +66,12 @@ namespace GamePlay.Level.Assemble.Runtime
                 if (all[i] != correct)
                     continue;
 
-                _correctIndex = i;
+                _correctX = -_width * i;
             }
 
             for (var i = 0; i < all.Count; i++)
             {
                 var view = _views[i];
-                var viewSize = view.rectTransform.sizeDelta;
-                viewSize.y = size.y;
-                view.rectTransform.sizeDelta = viewSize;
 
                 view.gameObject.SetActive(true);
                 view.sprite = all[i];
@@ -122,14 +118,20 @@ namespace GamePlay.Level.Assemble.Runtime
         private void MoveTo(int index)
         {
             var position = -_width * index;
-            _root.anchoredPosition = new Vector2(position, 0f);
+            _targetPosition = new Vector2(position, 0f);
+
             SwitchButtons();
-            SetCorrect();
         }
 
-        private void SetCorrect()
+        public void OnUpdate(float delta)
         {
-            if (_current == _correctIndex)
+            var position = Vector2.MoveTowards(_root.anchoredPosition, _targetPosition, _speed * delta);
+            
+            _root.anchoredPosition = position;
+
+            var distance = Mathf.Abs(position.x - _correctX);
+
+            if (distance < _epsilon)
                 _isCorrect = true;
             else
                 _isCorrect = false;

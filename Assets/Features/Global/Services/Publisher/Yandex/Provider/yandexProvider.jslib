@@ -72,6 +72,9 @@ mergeInto(LibraryManager.library,
                         SendDataCallback("OnInterstitialShown", error);
                     }
                 }
+            }).catch(error =>
+            {
+                SendDataCallback("OnInterstitialShown", error);
             })
         },
 
@@ -99,6 +102,9 @@ mergeInto(LibraryManager.library,
                         SendDataCallback("OnRewardedError", e);
                     }
                 }
+            }).catch(error =>
+            {
+                SendDataCallback("OnRewardedError", error);
             })
         },
 

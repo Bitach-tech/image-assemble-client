@@ -106,6 +106,8 @@ namespace GamePlay.Level.ImageStorage.Editor
             asset.SetLevel3(PickRange(sprites, 3));
 
             asset.SetPreview(sprites[^1]);
+            
+            EditorUtility.SetDirty(asset);
         }
 
         private Sprite[] PickRange(Sprite[] sprites, int level)

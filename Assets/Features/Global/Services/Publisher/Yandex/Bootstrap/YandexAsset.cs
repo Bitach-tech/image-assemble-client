@@ -46,7 +46,7 @@ namespace Global.Publisher.Yandex.Bootstrap
             RegisterModules(builder);
 
             if (Application.isEditor == true)
-                await RegisterEditorApis(builder, sceneLoader);
+                await RegisterEditorApis(builder, sceneLoader, yandexCallbacks);
             else
                 RegisterBuildApis(builder);
         }
@@ -75,12 +75,17 @@ namespace Global.Publisher.Yandex.Bootstrap
 
         private async UniTask RegisterEditorApis(
             IDependencyRegister builder,
-            IGlobalSceneLoader sceneLoader)
+            IGlobalSceneLoader sceneLoader,
+            YandexCallbacks callbacks)
         {
             var sceneData = new InternalScene<YandexDebugCanvas>(_debugScene);
             var loadResult = await sceneLoader.LoadAsync(sceneData);
 
             var canvas = loadResult.Searched;
+            
+            canvas.Ads.Construct(callbacks);
+            canvas.Reviews.Construct(callbacks);
+            canvas.Purchase.Construct(callbacks);
 
             builder.Register<AdsDebugAPI>()
                 .As<IAdsAPI>()

@@ -8,7 +8,7 @@ namespace Global.Publisher.Yandex.Advertisement
         private static extern void ShowFullscreenAd();
 
         [DllImport("__Internal")]
-        private static extern int ShowRewardedAd(string placement);
+        private static extern int ShowRewardedAd();
 
         public void ShowInterstitial_Internal()
         {
@@ -17,7 +17,7 @@ namespace Global.Publisher.Yandex.Advertisement
 
         public void ShowRewarded_Internal()
         {
-            ShowRewardedAd("1");
+            ShowRewardedAd();
         }
     }
 }

@@ -11,8 +11,6 @@ namespace Global.Publisher.Yandex.Debugs.Ads
     {
         private const float _rewardTime = 5f;
 
-        [SerializeField] private GameObject _body;
-        
         [SerializeField] private GameObject _interstitial;
         [SerializeField] private GameObject _rewarded;
 
@@ -44,8 +42,6 @@ namespace Global.Publisher.Yandex.Debugs.Ads
         {
             Close();
 
-            _body.SetActive(true);
-
             _interstitial.SetActive(true);
         }
 
@@ -53,8 +49,6 @@ namespace Global.Publisher.Yandex.Debugs.Ads
         {
             Close();
             
-            _body.SetActive(true);
-
             _rewarded.SetActive(true);
             _rewardedCloseButton.gameObject.SetActive(false);
 
@@ -81,8 +75,6 @@ namespace Global.Publisher.Yandex.Debugs.Ads
         {
             _interstitial.SetActive(false);
             _rewarded.SetActive(false);
-            
-            _body.SetActive(false);
         }
 
         private void OnInterstitialCloseClicked()

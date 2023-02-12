@@ -12,7 +12,6 @@ namespace Global.Publisher.Yandex.Common
         public event Action<string> RewardedAdError;
         public event Action<string> PurchaseSuccess;
         public event Action<string> PurchaseFailed;
-        public event Action Closed;
         public event Action Reviewed;
         
         public void OnUserDataReceived(string data)
@@ -50,11 +49,6 @@ namespace Global.Publisher.Yandex.Common
             PurchaseFailed?.Invoke(error);
         }
 
-        public void OnClose()
-        {
-            Closed?.Invoke();
-        }
-        
         public void OnReview()
         {
             Reviewed?.Invoke();

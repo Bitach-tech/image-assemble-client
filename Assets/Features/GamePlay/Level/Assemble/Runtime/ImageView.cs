@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Global.Updaters.Runtime.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Level.Assemble.Runtime
@@ -19,8 +20,11 @@ namespace GamePlay.Level.Assemble.Runtime
             transform.localScale = Vector3.zero;
         }
 
-        public void Show(Sprite[] correctImage, Sprite[][] otherImages)
+        public void Show(Sprite[] correctImage, Sprite[][] otherImages, IUpdater updater)
         {
+            foreach (var view in _views)
+                updater.Add(view);
+            
             transform.DOScale(Vector3.one, 1f);
 
             var length = correctImage.Length;
@@ -78,11 +82,14 @@ namespace GamePlay.Level.Assemble.Runtime
             }
         }
 
-        public async UniTask Hide(CancellationToken cancellation)
+        public async UniTask Hide(CancellationToken cancellation, IUpdater updater)
         {
-            var completion = new UniTaskCompletionSource();
+            foreach (var view in _views)
+                updater.Remove(view);
             
-            var delay = 1500;
+            var completion = new UniTaskCompletionSource();
+
+            const int delay = 1500;
 
             await UniTask.Delay(delay, DelayType.DeltaTime, PlayerLoopTiming.Update, cancellation);
 
@@ -97,16 +104,10 @@ namespace GamePlay.Level.Assemble.Runtime
             sequence.AppendCallback(OnHidden);
             sequence.Play();
 
-            await using(cancellation.Register(() =>
-                   {
-                       Debug.Log("Canceled");
-                       completion.TrySetCanceled();
-                   }))
+            await using (cancellation.Register(() => { completion.TrySetCanceled(); }))
             {
                 await completion.Task;
             }
-            
-            Debug.Log("Played");
         }
     }
 }
