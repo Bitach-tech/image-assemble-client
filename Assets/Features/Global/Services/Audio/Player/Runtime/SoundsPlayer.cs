@@ -3,12 +3,28 @@
 namespace Global.Audio.Player.Runtime
 {
     [DisallowMultipleComponent]
-    public class SoundsPlayer : MonoBehaviour
+    public class SoundsPlayer : MonoBehaviour, IVolumeSwitcher
     {
         [SerializeField] private AudioSource _musicSource;
 
         [SerializeField] private AudioSource[] _soundSources;
 
+        private float _musicVolume;
+        private float _soundVolume;
+
+        public void Mute()
+        {
+            _musicVolume = _musicSource.volume;
+            _soundVolume = _soundSources[0].volume;
+            
+            SetVolume(0f, 0f);
+        }
+
+        public void Unmute()
+        {
+            SetVolume(_musicVolume, _soundVolume);
+        }
+        
         public void SetVolume(float music, float sound)
         {
             _musicSource.volume = music;

@@ -22,32 +22,28 @@ namespace Global.Publisher.Yandex.Advertisement
 
         public async UniTask Show()
         {
+            var completion = new UniTaskCompletionSource<InterstitialResult>();
+            
+            void OnShown()
+            {
+                completion.TrySetResult(InterstitialResult.Success);
+            }
+
+            void OnFailed(string message)
+            {
+                Debug.LogError($"Interstitial failed: {message}");
+                completion.TrySetResult(InterstitialResult.Fail);
+            }
+            
             _callbacks.InterstitialShown += OnShown;
             _callbacks.InterstitialFailed += OnFailed;
 
-            _completion = new UniTaskCompletionSource<InterstitialResult>();
-
-            AudioListener.pause = true;
-
-            _ads.ShowInterstitial();
+            _ads.ShowInterstitial_Internal();
             
-            await _completion.Task;
-            
-            AudioListener.pause = false;
+            await completion.Task;
 
             _callbacks.InterstitialShown -= OnShown;
             _callbacks.InterstitialFailed -= OnFailed;
-        }
-
-        private void OnShown()
-        {
-            _completion.TrySetResult(InterstitialResult.Success);
-        }
-
-        private void OnFailed(string message)
-        {
-            Debug.LogError($"Interstitial failed: {message}");
-            _completion.TrySetResult(InterstitialResult.Fail);
         }
     }
 }

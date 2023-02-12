@@ -1,4 +1,5 @@
 ﻿using Global.Setup.Service;
+using Global.Setup.Service.Callbacks;
 using Global.Updaters.Logs;
 using Global.Updaters.Runtime.Abstract;
 using UnityEngine;
@@ -26,6 +27,7 @@ namespace Global.Updaters.Runtime
         private UpdaterLogger _logger;
 
         private float _speed = 1f;
+        private float _setSpeed = 1f;
 
         private void Update()
         {
@@ -180,6 +182,18 @@ namespace Global.Updaters.Runtime
                 speedModifiable.OnSpeedModified(speed);
 
             _logger.OnSpeedModified(speed);
+        }
+        
+        public void Pause()
+        {
+            _setSpeed = _speed;
+
+            Set(0f);
+        }
+
+        public void Continue()
+        {
+            Set(_setSpeed);
         }
     }
 }

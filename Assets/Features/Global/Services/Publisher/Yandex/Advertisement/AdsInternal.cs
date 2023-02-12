@@ -10,12 +10,12 @@ namespace Global.Publisher.Yandex.Advertisement
         [DllImport("__Internal")]
         private static extern int ShowRewardedAd(string placement);
 
-        public void ShowInterstitial()
+        public void ShowInterstitial_Internal()
         {
             ShowFullscreenAd();
         }
 
-        public void ShowRewarded()
+        public void ShowRewarded_Internal()
         {
             ShowRewardedAd("1");
         }

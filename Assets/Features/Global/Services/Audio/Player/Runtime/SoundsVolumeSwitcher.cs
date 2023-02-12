@@ -2,6 +2,7 @@
 using GamePlay.Overlays.SoundSwitches.Runtime;
 using Global.MessageBrokers.Runtime;
 using Global.Setup.Service;
+using Global.Setup.Service.Callbacks;
 using UnityEngine;
 
 namespace Global.Audio.Player.Runtime

@@ -7,7 +7,8 @@ using Global.Debugs.Console.Runtime;
 using Global.Inputs.View.Runtime;
 using Global.Loggers.Runtime;
 using Global.MessageBrokers.Runtime;
-using Global.Publisher.Bootstrap;
+using Global.Pauses.Runtime;
+using Global.Publisher.Abstract.Bootstrap;
 using Global.ResourcesCleaners.Runtime;
 using Global.Scenes.CurrentSceneHandlers.Runtime;
 using Global.Scenes.ScenesFlow.Runtime;
@@ -19,31 +20,59 @@ using Global.UI.UiStateMachines.Runtime;
 using Global.Updaters.Runtime;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using LocalizationAsset = Global.UI.Localizations.Runtime.LocalizationAsset;
 
 namespace Global.Setup.Implementation
 {
     [InlineEditor]
-    [CreateAssetMenu(fileName = "GlobalConfig",
-        menuName = "Global/Config")]
+    [CreateAssetMenu(fileName = "GlobalConfig", menuName = "Global/Config")]
     public class GlobalServicesConfigAsset : GlobalServicesConfig
     {
-        [SerializeField] private ApplicationProxyAsset _applicationProxy;
-        [SerializeField] private CameraUtilsAsset _cameraUtils;
-        [SerializeField] private CurrentCameraAsset _currentCamera;
-        [SerializeField] private CurrentSceneHandlerAsset _currentSceneHandler;
-        [SerializeField] private GlobalCameraAsset _globalCamera;
-        [SerializeField] private InputViewAsset _inputView;
-        [SerializeField] private LoadingScreenAsset _loadingScreen;
-        [SerializeField] private LoggerAsset _logger;
-        [SerializeField] private ResourcesCleanerAsset _resourcesCleaner;
-        [SerializeField] private ScenesFlowAsset _scenesFlow;
-        [SerializeField] private UpdaterAsset _updater;
-        [SerializeField] private DebugConsoleAsset _debugConsole;
-        [SerializeField] private MessageBrokerAsset _messageBroker;
-        [SerializeField] private UiStateMachineAsset _uiStateMachine;
+        [FoldoutGroup("Audio")]
         [SerializeField] private SoundsPlayerAsset _soundsPlayer;
-        [SerializeField] private OverlayAsset _overlay;
+
+        [FoldoutGroup("Camera")]
+        [SerializeField] private CameraUtilsAsset _cameraUtils;
+        [FoldoutGroup("Camera")]
+        [SerializeField] private CurrentCameraAsset _currentCamera;
+        [FoldoutGroup("Camera")]
+        [SerializeField] private GlobalCameraAsset _globalCamera;
+
+        [FoldoutGroup("Debugs")]
+        [SerializeField] private DebugConsoleAsset _debugConsole;
+        
+        [FoldoutGroup("Input")]
+        [SerializeField] private InputViewAsset _inputView;
+        
+        [FoldoutGroup("Publisher")]
         [SerializeField] private PublisherSdkAsset _publisherSdk;
+        
+        [FoldoutGroup("Scenes")]
+        [SerializeField] private CurrentSceneHandlerAsset _currentSceneHandler;
+        [FoldoutGroup("Scenes")]
+        [SerializeField] private ScenesFlowAsset _scenesFlow;
+
+        [FoldoutGroup("System")]
+        [SerializeField] private ApplicationProxyAsset _applicationProxy;
+        [FoldoutGroup("System")]
+        [SerializeField] private LoggerAsset _logger;
+        [FoldoutGroup("System")]
+        [SerializeField] private MessageBrokerAsset _messageBroker;
+        [FoldoutGroup("System")]
+        [SerializeField] private PauseAsset _pause;
+        [FoldoutGroup("System")]
+        [SerializeField] private ResourcesCleanerAsset _resourcesCleaner;
+        [FoldoutGroup("System")]
+        [SerializeField] private UpdaterAsset _updater;
+
+        [FoldoutGroup("UI")]
+        [SerializeField] private LoadingScreenAsset _loadingScreen;
+        [FoldoutGroup("UI")]
+        [SerializeField] private LocalizationAsset _localization;
+        [FoldoutGroup("UI")]
+        [SerializeField] private OverlayAsset _overlay;
+        [FoldoutGroup("UI")]
+        [SerializeField] private UiStateMachineAsset _uiStateMachine;
 
         public override IGlobalServiceFactory[] GetFactories()
         {
@@ -63,7 +92,9 @@ namespace Global.Setup.Implementation
                 _messageBroker,
                 _uiStateMachine,
                 _soundsPlayer,
-                _publisherSdk
+                _publisherSdk,
+                _localization,
+                _pause
             };
         }
 

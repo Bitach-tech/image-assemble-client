@@ -18,44 +18,32 @@ namespace Global.Publisher.Yandex.Advertisement
         private readonly YandexCallbacks _callbacks;
         private readonly AdsInternal _ads;
 
-        private UniTaskCompletionSource<RewardAdResult> _rewardedCompletion;
-
         public async UniTask<RewardAdResult> Show()
         {
-            _callbacks.RewardedAdReward += OnRewardShowed;
-            _callbacks.RewardedAdClosed += OnRewardClosed;
-            _callbacks.RewardedAdError += OnRewardError;
-
-            _rewardedCompletion = new UniTaskCompletionSource<RewardAdResult>();
-
-            AudioListener.pause = true;
-
-            _ads.ShowRewarded();
+            var completion = new UniTaskCompletionSource<RewardAdResult>();
             
-            var result = await _rewardedCompletion.Task;
-            
-            AudioListener.pause = false;
+            void OnClosed()
+            {
+                completion.TrySetResult(RewardAdResult.Canceled);
+            }
 
-            _callbacks.RewardedAdReward -= OnRewardShowed;
-            _callbacks.RewardedAdClosed -= OnRewardClosed;
-            _callbacks.RewardedAdError -= OnRewardError;
+            void OnError(string message)
+            {
+                Debug.LogError($"Interstitial failed: {message}");
+                completion.TrySetResult(RewardAdResult.Error);
+            }
+            
+            _callbacks.RewardedAdClosed += OnClosed;
+            _callbacks.RewardedAdError += OnError;
+
+            _ads.ShowRewarded_Internal();
+            
+            var result = await completion.Task;
+            
+            _callbacks.RewardedAdClosed -= OnClosed;
+            _callbacks.RewardedAdError -= OnError;
 
             return result;
-        }
-
-        private void OnRewardShowed(string data)
-        {
-            _rewardedCompletion.TrySetResult(RewardAdResult.Applied);
-        }
-
-        private void OnRewardClosed(int data)
-        {
-            _rewardedCompletion.TrySetResult(RewardAdResult.Canceled);
-        }
-
-        private void OnRewardError(string data)
-        {
-            _rewardedCompletion.TrySetResult(RewardAdResult.Error);
         }
     }
 }

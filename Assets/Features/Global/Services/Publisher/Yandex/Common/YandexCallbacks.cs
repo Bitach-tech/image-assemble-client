@@ -5,21 +5,19 @@ namespace Global.Publisher.Yandex.Common
 {
     public class YandexCallbacks : MonoBehaviour
     {
-        public event Action<UserData> UserDataReceived;
+        public event Action<string> UserDataReceived;
         public event Action InterstitialShown;
         public event Action<string> InterstitialFailed;
-        public event Action<int> RewardedAdOpened;
-        public event Action<string> RewardedAdReward;
-        public event Action<int> RewardedAdClosed;
+        public event Action RewardedAdClosed;
         public event Action<string> RewardedAdError;
         public event Action<string> PurchaseSuccess;
         public event Action<string> PurchaseFailed;
         public event Action Closed;
-        public event Action Reviwed;
+        public event Action Reviewed;
         
-        public void StoreUserData(string data)
+        public void OnUserDataReceived(string data)
         {
-            UserDataReceived?.Invoke(JsonUtility.FromJson<UserData>(data));
+            UserDataReceived?.Invoke(JsonUtility.FromJson<string>(data));
         }
         
         public void OnInterstitialShown()
@@ -32,24 +30,14 @@ namespace Global.Publisher.Yandex.Common
             InterstitialFailed?.Invoke(error);
         }
 
-        public void OnRewardedOpen(int placement)
+        public void OnRewardedClose()
         {
-            RewardedAdOpened?.Invoke(placement);
+            RewardedAdClosed?.Invoke();
         }
 
-        public void OnRewarded(int placement)
+        public void OnRewardedError(string error)
         {
-            RewardedAdReward?.Invoke(placement.ToString());
-        }
-
-        public void OnRewardedClose(int placement)
-        {
-            RewardedAdClosed?.Invoke(placement);
-        }
-
-        public void OnRewardedError(string placement)
-        {
-            RewardedAdError?.Invoke(placement);
+            RewardedAdError?.Invoke(error);
         }
 
         public void OnPurchaseSuccess(string id)
@@ -69,7 +57,7 @@ namespace Global.Publisher.Yandex.Common
         
         public void OnReview(string callback)
         {
-            Reviwed?.Invoke();
+            Reviewed?.Invoke();
         }
     }
 }

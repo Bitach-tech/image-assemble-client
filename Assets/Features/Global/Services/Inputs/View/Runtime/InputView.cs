@@ -4,6 +4,7 @@ using Global.Inputs.Constranits.Definition;
 using Global.Inputs.Constranits.Storage;
 using Global.Inputs.View.Logs;
 using Global.Setup.Service;
+using Global.Setup.Service.Callbacks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;

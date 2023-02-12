@@ -28,4 +28,6 @@ MonoBehaviour:
   _uiStateMachine: {fileID: 11400000, guid: 2690e14f4af6ab843bac352463df3ee6, type: 2}
   _soundsPlayer: {fileID: 11400000, guid: 4a6a716ae9c4454418344f45046c1fad, type: 2}
   _overlay: {fileID: 11400000, guid: f85acf7899cb5fe4cb6c6dc03789bca0, type: 2}
-  _publisherSdk: {fileID: 11400000, guid: a5cbc801bd28a2746a88abcfbc41036c, type: 2}
+  _publisherSdk: {fileID: 11400000, guid: e6f74e9a77cf96644a9adec1fb4ed1cf, type: 2}
+  _localization: {fileID: 11400000, guid: 024ab526c90be39488815de7d2b2f729, type: 2}
+  _pause: {fileID: 11400000, guid: 5ea1a97ef8482ae4bb86c669f4bb711d, type: 2}

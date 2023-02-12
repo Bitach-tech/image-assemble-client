@@ -1,5 +1,6 @@
 ﻿using Global.Cameras.GlobalCameras.Logs;
 using Global.Setup.Service;
+using Global.Setup.Service.Callbacks;
 using UnityEngine;
 using VContainer;
 
