@@ -92,7 +92,6 @@ namespace Global.Setup.Implementation
                 _messageBroker,
                 _uiStateMachine,
                 _soundsPlayer,
-                _publisherSdk,
                 _localization,
                 _pause
             };
@@ -103,7 +102,8 @@ namespace Global.Setup.Implementation
             return new IGlobalServiceAsyncFactory[]
             {
                 _loadingScreen,
-                _overlay
+                _overlay,
+                _publisherSdk,
             };
         }
     }

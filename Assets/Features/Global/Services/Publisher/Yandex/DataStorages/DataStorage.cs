@@ -9,13 +9,14 @@ namespace Global.Publisher.Yandex.DataStorages
 {
     public class DataStorage : IDataStorage, IGlobalAsyncAwakeListener
     {
-        public DataStorage(YandexCallbacks callbacks)
+        public DataStorage(YandexCallbacks callbacks, IStorageAPI api)
         {
             _callbacks = callbacks;
+            _api = api;
         }
         
         private readonly YandexCallbacks _callbacks;
-        private readonly DataStorageInternal _internal = new();
+        private readonly IStorageAPI _api;
         
         private Dictionary<string, object> _data = new();
         
@@ -31,7 +32,7 @@ namespace Global.Publisher.Yandex.DataStorages
 
             _callbacks.UserDataReceived += OnReceived;
             
-            _internal.Get_Internal();
+            _api.Get_Internal();
 
             _data = await completion.Task;
             
@@ -54,7 +55,7 @@ namespace Global.Publisher.Yandex.DataStorages
 
             var json = JsonUtility.ToJson(_data);
 
-            _internal.Set_Internal(json);
+            _api.Set_Internal(json);
         }
     }
 }

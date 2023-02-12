@@ -18,6 +18,20 @@
         <option value="$PROJECT_DIR$/Assets/Scenes" />
         <option value="$PROJECT_DIR$/Assets/Settings" />
         <option value="$PROJECT_DIR$/Assets/WebGLTemplates" />
+        <option value="$PROJECT_DIR$/Assets/Features/Common" />
+        <option value="$PROJECT_DIR$/Assets/Features/GamePlay" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Bootstrappers" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Common" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Config" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/GameLoops" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/Audio" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/Cameras" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/Debugs" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/Inputs" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/Scenes" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/Setup" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/System" />
+        <option value="$PROJECT_DIR$/Assets/Features/Global/Services/UI" />
       </list>
     </option>
   </component>

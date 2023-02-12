@@ -4,13 +4,18 @@ namespace Global.Publisher.Yandex.Leaderboard
 {
     public class Leaderboards : ILeaderboards
     {
-        private readonly LeaderboardsInternal _internal = new();
+        public Leaderboards(ILeaderboardsAPI api)
+        {
+            _api = api;
+        }
+        
+        private readonly ILeaderboardsAPI _api;
         
         public void SetScore(ILeaderboardEntry entry, int score)
         {
             var target = entry.GetLeaderboardName();
             
-            _internal.SetLeaderBoard_Internal(target, score);
+            _api.SetLeaderBoard_Internal(target, score);
         }
     }
 }

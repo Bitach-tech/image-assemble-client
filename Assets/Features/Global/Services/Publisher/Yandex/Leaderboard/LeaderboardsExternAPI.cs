@@ -2,7 +2,7 @@
 
 namespace Global.Publisher.Yandex.Leaderboard
 {
-    public class LeaderboardsInternal
+    public class LeaderboardsExternAPI : ILeaderboardsAPI
     {
         [DllImport("__Internal")]
         private static extern void SetLeaderBoard(string target, int score);

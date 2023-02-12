@@ -1,4 +1,4 @@
-mergeInto(LibraryManager.library, 
+mergeInto(LibraryManager.library,
     {
 
         Review: function ()
@@ -12,12 +12,17 @@ mergeInto(LibraryManager.library,
                             .then(({feedbackSent}) =>
                             {
                                 console.log(feedbackSent);
+                                SendCallback("OnReview");
                             })
                     } else
                     {
                         console.log(reason)
+                        SendCallback("OnReview");
                     }
-                })
+                }).catch(error =>
+            {
+                SendCallback("OnReview");
+            })
         },
 
         SaveUserData: function (data)

@@ -2,7 +2,7 @@
 
 namespace Global.Publisher.Yandex.Purchases
 {
-    public class PurchasesInternal
+    public class PurchasesExternAPI : IPurchasesAPI
     {
         [DllImport("__Internal")]
         private static extern void Purchase(string id);

@@ -2,7 +2,7 @@
 
 namespace Global.Publisher.Yandex.Languages
 {
-    public class LanguageInternal
+    public class LanguageExternAPI : ILanguageAPI
     {
         [DllImport("__Internal")]
         private static extern string GetLang();

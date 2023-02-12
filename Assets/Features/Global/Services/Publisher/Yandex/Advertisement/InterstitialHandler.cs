@@ -9,14 +9,14 @@ namespace Global.Publisher.Yandex.Advertisement
     {
         public InterstitialHandler(
             YandexCallbacks callbacks,
-            AdsInternal ads)
+            IAdsAPI adsAPI)
         {
             _callbacks = callbacks;
-            _ads = ads;
+            _api = adsAPI;
         }
 
         private readonly YandexCallbacks _callbacks;
-        private readonly AdsInternal _ads;
+        private readonly IAdsAPI _api;
 
         private UniTaskCompletionSource<InterstitialResult> _completion;
 
@@ -38,7 +38,7 @@ namespace Global.Publisher.Yandex.Advertisement
             _callbacks.InterstitialShown += OnShown;
             _callbacks.InterstitialFailed += OnFailed;
 
-            _ads.ShowInterstitial_Internal();
+            _api.ShowInterstitial_Internal();
             
             await completion.Task;
 

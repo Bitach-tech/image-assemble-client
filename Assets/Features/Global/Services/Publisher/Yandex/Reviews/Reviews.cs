@@ -7,15 +7,16 @@ namespace Global.Publisher.Yandex.Reviews
 {
     public class Reviews : IReviews
     {
-        public Reviews(YandexCallbacks callbacks, IPause pause)
+        public Reviews(YandexCallbacks callbacks, IPause pause, IReviewsAPI api)
         {
             _callbacks = callbacks;
             _pause = pause;
+            _api = api;
         }
 
         private readonly YandexCallbacks _callbacks;
         private readonly IPause _pause;
-        private readonly ReviewsInternal _internal = new();
+        private readonly IReviewsAPI _api;
 
         private bool _isReviewed;
         
@@ -35,7 +36,7 @@ namespace Global.Publisher.Yandex.Reviews
             
             _callbacks.Reviewed += OnReviewed;
             
-            _internal.ShowReview();
+            _api.Review_Internal();
 
             _isReviewed = true;
 

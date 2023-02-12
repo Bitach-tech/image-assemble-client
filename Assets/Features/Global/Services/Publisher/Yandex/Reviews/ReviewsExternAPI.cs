@@ -2,12 +2,12 @@
 
 namespace Global.Publisher.Yandex.Reviews
 {
-    public class ReviewsInternal
+    public class ReviewsExternAPI : IReviewsAPI
     {
         [DllImport("__Internal")]
         private static extern void Review();
 
-        public void ShowReview()
+        public void Review_Internal()
         {
             Review();
         }

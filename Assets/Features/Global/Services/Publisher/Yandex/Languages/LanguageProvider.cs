@@ -5,7 +5,12 @@ namespace Global.Publisher.Yandex.Languages
 {
     public class LanguageProvider : ILanguageProvider
     {
-        private readonly LanguageInternal _internal = new();
+        public LanguageProvider(ILanguageAPI api)
+        {
+            _externAPI = api;
+        }
+        
+        private readonly ILanguageAPI _externAPI;
         
         private bool _isLanguageReceived;
         private Language _selected;
@@ -15,13 +20,13 @@ namespace Global.Publisher.Yandex.Languages
             if (_isLanguageReceived == true)
                 return _selected;
 
-            var raw = _internal.GetLanguage_Internal();
+            var raw = _externAPI.GetLanguage_Internal();
             _isLanguageReceived = true;
 
             return raw switch
             {
                 "ru" => Language.Ru,
-                "eng" => Language.Eng,
+                "en" => Language.Eng,
                 _ => Language.Ru
             };
         }

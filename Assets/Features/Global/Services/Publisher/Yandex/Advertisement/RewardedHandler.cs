@@ -9,14 +9,14 @@ namespace Global.Publisher.Yandex.Advertisement
     {
         public RewardedHandler(
             YandexCallbacks callbacks,
-            AdsInternal ads)
+            IAdsAPI adsAPI)
         {
             _callbacks = callbacks;
-            _ads = ads;
+            _api = adsAPI;
         }
 
         private readonly YandexCallbacks _callbacks;
-        private readonly AdsInternal _ads;
+        private readonly IAdsAPI _api;
 
         public async UniTask<RewardAdResult> Show()
         {
@@ -36,7 +36,7 @@ namespace Global.Publisher.Yandex.Advertisement
             _callbacks.RewardedAdClosed += OnClosed;
             _callbacks.RewardedAdError += OnError;
 
-            _ads.ShowRewarded_Internal();
+            _api.ShowRewarded_Internal();
             
             var result = await completion.Task;
             

@@ -55,7 +55,7 @@ namespace Global.Publisher.Yandex.Common
             Closed?.Invoke();
         }
         
-        public void OnReview(string callback)
+        public void OnReview()
         {
             Reviewed?.Invoke();
         }

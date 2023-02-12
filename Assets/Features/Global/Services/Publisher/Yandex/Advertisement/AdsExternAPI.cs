@@ -2,7 +2,7 @@
 
 namespace Global.Publisher.Yandex.Advertisement
 {
-    public class AdsInternal
+    public class AdsExternAPI : IAdsAPI
     {
         [DllImport("__Internal")]
         private static extern void ShowFullscreenAd();

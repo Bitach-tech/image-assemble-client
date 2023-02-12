@@ -2,7 +2,7 @@
 
 namespace Global.Publisher.Yandex.DataStorages
 {
-    public class DataStorageInternal
+    public class StorageExternAPI : IStorageAPI
     {
         [DllImport("__Internal")]
         private static extern void GetUserData();
