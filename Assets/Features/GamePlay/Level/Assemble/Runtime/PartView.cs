@@ -21,9 +21,11 @@ namespace GamePlay.Level.Assemble.Runtime
         [SerializeField] private Image[] _views;
 
         private bool _isCorrect;
-        private float _width;
+        
         private int _current;
         private int _viewsCount;
+        
+        private float _width;
         private float _correctX;
 
         private Vector2 _targetPosition;

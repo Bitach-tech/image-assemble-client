@@ -5,6 +5,7 @@ using GamePlay.Background.Runtime;
 using GamePlay.Loop.Difficulties;
 using Global.MessageBrokers.Runtime;
 using Global.Publisher.Abstract.Advertisment;
+using Global.Publisher.Abstract.DataStorages;
 using Global.UI.UiStateMachines.Runtime;
 using UnityEngine;
 using VContainer;
@@ -19,8 +20,10 @@ namespace GamePlay.Menu.Runtime
             IUiStateMachine uiStateMachine,
             IGameBackground background,
             IAds ads,
+            IDataStorage storage,
             UiConstraints constraints)
         {
+            _storage = storage;
             _ads = ads;
             _background = background;
             _uiStateMachine = uiStateMachine;
@@ -36,6 +39,7 @@ namespace GamePlay.Menu.Runtime
 
         private IGameBackground _background;
         private IAds _ads;
+        private IDataStorage _storage;
 
         public UiConstraints Constraints => _constraints;
         public string Name => "MainMenu";
@@ -44,11 +48,21 @@ namespace GamePlay.Menu.Runtime
         {
             _body.SetActive(false);
 
+            if (_storage.HasKey("save") == false)
+            {
+                var newSave = new SelectionAdsSave();
+                _storage.SetValue("save", newSave);
+            }
+
+            var save = _storage.GetValue<SelectionAdsSave>("save");
+            
             for (var i = 0; i < _selectors.Count; i++)
-                if (i >= _freeCounter)
-                    _selectors[i].Construct(true);
+            {
+                if (i >= _freeCounter && save.IsRewarded(i) == false)
+                    _selectors[i].Construct(true, i);
                 else
-                    _selectors[i].Construct(false);
+                    _selectors[i].Construct(false, i);
+            }
         }
 
         public void OnEnabled()
@@ -81,16 +95,20 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
         }
 
-        private void OnSelected(LevelDifficulty difficulty, bool isRewardable)
+        private void OnSelected(LevelDifficulty difficulty, bool isRewardable, int id)
         {
-            ProcessSelection(difficulty, isRewardable).Forget();
+            ProcessSelection(difficulty, isRewardable, id).Forget();
         }
 
-        private async UniTaskVoid ProcessSelection(LevelDifficulty difficulty, bool isRewardable)
+        private async UniTaskVoid ProcessSelection(LevelDifficulty difficulty, bool isRewardable, int id)
         {
             if (isRewardable == true)
                 await _ads.ShowRewarded();
-
+            
+            var save = _storage.GetValue<SelectionAdsSave>("save");
+            save.OnRewarded(id);
+            _storage.SetValue("save", save);
+            
             var clicked = new PlayClickEvent(difficulty);
             Msg.Publish(clicked);
         }

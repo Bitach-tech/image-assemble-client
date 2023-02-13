@@ -6,6 +6,6 @@ namespace Global.Publisher.Abstract.DataStorages
     {
         bool HasKey(string key);
         T GetValue<T>(string key) where T : class;
-        void SetValue<T>(T data, string key);
+        void SetValue<T>(string key, T data);
     }
 }

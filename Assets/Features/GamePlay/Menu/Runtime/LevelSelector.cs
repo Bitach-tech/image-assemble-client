@@ -13,8 +13,9 @@ namespace GamePlay.Menu.Runtime
         [SerializeField] private Button _button;
 
         private bool _isRewardable;
-
-        public event Action<LevelDifficulty, bool> Selected;
+        private int _id;
+        
+        public event Action<LevelDifficulty, bool, int> Selected;
 
         private void OnEnable()
         {
@@ -26,9 +27,10 @@ namespace GamePlay.Menu.Runtime
             _button.onClick.RemoveListener(OnClicked);
         }
 
-        public void Construct(bool isRewardable)
+        public void Construct(bool isRewardable, int id)
         {
             _isRewardable = isRewardable;
+            _id = id;
 
             if (_isRewardable == true)
                 _adSign.SetActive(true);
@@ -40,7 +42,7 @@ namespace GamePlay.Menu.Runtime
         {
             _adSign.SetActive(false);
 
-            Selected?.Invoke(_difficulty, _isRewardable);
+            Selected?.Invoke(_difficulty, _isRewardable, _id);
 
             _isRewardable = false;
         }

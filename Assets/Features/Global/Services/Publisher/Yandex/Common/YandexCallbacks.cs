@@ -16,7 +16,7 @@ namespace Global.Publisher.Yandex.Common
         
         public void OnUserDataReceived(string data)
         {
-            UserDataReceived?.Invoke(JsonUtility.FromJson<string>(data));
+            UserDataReceived?.Invoke(data);
         }
         
         public void OnInterstitialShown()

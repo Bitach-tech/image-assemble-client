@@ -26,6 +26,7 @@ namespace Global.Publisher.Yandex.DataStorages
 
             void OnReceived(string raw)
             {
+                Debug.Log($"Raw: {raw}");
                 var data = JsonUtility.FromJson<Dictionary<string, object>>(raw);
                 completion.TrySetResult(data);
             }
@@ -49,7 +50,7 @@ namespace Global.Publisher.Yandex.DataStorages
             return _data[key] as T;
         }
 
-        public void SetValue<T>(T data, string key)
+        public void SetValue<T>(string key, T data)
         {
             _data[key] = data;
 
