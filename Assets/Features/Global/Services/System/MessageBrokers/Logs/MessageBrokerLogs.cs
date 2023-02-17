@@ -1,7 +1,7 @@
 ﻿using System;
 using Common.ReadOnlyDictionaries.Runtime;
 
-namespace Global.MessageBrokers.Logs
+namespace Global.System.MessageBrokers.Logs
 {
     [Serializable]
     public class MessageBrokerLogs : ReadOnlyDictionary<MessageBrokerLogType, bool>

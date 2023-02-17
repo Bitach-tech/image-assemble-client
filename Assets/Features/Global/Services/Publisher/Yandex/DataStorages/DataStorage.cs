@@ -26,7 +26,6 @@ namespace Global.Publisher.Yandex.DataStorages
 
             void OnReceived(string raw)
             {
-                Debug.Log($"Raw: {raw}");
                 var data = JsonUtility.FromJson<Dictionary<string, object>>(raw);
                 completion.TrySetResult(data);
             }

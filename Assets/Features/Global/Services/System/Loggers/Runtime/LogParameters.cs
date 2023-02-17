@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Common.NestedScriptableObjects.Attributes;
-using Global.Loggers.Runtime.Headers;
+using Global.System.Loggers.Runtime.Headers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Loggers.Runtime
+namespace Global.System.Loggers.Runtime
 {
     [Serializable]
     public class LogParameters

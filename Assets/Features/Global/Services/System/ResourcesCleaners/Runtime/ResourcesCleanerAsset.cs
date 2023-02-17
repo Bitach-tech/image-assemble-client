@@ -1,11 +1,11 @@
 ﻿using Common.DiContainer.Abstract;
-using Global.ResourcesCleaners.Common;
-using Global.ResourcesCleaners.Logs;
 using Global.Setup.Service;
+using Global.System.ResourcesCleaners.Common;
+using Global.System.ResourcesCleaners.Logs;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.ResourcesCleaners.Runtime
+namespace Global.System.ResourcesCleaners.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = ResourcesCleanerRouter.ServiceName,

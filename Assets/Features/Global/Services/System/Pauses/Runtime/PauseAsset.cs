@@ -1,10 +1,10 @@
 ﻿using Common.DiContainer.Abstract;
-using Global.Pauses.Common;
 using Global.Setup.Service;
+using Global.System.Pauses.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Pauses.Runtime
+namespace Global.System.Pauses.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = PauseRoutes.ServiceName, menuName = PauseRoutes.ServicePath)]

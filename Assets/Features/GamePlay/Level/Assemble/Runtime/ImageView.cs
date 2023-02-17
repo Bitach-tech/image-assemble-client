@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Global.Updaters.Runtime.Abstract;
+using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Level.Assemble.Runtime

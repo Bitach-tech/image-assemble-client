@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Global.ApplicationProxies.Runtime
+namespace Global.System.ApplicationProxies.Runtime
 {
     [DisallowMultipleComponent]
     public class ApplicationProxy : IApplicationFlow

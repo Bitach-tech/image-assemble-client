@@ -1,4 +1,4 @@
-﻿namespace Global.Pauses.Runtime
+﻿namespace Global.System.Pauses.Runtime
 {
     public interface IPause
     {

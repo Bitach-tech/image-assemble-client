@@ -108,6 +108,7 @@ namespace GamePlay.Level.ImageStorage.Editor
             asset.SetPreview(sprites[^1]);
             
             EditorUtility.SetDirty(asset);
+            Undo.RecordObject(asset, "Image processed");
         }
 
         private Sprite[] PickRange(Sprite[] sprites, int level)

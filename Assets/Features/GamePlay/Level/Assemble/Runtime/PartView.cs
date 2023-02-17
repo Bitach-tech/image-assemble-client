@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Global.Updaters.Runtime.Abstract;
+using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;

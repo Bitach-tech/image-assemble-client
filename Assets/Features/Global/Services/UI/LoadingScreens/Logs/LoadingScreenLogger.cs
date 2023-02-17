@@ -1,4 +1,4 @@
-﻿using Global.Loggers.Runtime;
+﻿using Global.System.Loggers.Runtime;
 
 namespace Global.UI.LoadingScreens.Logs
 {

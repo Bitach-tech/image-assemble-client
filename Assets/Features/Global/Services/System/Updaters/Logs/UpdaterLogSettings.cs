@@ -1,9 +1,9 @@
-﻿using Global.Loggers.Runtime;
-using Global.Updaters.Common;
+﻿using Global.System.Loggers.Runtime;
+using Global.System.Updaters.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Updaters.Logs
+namespace Global.System.Updaters.Logs
 {
     [InlineEditor(InlineEditorObjectFieldModes.Boxed)]
     [CreateAssetMenu(fileName = UpdaterRouter.LogsName,

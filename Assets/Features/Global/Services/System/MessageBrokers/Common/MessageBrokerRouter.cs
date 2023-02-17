@@ -1,6 +1,6 @@
 ﻿using Global.Common;
 
-namespace Global.MessageBrokers.Common
+namespace Global.System.MessageBrokers.Common
 {
     public class MessageBrokerRouter
     {

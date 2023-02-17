@@ -1,6 +1,6 @@
-﻿using Global.Loggers.Runtime;
+﻿using Global.System.Loggers.Runtime;
 
-namespace Global.ApplicationProxies.Logs
+namespace Global.System.ApplicationProxies.Logs
 {
     public class ApplicationProxyLogger
     {

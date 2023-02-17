@@ -18,7 +18,6 @@ namespace Global.Publisher.Yandex.DataStorages
             var data = new Dictionary<string, object>();
             
             var raw = JsonUtility.ToJson(data);
-            Debug.Log($"Raw 0: {raw}");
             _callbacks.OnUserDataReceived(raw);
         }
 

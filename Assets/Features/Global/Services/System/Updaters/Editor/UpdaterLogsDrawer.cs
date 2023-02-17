@@ -1,8 +1,8 @@
 ﻿using Common.ReadOnlyDictionaries.Editor;
-using Global.Updaters.Logs;
+using Global.System.Updaters.Logs;
 using UnityEditor;
 
-namespace Global.Updaters.Editor
+namespace Global.System.Updaters.Editor
 {
     [ReadOnlyDictionaryPriority]
     [CustomPropertyDrawer(typeof(UpdaterLogs))]

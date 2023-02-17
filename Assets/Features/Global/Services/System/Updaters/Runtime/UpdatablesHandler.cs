@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Global.Updaters.Runtime
+namespace Global.System.Updaters.Runtime
 {
     public class UpdatablesHandler<T>
     {

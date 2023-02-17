@@ -1,7 +1,7 @@
 ﻿using Global.Audio.Player.Runtime;
-using Global.Updaters.Runtime.Abstract;
+using Global.System.Updaters.Runtime.Abstract;
 
-namespace Global.Pauses.Runtime
+namespace Global.System.Pauses.Runtime
 {
     public class PauseSwitcher : IPause
     {

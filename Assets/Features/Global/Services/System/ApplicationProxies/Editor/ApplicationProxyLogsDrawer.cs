@@ -1,8 +1,8 @@
 ﻿using Common.ReadOnlyDictionaries.Editor;
-using Global.ApplicationProxies.Logs;
+using Global.System.ApplicationProxies.Logs;
 using UnityEditor;
 
-namespace Global.ApplicationProxies.Editor
+namespace Global.System.ApplicationProxies.Editor
 {
     [ReadOnlyDictionaryPriority]
     [CustomPropertyDrawer(typeof(ApplicationProxyLogs))]

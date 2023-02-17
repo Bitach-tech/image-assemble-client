@@ -1,12 +1,12 @@
 ﻿using Common.DiContainer.Abstract;
 using Global.Setup.Service;
-using Global.Updaters.Common;
-using Global.Updaters.Logs;
-using Global.Updaters.Runtime.Abstract;
+using Global.System.Updaters.Common;
+using Global.System.Updaters.Logs;
+using Global.System.Updaters.Runtime.Abstract;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace Global.Updaters.Runtime
+namespace Global.System.Updaters.Runtime
 {
     [InlineEditor]
     [CreateAssetMenu(fileName = UpdaterRouter.ServiceName,
