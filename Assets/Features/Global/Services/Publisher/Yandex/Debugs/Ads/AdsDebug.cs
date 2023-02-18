@@ -42,6 +42,8 @@ namespace Global.Publisher.Yandex.Debugs.Ads
         {
             Close();
 
+            Debug.Log("Show interstitial");
+            
             _interstitial.SetActive(true);
         }
 
@@ -79,16 +81,16 @@ namespace Global.Publisher.Yandex.Debugs.Ads
 
         private void OnInterstitialCloseClicked()
         {
-            _callbacks.OnInterstitialShown();
-            
             Close();
+
+            _callbacks.OnInterstitialShown();
         }
 
         private void OnRewardedCloseClicked()
         {
-            _callbacks.OnRewardedClose();
-            
             Close();
+
+            _callbacks.OnRewardedClose();
         }
     }
 }

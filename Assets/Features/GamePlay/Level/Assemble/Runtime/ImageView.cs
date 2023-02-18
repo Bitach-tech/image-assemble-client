@@ -11,7 +11,9 @@ namespace GamePlay.Level.Assemble.Runtime
     [DisallowMultipleComponent]
     public class ImageView : MonoBehaviour
     {
-        [SerializeField] private PartView[] _views;
+        [SerializeField] private PartView[] _allViews;
+
+        private PartView[] _selectedViews;
 
         private readonly List<PartView> _active = new();
 
@@ -22,18 +24,27 @@ namespace GamePlay.Level.Assemble.Runtime
 
         public void Show(Sprite[] correctImage, Sprite[][] otherImages, IUpdater updater)
         {
-            foreach (var view in _views)
-                updater.Add(view);
+            var slicesLength = correctImage.Length;
+
+            _selectedViews = new PartView[slicesLength];
+
+            foreach (var view in _allViews)
+                view.gameObject.SetActive(false);
+
+            for (var i = 0; i < slicesLength; i++)
+            {
+                _selectedViews[i] = _allViews[i];
+                _selectedViews[i].gameObject.SetActive(true);
+            }
             
+            foreach (var view in _selectedViews)
+                updater.Add(view);
+
             transform.DOScale(Vector3.one, 1f);
-
-            var length = correctImage.Length;
-
-            CreateOnDemand(length);
 
             _active.Clear();
 
-            for (var i = 0; i < length; i++)
+            for (var i = 0; i < slicesLength; i++)
             {
                 var correct = correctImage[i];
 
@@ -42,16 +53,16 @@ namespace GamePlay.Level.Assemble.Runtime
                 foreach (var other in otherImages)
                     otherList.Add(other[i]);
 
-                _views[i].Unlock();
-                _views[i].Construct(correct, otherList.ToArray());
+                _selectedViews[i].Unlock();
+                _selectedViews[i].Construct(correct, otherList.ToArray());
 
-                _active.Add(_views[i]);
+                _active.Add(_selectedViews[i]);
             }
         }
 
         public void Lock()
         {
-            foreach (var view in _views)
+            foreach (var view in _selectedViews)
                 view.Lock();
         }
 
@@ -64,29 +75,11 @@ namespace GamePlay.Level.Assemble.Runtime
             return true;
         }
 
-        private void CreateOnDemand(int total)
-        {
-            var delta = total - _views.Length;
-
-            if (delta <= 0)
-                return;
-
-            var startLength = _views.Length;
-
-            Array.Resize(ref _views, _views.Length + delta);
-
-            for (var i = 0; i < delta; i++)
-            {
-                var view = Instantiate(_views[0], _views[0].transform.parent);
-                _views[startLength + i] = view;
-            }
-        }
-
         public async UniTask Hide(CancellationToken cancellation, IUpdater updater)
         {
-            foreach (var view in _views)
+            foreach (var view in _selectedViews)
                 updater.Remove(view);
-            
+
             var completion = new UniTaskCompletionSource();
 
             const int delay = 1500;

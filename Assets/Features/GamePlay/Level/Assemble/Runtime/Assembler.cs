@@ -26,7 +26,7 @@ namespace GamePlay.Level.Assemble.Runtime
 
         [SerializeField] private GameObject _body;
         [SerializeField] private Image _preview;
-        [SerializeField] private ImageViewDictionary _difficultyImages;
+        [SerializeField] private ImageView _view;
 
         private IUpdater _updater;
         private CancellationTokenSource _cancellation;
@@ -56,9 +56,7 @@ namespace GamePlay.Level.Assemble.Runtime
             _uiStateMachine.EnterAsStack(this);
             _body.SetActive(true);
 
-            var view = _difficultyImages[difficulty];
-
-            Process(view, images, difficulty).Forget();
+            Process(_view, images, difficulty).Forget();
         }
 
         public void Stop()
