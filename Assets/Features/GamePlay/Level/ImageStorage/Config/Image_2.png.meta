@@ -67,10 +67,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -736,35 +736,35 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Image_2_19: 2739367786580196530
-      Image_2_20: 5847250456668764055
-      Image_2_5: -1501486565534805389
-      Image_2_1: -1210345606182106561
-      Image_2_4: -4580347782205743034
-      Image_2_12: 4660514255188002640
-      Image_2_23: -663360089082762185
-      Image_2_10: -1740322428092943991
-      Image_2_24: -2776118458115930504
       Image_2_0: 1149536458149486377
-      Image_2_17: 3422943085056446756
-      Image_2_21: 5848736068967587366
+      Image_2_1: -1210345606182106561
+      Image_2_10: -1740322428092943991
+      Image_2_11: 7058580384782191731
+      Image_2_12: 4660514255188002640
       Image_2_13: 6275672469508167508
-      Image_2_7: -25727478313331431
-      Image_2_2: -7500177468969140548
+      Image_2_14: 9526124948971022
       Image_2_15: 7786959298616656931
+      Image_2_16: 4907352446433839255
+      Image_2_17: 3422943085056446756
+      Image_2_18: 6348673815222143647
+      Image_2_19: 2739367786580196530
+      Image_2_2: -7500177468969140548
+      Image_2_20: 5847250456668764055
+      Image_2_21: 5848736068967587366
+      Image_2_22: -2393059942072153069
+      Image_2_23: -663360089082762185
+      Image_2_24: -2776118458115930504
+      Image_2_25: 902577238193249862
       Image_2_26: -3530894181827562855
       Image_2_27: 4362486102968754138
-      Image_2_8: -8094333118168125946
-      Image_2_3: -8422672061103221005
-      Image_2_9: 4933145170773314494
-      Image_2_11: 7058580384782191731
-      Image_2_18: 6348673815222143647
-      Image_2_16: 4907352446433839255
       Image_2_28: 0
-      Image_2_22: -2393059942072153069
+      Image_2_3: -8422672061103221005
+      Image_2_4: -4580347782205743034
+      Image_2_5: -1501486565534805389
       Image_2_6: -539075593562693174
-      Image_2_25: 902577238193249862
-      Image_2_14: 9526124948971022
+      Image_2_7: -25727478313331431
+      Image_2_8: -8094333118168125946
+      Image_2_9: 4933145170773314494
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

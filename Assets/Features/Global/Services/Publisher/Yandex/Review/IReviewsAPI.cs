@@ -1,4 +1,4 @@
-﻿namespace Global.Publisher.Yandex.Reviews
+﻿namespace Global.Publisher.Yandex.Review
 {
     public interface IReviewsAPI
     {

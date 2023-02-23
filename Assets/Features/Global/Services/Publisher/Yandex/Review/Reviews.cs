@@ -3,7 +3,7 @@ using Global.Publisher.Abstract.Reviews;
 using Global.Publisher.Yandex.Common;
 using Global.System.Pauses.Runtime;
 
-namespace Global.Publisher.Yandex.Reviews
+namespace Global.Publisher.Yandex.Review
 {
     public class Reviews : IReviews
     {

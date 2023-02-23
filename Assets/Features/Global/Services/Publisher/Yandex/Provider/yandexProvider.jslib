@@ -36,12 +36,14 @@ mergeInto(LibraryManager.library,
         {
             player.getData().then(data =>
             {
-                const myJSON = JSON.stringify(data);
-                SendDataCallback("OnInterstitialShown", myJSON);
+                const rawData = JSON.stringify(data);
+                console.log("On data received");
+                console.log(rawData)
+                SendDataCallback("OnUserDataReceived", rawData);
             });
         },
 
-        SetToLeaderboard: function (target, value)
+        SetLeaderBoard: function (target, value)
         {
             ysdk.getLeaderboards()
                 .then(lb =>
@@ -72,9 +74,6 @@ mergeInto(LibraryManager.library,
                         SendDataCallback("OnInterstitialShown", error);
                     }
                 }
-            }).catch(error =>
-            {
-                SendDataCallback("OnInterstitialShown", error);
             })
         },
 
@@ -102,9 +101,6 @@ mergeInto(LibraryManager.library,
                         SendDataCallback("OnRewardedError", e);
                     }
                 }
-            }).catch(error =>
-            {
-                SendDataCallback("OnRewardedError", error);
             })
         },
 
@@ -117,15 +113,5 @@ mergeInto(LibraryManager.library,
             {
                 SendDataCallback("OnPurchaseFailed", err)
             })
-        },
-
-        SendCallback: function (target)
-        {
-            myGameInstance.SendMessage("YandexCallbacks", target);
-        },
-
-        SendDataCallback: function (target, data)
-        {
-            myGameInstance.SendMessage("YandexCallbacks", target, data);
         }
     });

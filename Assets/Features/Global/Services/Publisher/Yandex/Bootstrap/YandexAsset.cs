@@ -1,5 +1,6 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
+using Features.Global.Services.Publisher.Abstract.Saves;
 using Global.Publisher.Abstract.Advertisment;
 using Global.Publisher.Abstract.Bootstrap;
 using Global.Publisher.Abstract.DataStorages;
@@ -17,7 +18,7 @@ using Global.Publisher.Yandex.Debugs.Reviews;
 using Global.Publisher.Yandex.Languages;
 using Global.Publisher.Yandex.Leaderboard;
 using Global.Publisher.Yandex.Purchases;
-using Global.Publisher.Yandex.Reviews;
+using Global.Publisher.Yandex.Review;
 using Global.Setup.Service;
 using Global.Setup.Service.Scenes;
 using NaughtyAttributes;
@@ -40,7 +41,8 @@ namespace Global.Publisher.Yandex.Bootstrap
             IGlobalCallbacks callbacks)
         {
             var yandexCallbacks = Instantiate(_callbacksPrefab, Vector3.zero, Quaternion.identity);
-
+            yandexCallbacks.name = "YandexCallbacks";
+            
             builder.RegisterComponent(yandexCallbacks);
 
             RegisterModules(builder);
@@ -56,8 +58,11 @@ namespace Global.Publisher.Yandex.Bootstrap
             builder.Register<Ads>()
                 .As<IAds>();
 
+            var saves = GetSaves();
+            
             builder.Register<DataStorage>()
                 .As<IDataStorage>()
+                .WithParameter(saves)
                 .AsCallbackListener();
 
             builder.Register<LanguageProvider>()
@@ -66,7 +71,7 @@ namespace Global.Publisher.Yandex.Bootstrap
             builder.Register<Leaderboards>()
                 .As<ILeaderboards>();
 
-            builder.Register<Reviews.Reviews>()
+            builder.Register<Reviews>()
                 .As<IReviews>();
 
             builder.Register<PurchaseProcessor>()
@@ -128,6 +133,14 @@ namespace Global.Publisher.Yandex.Bootstrap
 
             builder.Register<ReviewsExternAPI>()
                 .As<IReviewsAPI>();
+        }
+
+        private IStorageEntry[] GetSaves()
+        {
+            return new[]
+            {
+                new LevelsSave()
+            };
         }
     }
 }

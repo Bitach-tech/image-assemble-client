@@ -3,57 +3,84 @@ using Cysharp.Threading.Tasks;
 using Global.Publisher.Abstract.DataStorages;
 using Global.Publisher.Yandex.Common;
 using Global.Setup.Service.Callbacks;
+using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
 namespace Global.Publisher.Yandex.DataStorages
 {
     public class DataStorage : IDataStorage, IGlobalAsyncAwakeListener
     {
-        public DataStorage(YandexCallbacks callbacks, IStorageAPI api)
+        public DataStorage(YandexCallbacks callbacks, IStorageAPI api, IStorageEntry[] entries)
         {
             _callbacks = callbacks;
             _api = api;
+
+            foreach (var entry in entries)
+            {
+                entry.Changed += OnEntryChanged;
+                _entries[entry.Key] = entry;
+            }
         }
         
         private readonly YandexCallbacks _callbacks;
         private readonly IStorageAPI _api;
-        
-        private Dictionary<string, object> _data = new();
-        
+
+        private readonly Dictionary<string, IStorageEntry> _entries = new();
+
         public async UniTask OnAwakeAsync()
         {
-            var completion = new UniTaskCompletionSource<Dictionary<string, object>>();
+            Debug.Log("Get data 0");
+            var completion = new UniTaskCompletionSource();
 
             void OnReceived(string raw)
             {
-                var data = JsonUtility.FromJson<Dictionary<string, object>>(raw);
-                completion.TrySetResult(data);
+                Debug.Log("Get data 4");
+
+                var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(raw);
+
+                foreach (var (key, rawEntry) in data)
+                    _entries[key].Deserialize(rawEntry);
+                
+                Debug.Log($"Get data 5: {raw}");
+
+                completion.TrySetResult();
             }
+
+            Debug.Log("Get data 1");
 
             _callbacks.UserDataReceived += OnReceived;
             
+            Debug.Log("Get data 2");
+
             _api.Get_Internal();
 
-            _data = await completion.Task;
+            Debug.Log("Get data 3");
+
+            await completion.Task;
             
+            Debug.Log("Get data 6");
+
             _callbacks.UserDataReceived -= OnReceived;
         }
         
-        public bool HasKey(string key)
+        public T GetEntry<T>(string key) where T : class
         {
-            return _data.ContainsKey(key);
+            var entry = _entries[key];
+
+            return entry as T;
         }
 
-        public T GetValue<T>(string key) where T : class
+        private void OnEntryChanged()
         {
-            return _data[key] as T;
-        }
+            var save = new Dictionary<string, string>();
 
-        public void SetValue<T>(string key, T data)
-        {
-            _data[key] = data;
+            foreach (var (key, entry) in _entries)
+            {
+                var rawEntry = entry.Serialize();
+                save[key] = rawEntry;
+            }
 
-            var json = JsonUtility.ToJson(_data);
+            var json = JsonConvert.SerializeObject(save);
 
             _api.Set_Internal(json);
         }

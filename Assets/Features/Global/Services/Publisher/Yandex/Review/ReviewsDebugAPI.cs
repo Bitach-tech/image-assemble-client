@@ -1,6 +1,6 @@
 ﻿using Global.Publisher.Yandex.Debugs.Reviews;
 
-namespace Global.Publisher.Yandex.Reviews
+namespace Global.Publisher.Yandex.Review
 {
     public class ReviewsDebugAPI : IReviewsAPI
     {

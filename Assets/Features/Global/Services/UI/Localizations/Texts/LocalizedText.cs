@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace Global.UI.Localizations.Texts
@@ -11,6 +12,8 @@ namespace Global.UI.Localizations.Texts
         
         private TMP_Text _text;
 
+        public event Action Changed;
+
         private void Awake()
         {
             _text = GetComponent<TMP_Text>();
@@ -21,6 +24,7 @@ namespace Global.UI.Localizations.Texts
         private void OnLanguageChanged(string text)
         {
             _text.text = text;
+            Changed?.Invoke();
         }
     }
 }

@@ -3,7 +3,5 @@
     public interface ILevelOverlay
     {
         void Open();
-        void ShowAssembledScreen();
-        void HideAssembledScreen();
     }
 }

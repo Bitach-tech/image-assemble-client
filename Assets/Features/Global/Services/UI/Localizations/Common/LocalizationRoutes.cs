@@ -9,5 +9,8 @@ namespace Global.UI.Localizations.Common
         
         public const string StorageName = GlobalAssetsPrefixes.Config + "Localization";
         public const string StoragePath = GlobalAssetsPaths.Root + "UI/Localization/Storage";
+        
+        public const string DataName = "Localization_Data";
+        public const string DataPath = GlobalAssetsPaths.Root + "UI/Localization/Data";
     }
 }

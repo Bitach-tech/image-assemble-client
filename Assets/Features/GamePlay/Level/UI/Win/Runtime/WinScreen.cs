@@ -43,7 +43,6 @@ namespace GamePlay.Level.UI.Win.Runtime
 
         public void Open()
         {
-            Debug.Log("Open");
             _stateMachine.EnterAsStack(this);
             _body.SetActive(true);
         }

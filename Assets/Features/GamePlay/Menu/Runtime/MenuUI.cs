@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common.Local.Services.Abstract.Callbacks;
 using Cysharp.Threading.Tasks;
+using Features.Global.Services.Publisher.Abstract.Saves;
 using GamePlay.Background.Runtime;
 using GamePlay.Loop.Difficulties;
 using Global.Publisher.Abstract.Advertisment;
@@ -48,13 +49,7 @@ namespace GamePlay.Menu.Runtime
         {
             _body.SetActive(false);
 
-            if (_storage.HasKey("save") == false)
-            {
-                var newSave = new SelectionAdsSave();
-                _storage.SetValue("save", newSave);
-            }
-
-            var save = _storage.GetValue<SelectionAdsSave>("save");
+            var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
             
             for (var i = 0; i < _selectors.Count; i++)
             {
@@ -105,9 +100,10 @@ namespace GamePlay.Menu.Runtime
             if (isRewardable == true)
                 await _ads.ShowRewarded();
             
-            var save = _storage.GetValue<SelectionAdsSave>("save");
+            Debug.Log($"On unlocked: {id}");
+            
+            var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
             save.OnRewarded(id);
-            _storage.SetValue("save", save);
             
             var clicked = new PlayClickEvent(difficulty);
             Msg.Publish(clicked);

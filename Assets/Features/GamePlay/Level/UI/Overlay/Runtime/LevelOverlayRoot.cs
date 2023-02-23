@@ -16,7 +16,6 @@ namespace GamePlay.Level.UI.Overlay.Runtime
         }
 
         [SerializeField] private GameObject _body;
-        [SerializeField] private GameObject _assembled;
 
         private IUiStateMachine _uiStateMachine;
         private UiConstraints _constraints;
@@ -46,17 +45,6 @@ namespace GamePlay.Level.UI.Overlay.Runtime
         {
             _uiStateMachine.EnterAsStack(this);
             _body.SetActive(true);
-            _assembled.SetActive(false);
-        }
-
-        public void ShowAssembledScreen()
-        {
-            _assembled.SetActive(true);
-        }
-
-        public void HideAssembledScreen()
-        {
-            _assembled.SetActive(false);
         }
 
         public void Exit()
