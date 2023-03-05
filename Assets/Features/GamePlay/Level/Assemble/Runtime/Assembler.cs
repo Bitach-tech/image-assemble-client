@@ -16,7 +16,7 @@ using VContainer;
 namespace GamePlay.Level.Assemble.Runtime
 {
     [DisallowMultipleComponent]
-    public class Assembler : MonoBehaviour, IAssembler, IUiState, ILocalSwitchListener
+    public class Assembler : MonoBehaviour, IAssembler, IUiState, ILocalSwitchListener, IUpdatable
     {
         [Inject]
         private void Construct(
@@ -69,11 +69,13 @@ namespace GamePlay.Level.Assemble.Runtime
 
         public void Exit()
         {
+            _updater.Remove(this);
             _body.SetActive(false);
         }
 
         public void Begin(LevelImage[] images, LevelDifficulty difficulty)
         {
+            _updater.Add(this);
             _uiStateMachine.EnterAsStack(this);
             _body.SetActive(true);
 
@@ -105,7 +107,7 @@ namespace GamePlay.Level.Assemble.Runtime
                     others[i] = PickSprites(list[i], difficulty);
 
                 _current = view;
-                _current.Show(correct, others, _updater);
+                _current.Show(correct, others);
                 _preview.sprite = image.Preview;
 
                 await UniTask.WaitUntil(() => _current.IsAssembled() == true, PlayerLoopTiming.Update,
@@ -113,7 +115,7 @@ namespace GamePlay.Level.Assemble.Runtime
 
                 _current.Lock();
 
-                await _current.Hide(_cancellation.Token, _updater);
+                await _current.Hide(_cancellation.Token);
             }
 
             Msg.Publish(new AssembledEvent());
@@ -146,6 +148,14 @@ namespace GamePlay.Level.Assemble.Runtime
                 LevelDifficulty.VeryHard_Black => image.Level3,
                 _ => throw new ArgumentOutOfRangeException(nameof(difficulty), difficulty, null)
             };
+        }
+
+        public void OnUpdate(float delta)
+        {
+            if (_current == null)
+                return;
+            
+            _current.OnUpdate(delta);
         }
     }
 }

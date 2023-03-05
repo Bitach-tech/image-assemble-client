@@ -2,7 +2,6 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Global.System.Updaters.Runtime.Abstract;
 using UnityEngine;
 
 namespace GamePlay.Level.Assemble.Runtime
@@ -21,7 +20,7 @@ namespace GamePlay.Level.Assemble.Runtime
             transform.localScale = Vector3.zero;
         }
 
-        public void Show(Sprite[] correctImage, Sprite[][] otherImages, IUpdater updater)
+        public void Show(Sprite[] correctImage, Sprite[][] otherImages)
         {
             var slicesLength = correctImage.Length;
 
@@ -35,9 +34,6 @@ namespace GamePlay.Level.Assemble.Runtime
                 _selectedViews[i] = _allViews[i];
                 _selectedViews[i].gameObject.SetActive(true);
             }
-
-            foreach (var view in _selectedViews)
-                updater.Add(view);
 
             transform.DOScale(Vector3.one, 1f);
 
@@ -81,11 +77,8 @@ namespace GamePlay.Level.Assemble.Runtime
             return true;
         }
 
-        public async UniTask Hide(CancellationToken cancellation, IUpdater updater)
+        public async UniTask Hide(CancellationToken cancellation)
         {
-            foreach (var view in _selectedViews)
-                updater.Remove(view);
-
             var completion = new UniTaskCompletionSource();
 
             const int delay = 1500;
@@ -107,6 +100,15 @@ namespace GamePlay.Level.Assemble.Runtime
             {
                 await completion.Task;
             }
+        }
+
+        public void OnUpdate(float delta)
+        {
+            if (_selectedViews == null)
+                return;
+
+            foreach (var view in _selectedViews)
+                view.OnUpdate(delta);
         }
     }
 }
