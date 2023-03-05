@@ -1,4 +1,4 @@
-﻿using Common.ReadOnlyDictionaries.Editor;
+﻿using Common.Serialization.ReadOnlyDictionaries.Editor;
 using Global.GameLoops.Logs;
 using UnityEditor;
 

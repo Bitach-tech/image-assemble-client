@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b584a4d609145728231698228a228e7, type: 3}
   m_Name: LogSettings_ResourcesCleaner
   m_EditorClassIdentifier: 
-  _isEnabled: 1
+  _isEnabled: 0
   _logs:
     _keys: 00000000
     _values: 01

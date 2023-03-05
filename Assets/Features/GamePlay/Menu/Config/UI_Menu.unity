@@ -264,6 +264,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuButton_3
       objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.22352943
+      objectReference: {fileID: 0}
     - target: {fileID: 4373538920366068220, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: _color
       value: 
@@ -401,6 +413,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuButton_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.14509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.30980393
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.07058824
+      objectReference: {fileID: 0}
     - target: {fileID: 4373538920366068220, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: _color
       value: 
@@ -534,6 +558,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuButton_4
       objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.427451
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.8588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.9490197
+      objectReference: {fileID: 0}
     - target: {fileID: 4373538920366068220, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: _color
       value: 
@@ -634,7 +670,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.4
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -809,6 +845,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MenuButton_5
       objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.24313727
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.86666673
+      objectReference: {fileID: 0}
     - target: {fileID: 4373538920366068220, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: _color
       value: 
@@ -941,6 +989,18 @@ PrefabInstance:
     - target: {fileID: 1904662794689382370, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: m_Name
       value: MenuButton_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.76548445
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.27727836
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.8773585
       objectReference: {fileID: 0}
     - target: {fileID: 4373538920366068220, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: _color
@@ -1129,6 +1189,22 @@ PrefabInstance:
     - target: {fileID: 1904662794689382370, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: m_Name
       value: MenuButton_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.8745099
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.86274517
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 4373538920366068220, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: _color
@@ -1331,6 +1407,18 @@ PrefabInstance:
     - target: {fileID: 1904662794689382370, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: m_Name
       value: MenuButton_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.06666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.023529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.43529415
       objectReference: {fileID: 0}
     - target: {fileID: 4373538920366068220, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: _color
@@ -1887,6 +1975,38 @@ PrefabInstance:
     - target: {fileID: 1904662794689382370, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: m_Name
       value: MenuButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.g
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128898]._color.r
+      value: 0.454902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128900]._color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128900]._color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128900]._color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377836709397184052, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
+      propertyPath: managedReferences[960519647634128900]._color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7952991187065761051, guid: 2ac942f0ffcbaf9439e21cfba182e720, type: 3}
       propertyPath: m_text

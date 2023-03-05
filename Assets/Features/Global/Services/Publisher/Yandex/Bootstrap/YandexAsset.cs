@@ -1,6 +1,5 @@
 ﻿using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
-using Features.Global.Services.Publisher.Abstract.Saves;
 using Global.Publisher.Abstract.Advertisment;
 using Global.Publisher.Abstract.Bootstrap;
 using Global.Publisher.Abstract.DataStorages;
@@ -8,6 +7,7 @@ using Global.Publisher.Abstract.Languages;
 using Global.Publisher.Abstract.Leaderboards;
 using Global.Publisher.Abstract.Purchases;
 using Global.Publisher.Abstract.Reviews;
+using Global.Publisher.Abstract.Saves;
 using Global.Publisher.Yandex.Advertisement;
 using Global.Publisher.Yandex.Common;
 using Global.Publisher.Yandex.DataStorages;
@@ -137,9 +137,10 @@ namespace Global.Publisher.Yandex.Bootstrap
 
         private IStorageEntry[] GetSaves()
         {
-            return new[]
+            return new IStorageEntry[]
             {
-                new LevelsSave()
+                new LevelsSave(),
+                new SoundSave()
             };
         }
     }

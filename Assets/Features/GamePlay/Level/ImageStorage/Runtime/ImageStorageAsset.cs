@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Common.DiContainer.Abstract;
 using Common.Local.Services.Abstract;
-using Common.NestedScriptableObjects.Attributes;
+using Common.Serialization.NestedScriptableObjects.Attributes;
 using GamePlay.Level.ImageStorage.Common;
 using Sirenix.OdinInspector;
 using UnityEngine;

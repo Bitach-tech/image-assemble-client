@@ -37,43 +37,32 @@ namespace Global.Bootstrappers
 
         public async UniTask InvokeFlowCallbacks()
         {
-            Debug.Log("Callbacks 0");
             var internalLoops = new UniTask[_internalLoops.Count];
 
             for (var i = 0; i < _internalLoops.Count; i++)
                 internalLoops[i] = _internalLoops[i].Run();
-            Debug.Log("Callbacks 1");
 
             await UniTask.WhenAll(internalLoops);
 
-            Debug.Log("Callbacks 2");
             foreach (var awake in _awakes)
                 awake.OnAwake();
 
-            Debug.Log("Callbacks 3");
             var asyncAwakes = new UniTask[_asyncAwakes.Count];
 
             for (var i = 0; i < _asyncAwakes.Count; i++)
                 asyncAwakes[i] = _asyncAwakes[i].OnAwakeAsync();
             
-            Debug.Log("Callbacks 4");
-
             await UniTask.WhenAll(asyncAwakes);
 
-            Debug.Log("Callbacks 5");
             foreach (var bootstrap in _bootstraps)
                 bootstrap.OnBootstrapped();
 
-            Debug.Log("Callbacks 6");
             var asyncBootstraps = new UniTask[_asyncBootstraps.Count];
 
-            Debug.Log("Callbacks 7");
             for (var i = 0; i < _asyncBootstraps.Count; i++)
                 asyncBootstraps[i] = _asyncBootstraps[i].OnBootstrapAsync();
 
-            Debug.Log("Callbacks 8");
             await UniTask.WhenAll(asyncBootstraps);
-            Debug.Log("Callbacks 9");
         }
     }
 }

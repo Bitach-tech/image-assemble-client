@@ -1,42 +1,62 @@
 ﻿using System;
 using GamePlay.Overlays.SoundSwitches.Runtime;
-using Global.Setup.Service;
+using Global.Publisher.Abstract.DataStorages;
+using Global.Publisher.Abstract.Saves;
 using Global.Setup.Service.Callbacks;
 using Global.System.MessageBrokers.Runtime;
 using UnityEngine;
+using VContainer;
 
 namespace Global.Audio.Player.Runtime
 {
     [DisallowMultipleComponent]
-    public class SoundsVolumeSwitcher : MonoBehaviour, IGlobalAwakeListener
-    {
-        [SerializeField] private float _defaultMusicVolume = 0.1f;
-        [SerializeField] private float _defaultSoundVolume = 0.01f;
-
+    public class SoundsVolumeSwitcher : MonoBehaviour, IGlobalBootstrapListener
+    {   
+        [Inject]
+        private void Construct(IDataStorage storage)
+        {
+            _storage = storage;
+        }
+            
         [SerializeField] private SoundsPlayer _player;
-
-        private bool _isMuted = false;
-
+        [SerializeField] private SoundState _state;
+        
+        private IDataStorage _storage;
+        private SoundSave _save;
+        
         private IDisposable _soundSwitchListener;
-
-        public void OnDestroy()
+        
+        public void OnBootstrapped()
+        {
+            _soundSwitchListener = Msg.Listen<SoundSwitchEvent>(OnSoundSwitchedClicked);
+            _save = _storage.GetEntry<SoundSave>(SavesPaths.Sounds);
+            
+            SetMute(_save.IsMuted);
+        }
+        
+        private void OnDestroy()
         {
             _soundSwitchListener?.Dispose();
         }
-
-        public void OnAwake()
+            
+        private void OnSoundSwitchedClicked(SoundSwitchEvent data)
         {
-            _soundSwitchListener = Msg.Listen<SoundSwitchClickEvent>(OnSoundSwitchedClicked);
+            _save.SwitchMute();
+            SetMute(_save.IsMuted);
         }
 
-        private void OnSoundSwitchedClicked(SoundSwitchClickEvent data)
+        private void SetMute(bool isMuted)
         {
-            _isMuted = !_isMuted;
-
-            if (_isMuted == true)
-                _player.SetVolume(0f, 0f);
+            if (isMuted == true)
+            {
+                _player.Mute();
+                _state.OnMuted();
+            }
             else
-                _player.SetVolume(_defaultMusicVolume, _defaultSoundVolume);
+            {
+                _player.Unmute();
+                _state.OnUnmuted();
+            }
         }
-    }
-}
+    }   
+}       

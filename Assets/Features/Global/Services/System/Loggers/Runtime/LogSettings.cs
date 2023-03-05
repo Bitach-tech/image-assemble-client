@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Common.Serialization.ReadOnlyDictionaries.Runtime;
 using UnityEngine;
 
 namespace Global.System.Loggers.Runtime

@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Global.Setup.Service.Callbacks;
+using UnityEngine;
 
 namespace Global.Audio.Player.Runtime
 {
     [DisallowMultipleComponent]
-    public class SoundsPlayer : MonoBehaviour, IVolumeSwitcher
+    public class SoundsPlayer : MonoBehaviour, IGlobalAwakeListener, IVolumeSwitcher
     {
         [SerializeField] private AudioSource _musicSource;
 
@@ -12,11 +13,14 @@ namespace Global.Audio.Player.Runtime
         private float _musicVolume;
         private float _soundVolume;
 
-        public void Mute()
+        public void OnAwake()
         {
             _musicVolume = _musicSource.volume;
             _soundVolume = _soundSources[0].volume;
-            
+        }
+        
+        public void Mute()
+        {
             SetVolume(0f, 0f);
         }
 
@@ -25,7 +29,7 @@ namespace Global.Audio.Player.Runtime
             SetVolume(_musicVolume, _soundVolume);
         }
         
-        public void SetVolume(float music, float sound)
+        private void SetVolume(float music, float sound)
         {
             _musicSource.volume = music;
 

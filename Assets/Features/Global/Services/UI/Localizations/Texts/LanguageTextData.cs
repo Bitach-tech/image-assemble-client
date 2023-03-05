@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.NestedScriptableObjects.Attributes;
+using Common.Serialization.NestedScriptableObjects.Attributes;
 using Global.UI.Localizations.Common;
 using Global.UI.Localizations.Definition;
 using Sirenix.OdinInspector;

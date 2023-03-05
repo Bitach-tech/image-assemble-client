@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using Global.Publisher.Yandex.DataStorages;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Features.Global.Services.Publisher.Abstract.Saves
+namespace Global.Publisher.Abstract.Saves
 {
+    [Serializable]
     public class LevelsSave : IStorageEntry
     {
         private Dictionary<int, bool> _levels = new();
 
         public string Key => SavesPaths.Levels;
         public event Action Changed;
+
+        public void CreateDefault()
+        {
+            _levels = new Dictionary<int, bool>();
+        }
 
         public string Serialize()
         {

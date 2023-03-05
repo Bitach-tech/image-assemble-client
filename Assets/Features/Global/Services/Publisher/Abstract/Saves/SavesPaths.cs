@@ -1,7 +1,8 @@
-﻿namespace Features.Global.Services.Publisher.Abstract.Saves
+﻿namespace Global.Publisher.Abstract.Saves
 {
     public static class SavesPaths
     {
         public const string Levels = "Levels";
+        public const string Sounds = "Sounds";
     }
 }

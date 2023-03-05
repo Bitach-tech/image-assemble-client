@@ -39,4 +39,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dae25f9d6934f25ababdb11b5c848de, type: 3}
   m_Name: _LanguageEntry
   m_EditorClassIdentifier: 
-  _text: Tip
+  _text: Tip for Ad

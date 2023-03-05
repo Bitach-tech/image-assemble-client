@@ -25,10 +25,13 @@ namespace Global.Audio.Player.Runtime
             var switcher = player.GetComponent<SoundsVolumeSwitcher>();
 
             builder.RegisterComponent(player)
-                .As<IVolumeSwitcher>();
+                .As<IVolumeSwitcher>()
+                .AsCallbackListener();
+
+            builder.RegisterComponent(switcher)
+                .AsCallbackListener();
 
             callbacks.Listen(trigger);
-            callbacks.Listen(switcher);
             serviceBinder.AddToModules(player);
         }
     }

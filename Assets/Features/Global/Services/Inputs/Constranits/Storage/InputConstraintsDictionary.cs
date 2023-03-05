@@ -1,5 +1,5 @@
 ﻿using System;
-using Common.ReadOnlyDictionaries.Runtime;
+using Common.Serialization.ReadOnlyDictionaries.Runtime;
 using Global.Inputs.Constranits.Definition;
 
 namespace Global.Inputs.Constranits.Storage

@@ -6,6 +6,8 @@ namespace Global.Publisher.Yandex.DataStorages
     {
         string Key { get; }
         event Action Changed;
+
+        void CreateDefault();
         string Serialize();
         void Deserialize(string raw);
     }

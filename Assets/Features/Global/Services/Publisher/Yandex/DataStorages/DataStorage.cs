@@ -3,8 +3,7 @@ using Cysharp.Threading.Tasks;
 using Global.Publisher.Abstract.DataStorages;
 using Global.Publisher.Yandex.Common;
 using Global.Setup.Service.Callbacks;
-using Unity.Plastic.Newtonsoft.Json;
-using UnityEngine;
+using Newtonsoft.Json;
 
 namespace Global.Publisher.Yandex.DataStorages
 {
@@ -29,37 +28,27 @@ namespace Global.Publisher.Yandex.DataStorages
 
         public async UniTask OnAwakeAsync()
         {
-            Debug.Log("Get data 0");
             var completion = new UniTaskCompletionSource();
 
+            foreach (var (_, entry) in _entries)
+                entry.CreateDefault();
+            
             void OnReceived(string raw)
             {
-                Debug.Log("Get data 4");
-
                 var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(raw);
 
                 foreach (var (key, rawEntry) in data)
                     _entries[key].Deserialize(rawEntry);
-                
-                Debug.Log($"Get data 5: {raw}");
 
                 completion.TrySetResult();
             }
-
-            Debug.Log("Get data 1");
-
+            
             _callbacks.UserDataReceived += OnReceived;
             
-            Debug.Log("Get data 2");
-
             _api.Get_Internal();
-
-            Debug.Log("Get data 3");
 
             await completion.Task;
             
-            Debug.Log("Get data 6");
-
             _callbacks.UserDataReceived -= OnReceived;
         }
         
