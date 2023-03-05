@@ -12,14 +12,15 @@ namespace Global.Audio.Player.Runtime
     public class SoundsVolumeSwitcher : MonoBehaviour, IGlobalBootstrapListener
     {
         [Inject]
-        private void Construct(IDataStorage storage)
+        private void Construct(IDataStorage storage, SoundState state)
         {
             _storage = storage;
+            _state = state;
         }
 
         [SerializeField] private SoundsPlayer _player;
-        [SerializeField] private SoundState _state;
-
+        
+        private SoundState _state;
         private IDataStorage _storage;
         private SoundSave _save;
 

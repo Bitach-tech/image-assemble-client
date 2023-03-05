@@ -11,6 +11,7 @@ namespace Global.Audio.Player.Runtime
         menuName = AudioRoutes.ServicePath)]
     public class SoundsPlayerAsset : ScriptableObject, IGlobalServiceFactory
     {
+        [SerializeField] private SoundState _state;
         [SerializeField] private SoundsPlayer _prefab;
 
         public void Create(
@@ -24,6 +25,8 @@ namespace Global.Audio.Player.Runtime
             var trigger = player.GetComponent<SoundsTrigger>();
             var switcher = player.GetComponent<SoundsVolumeSwitcher>();
 
+            builder.RegisterInstance(_state);
+            
             builder.RegisterComponent(player)
                 .As<IVolumeSwitcher>()
                 .AsCallbackListener();

@@ -5,25 +5,34 @@ namespace Global.System.Pauses.Runtime
 {
     public class PauseSwitcher : IPause
     {
-        public PauseSwitcher(IUpdateSpeedSetter updateSpeedSetter, IVolumeSwitcher volumeSwitcher)
+        public PauseSwitcher(
+            IUpdateSpeedSetter updateSpeedSetter,
+            IVolumeSwitcher volumeSwitcher,
+            SoundState state)
         {
             _updateSpeedSetter = updateSpeedSetter;
             _volumeSwitcher = volumeSwitcher;
+            _state = state;
         }
 
         private readonly IUpdateSpeedSetter _updateSpeedSetter;
         private readonly IVolumeSwitcher _volumeSwitcher;
+        private readonly SoundState _state;
 
         public void Pause()
         {
             _updateSpeedSetter.Pause();
-            _volumeSwitcher.Mute();
+
+            if (_state.IsMuted == false)
+                _volumeSwitcher.Mute();
         }
 
         public void Continue()
         {
             _updateSpeedSetter.Continue();
-            _volumeSwitcher.Unmute();
+
+            if (_state.IsMuted == false)
+                _volumeSwitcher.Unmute();
         }
     }
 }

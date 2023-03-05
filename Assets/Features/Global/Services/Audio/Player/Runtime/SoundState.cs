@@ -1,5 +1,6 @@
 ﻿using System;
 using Global.Audio.Player.Common;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Global.Audio.Player.Runtime
@@ -7,7 +8,7 @@ namespace Global.Audio.Player.Runtime
     [CreateAssetMenu(fileName = AudioRoutes.StateName, menuName = AudioRoutes.StatePath)]
     public class SoundState : ScriptableObject
     {
-        [SerializeField] private bool _isMuted;
+        [SerializeField] [ReadOnly] private bool _isMuted;
 
         public bool IsMuted => _isMuted;
 
