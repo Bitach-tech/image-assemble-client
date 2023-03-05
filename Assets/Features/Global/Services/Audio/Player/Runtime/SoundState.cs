@@ -16,14 +16,14 @@ namespace Global.Audio.Player.Runtime
         public void OnMuted()
         {
             _isMuted = true;
-            
+
             Changed?.Invoke(_isMuted);
         }
-        
+
         public void OnUnmuted()
         {
             _isMuted = false;
-            
+
             Changed?.Invoke(_isMuted);
         }
     }

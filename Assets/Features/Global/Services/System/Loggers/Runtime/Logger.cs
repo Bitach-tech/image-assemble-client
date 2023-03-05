@@ -9,7 +9,7 @@ namespace Global.System.Loggers.Runtime
         public void Log(string message)
         {
             Debug.Log(message);
-        } 
+        }
 
         public void Log(string header, string message)
         {

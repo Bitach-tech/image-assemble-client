@@ -42,7 +42,7 @@ namespace Global.Publisher.Yandex.Bootstrap
         {
             var yandexCallbacks = Instantiate(_callbacksPrefab, Vector3.zero, Quaternion.identity);
             yandexCallbacks.name = "YandexCallbacks";
-            
+
             builder.RegisterComponent(yandexCallbacks);
 
             RegisterModules(builder);
@@ -59,7 +59,7 @@ namespace Global.Publisher.Yandex.Bootstrap
                 .As<IAds>();
 
             var saves = GetSaves();
-            
+
             builder.Register<DataStorage>()
                 .As<IDataStorage>()
                 .WithParameter(saves)
@@ -87,7 +87,7 @@ namespace Global.Publisher.Yandex.Bootstrap
             var loadResult = await sceneLoader.LoadAsync(sceneData);
 
             var canvas = loadResult.Searched;
-            
+
             canvas.Ads.Construct(callbacks);
             canvas.Reviews.Construct(callbacks);
             canvas.Purchase.Construct(callbacks);

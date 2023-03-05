@@ -1,6 +1,6 @@
-mergeInto(LibraryManager.library,
+mergeInto(
+    LibraryManager.library,
     {
-
         Review: function ()
         {
             ysdk.feedback.canReview()
@@ -27,9 +27,9 @@ mergeInto(LibraryManager.library,
 
         SaveUserData: function (data)
         {
-            var dateString = UTF8ToString(data);
-            var myobj = JSON.parse(dateString);
-            player.setData(myobj);
+            let dateString = UTF8ToString(data);
+            let parsedData = JSON.parse(dateString);
+            player.setData(parsedData);
         },
 
         GetUserData: function ()
@@ -38,7 +38,7 @@ mergeInto(LibraryManager.library,
             {
                 const rawData = JSON.stringify(data);
                 console.log("On data received");
-                console.log(rawData)
+                console.log(rawData);
                 SendDataCallback("OnUserDataReceived", rawData);
             });
         },

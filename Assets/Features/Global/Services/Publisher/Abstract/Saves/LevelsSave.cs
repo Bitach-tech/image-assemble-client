@@ -30,14 +30,14 @@ namespace Global.Publisher.Abstract.Saves
         public void Deserialize(string raw)
         {
             _levels = JsonConvert.DeserializeObject<Dictionary<int, bool>>(raw);
-            
+
             Debug.Log($"Deserialize: {raw}");
         }
 
         public void OnRewarded(int index)
         {
             _levels[index] = true;
-            
+
             Debug.Log($"On rewarded: {index}");
 
             Changed?.Invoke();
@@ -47,7 +47,7 @@ namespace Global.Publisher.Abstract.Saves
         {
             if (_levels.ContainsKey(index) == false)
                 return false;
-            
+
             return _levels[index];
         }
     }

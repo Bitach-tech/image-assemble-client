@@ -18,7 +18,7 @@ namespace Global.Publisher.Yandex.Debugs.Ads
         [SerializeField] private Button _rewardedCloseButton;
 
         [SerializeField] private TMP_Text _timer;
-        
+
         private YandexCallbacks _callbacks;
 
         private void OnEnable()
@@ -26,7 +26,7 @@ namespace Global.Publisher.Yandex.Debugs.Ads
             _interstitialCloseButton.onClick.AddListener(OnInterstitialCloseClicked);
             _rewardedCloseButton.onClick.AddListener(OnRewardedCloseClicked);
         }
-        
+
         private void OnDisable()
         {
             _interstitialCloseButton.onClick.RemoveListener(OnInterstitialCloseClicked);
@@ -37,20 +37,20 @@ namespace Global.Publisher.Yandex.Debugs.Ads
         {
             _callbacks = callbacks;
         }
-        
+
         public void ShowInterstitial()
         {
             Close();
 
             Debug.Log("Show interstitial");
-            
+
             _interstitial.SetActive(true);
         }
 
         public void ShowRewarded()
         {
             Close();
-            
+
             _rewarded.SetActive(true);
             _rewardedCloseButton.gameObject.SetActive(false);
 
@@ -65,7 +65,7 @@ namespace Global.Publisher.Yandex.Debugs.Ads
                     var delta = _rewardTime - time;
 
                     _timer.text = $"{(int)delta}";
-                    
+
                     await UniTask.Yield();
                 }
 

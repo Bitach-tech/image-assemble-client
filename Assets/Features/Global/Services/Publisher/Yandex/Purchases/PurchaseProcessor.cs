@@ -11,7 +11,7 @@ namespace Global.Publisher.Yandex.Purchases
         {
             _callbacks = callbacks;
         }
-        
+
         private readonly YandexCallbacks _callbacks;
 
         public async UniTask<PurchaseResult> Purchase(IPurchaseIdProvider idProvider)
@@ -22,7 +22,7 @@ namespace Global.Publisher.Yandex.Purchases
             void OnSuccess(string id)
             {
                 Debug.Log($"Received success payment id: {targetId}");
-                
+
                 if (targetId != id)
                     return;
 
@@ -40,7 +40,7 @@ namespace Global.Publisher.Yandex.Purchases
             _callbacks.PurchaseFailed += OnFail;
 
             var result = await completion.Task;
-            
+
             _callbacks.PurchaseSuccess -= OnSuccess;
             _callbacks.PurchaseFailed -= OnFail;
 

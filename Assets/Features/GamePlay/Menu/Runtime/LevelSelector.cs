@@ -14,7 +14,7 @@ namespace GamePlay.Menu.Runtime
 
         private bool _isRewardable;
         private int _id;
-        
+
         public event Action<LevelDifficulty, bool, int> Selected;
 
         private void OnEnable()

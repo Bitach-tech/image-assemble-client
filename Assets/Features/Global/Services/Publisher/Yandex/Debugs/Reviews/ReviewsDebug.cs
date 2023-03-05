@@ -17,7 +17,7 @@ namespace Global.Publisher.Yandex.Debugs.Reviews
         {
             _sendButton.onClick.AddListener(OnSendClicked);
         }
-        
+
         private void OnDisable()
         {
             _sendButton.onClick.RemoveListener(OnSendClicked);

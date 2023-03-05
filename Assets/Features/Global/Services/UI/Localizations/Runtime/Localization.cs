@@ -1,6 +1,5 @@
 ﻿using Global.Publisher.Abstract.Languages;
 using Global.Setup.Service.Callbacks;
-using UnityEngine;
 
 namespace Global.UI.Localizations.Runtime
 {
@@ -19,7 +18,7 @@ namespace Global.UI.Localizations.Runtime
         {
             var datas = _storage.GetDatas();
             var language = _languageProvider.GetLanguage();
-            
+
             foreach (var data in datas)
                 data.SelectLanguage(language);
         }

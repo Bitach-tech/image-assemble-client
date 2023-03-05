@@ -20,7 +20,7 @@ namespace Global.Publisher.Yandex.DataStorages
                 _entries[entry.Key] = entry;
             }
         }
-        
+
         private readonly YandexCallbacks _callbacks;
         private readonly IStorageAPI _api;
 
@@ -32,7 +32,7 @@ namespace Global.Publisher.Yandex.DataStorages
 
             foreach (var (_, entry) in _entries)
                 entry.CreateDefault();
-            
+
             void OnReceived(string raw)
             {
                 var data = JsonConvert.DeserializeObject<Dictionary<string, string>>(raw);
@@ -42,16 +42,16 @@ namespace Global.Publisher.Yandex.DataStorages
 
                 completion.TrySetResult();
             }
-            
+
             _callbacks.UserDataReceived += OnReceived;
-            
+
             _api.Get_Internal();
 
             await completion.Task;
-            
+
             _callbacks.UserDataReceived -= OnReceived;
         }
-        
+
         public T GetEntry<T>(string key) where T : class
         {
             var entry = _entries[key];

@@ -12,7 +12,7 @@ namespace GamePlay.Menu.Runtime
         {
             if (_rewarded == null)
                 return false;
-            
+
             if (_rewarded.Contains(index) == false)
                 return false;
 
@@ -27,7 +27,7 @@ namespace GamePlay.Menu.Runtime
                 _rewarded[0] = index;
                 return;
             }
-            
+
             Array.Resize(ref _rewarded, _rewarded.Length + 1);
 
             _rewarded[^1] = index;

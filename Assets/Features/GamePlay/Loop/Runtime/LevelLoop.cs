@@ -100,7 +100,7 @@ namespace GamePlay.Loop.Runtime
             var images = new List<LevelImage>();
 
             var counter = 0;
-            
+
             while (counter < _imagesCount && counter < storedImages.Count)
             {
                 images.Add(storedImages[counter]);

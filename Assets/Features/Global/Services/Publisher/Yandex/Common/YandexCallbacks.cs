@@ -13,12 +13,12 @@ namespace Global.Publisher.Yandex.Common
         public event Action<string> PurchaseSuccess;
         public event Action<string> PurchaseFailed;
         public event Action Reviewed;
-        
+
         public void OnUserDataReceived(string data)
         {
             UserDataReceived?.Invoke(data);
         }
-        
+
         public void OnInterstitialShown()
         {
             InterstitialShown?.Invoke();

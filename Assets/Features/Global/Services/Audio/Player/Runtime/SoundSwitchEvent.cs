@@ -1,4 +1,4 @@
-﻿namespace GamePlay.Overlays.SoundSwitches.Runtime
+﻿namespace Global.Audio.Player.Runtime
 {
     public readonly struct SoundSwitchEvent
     {

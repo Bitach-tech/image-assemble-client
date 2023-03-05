@@ -1,6 +1,5 @@
 ﻿using System;
 using Common.UiTools.ButtonEventTriggers;
-using Global.Setup.Service;
 using Global.Setup.Service.Callbacks;
 using Global.System.MessageBrokers.Runtime;
 using UnityEngine;

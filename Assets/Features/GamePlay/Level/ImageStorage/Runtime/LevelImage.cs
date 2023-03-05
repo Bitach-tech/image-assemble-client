@@ -13,7 +13,7 @@ namespace GamePlay.Level.ImageStorage.Runtime
         [SerializeField] private Sprite[] _level1;
         [SerializeField] private Sprite[] _level2;
         [SerializeField] private Sprite[] _level3;
-        
+
         [SerializeField] private Sprite _preview;
 
         public Sprite[] Level0 => _level0;

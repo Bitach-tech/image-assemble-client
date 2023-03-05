@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -36,7 +35,7 @@ namespace GamePlay.Level.Assemble.Runtime
                 _selectedViews[i] = _allViews[i];
                 _selectedViews[i].gameObject.SetActive(true);
             }
-            
+
             foreach (var view in _selectedViews)
                 updater.Add(view);
 
@@ -64,6 +63,13 @@ namespace GamePlay.Level.Assemble.Runtime
         {
             foreach (var view in _selectedViews)
                 view.Lock();
+        }
+
+        public void Assemble()
+        {
+            Debug.Log("Assemble");
+            foreach (var view in _selectedViews)
+                view.MoveToCorrect();
         }
 
         public bool IsAssembled()

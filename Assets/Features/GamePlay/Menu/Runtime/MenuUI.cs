@@ -50,14 +50,12 @@ namespace GamePlay.Menu.Runtime
             _body.SetActive(false);
 
             var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
-            
+
             for (var i = 0; i < _selectors.Count; i++)
-            {
                 if (i >= _freeCounter && save.IsRewarded(i) == false)
                     _selectors[i].Construct(true, i);
                 else
                     _selectors[i].Construct(false, i);
-            }
         }
 
         public void OnEnabled()
@@ -99,12 +97,12 @@ namespace GamePlay.Menu.Runtime
         {
             if (isRewardable == true)
                 await _ads.ShowRewarded();
-            
+
             Debug.Log($"On unlocked: {id}");
-            
+
             var save = _storage.GetEntry<LevelsSave>(SavesPaths.Levels);
             save.OnRewarded(id);
-            
+
             var clicked = new PlayClickEvent(difficulty);
             Msg.Publish(clicked);
         }

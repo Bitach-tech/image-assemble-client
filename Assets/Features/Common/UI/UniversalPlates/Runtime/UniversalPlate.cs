@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,7 +7,8 @@ namespace Common.UI.UniversalPlates.Runtime
     [DisallowMultipleComponent]
     public class UniversalPlate : MonoBehaviour
     {
-        [SerializeReference] [ListDrawerSettings(
+        [SerializeReference]
+        [ListDrawerSettings(
             DraggableItems = false,
             Expanded = true,
             ShowIndexLabels = false,

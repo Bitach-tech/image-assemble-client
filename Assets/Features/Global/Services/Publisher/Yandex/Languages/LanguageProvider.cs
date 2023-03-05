@@ -1,6 +1,5 @@
 ﻿using Global.Publisher.Abstract.Languages;
 using Global.UI.Localizations.Definition;
-using UnityEngine;
 
 namespace Global.Publisher.Yandex.Languages
 {
@@ -10,12 +9,12 @@ namespace Global.Publisher.Yandex.Languages
         {
             _externAPI = api;
         }
-        
+
         private readonly ILanguageAPI _externAPI;
-        
+
         private bool _isLanguageReceived;
         private Language _selected;
-        
+
         public Language GetLanguage()
         {
             if (_isLanguageReceived == true)
@@ -23,7 +22,7 @@ namespace Global.Publisher.Yandex.Languages
 
             var raw = _externAPI.GetLanguage_Internal();
             _isLanguageReceived = true;
-            
+
             return raw switch
             {
                 "ru" => Language.Ru,

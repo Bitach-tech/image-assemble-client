@@ -7,10 +7,10 @@ namespace GamePlay.Menu.Runtime.Alert
 {
     [DisallowMultipleComponent]
     public class AlertScreen : MonoBehaviour
-    {   
+    {
         [SerializeField] private AlertScreenConfigAsset _config;
         [SerializeField] private LocalizedText _localized;
-        
+
         [SerializeField] private GameObject _body;
         [SerializeField] private Button _button;
         [SerializeField] private TMP_Text _text;

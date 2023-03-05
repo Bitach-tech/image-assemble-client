@@ -18,13 +18,13 @@ namespace Global.Publisher.Yandex.Debugs.Purchases
         private YandexCallbacks _callbacks;
 
         private string _current;
-        
+
         private void OnEnable()
         {
             _acceptButton.onClick.AddListener(OnAcceptClicked);
             _closeButton.onClick.AddListener(OnCloseClicked);
         }
-        
+
         private void OnDisable()
         {
             _acceptButton.onClick.RemoveListener(OnAcceptClicked);
@@ -35,20 +35,20 @@ namespace Global.Publisher.Yandex.Debugs.Purchases
         {
             _callbacks = callbacks;
         }
-        
+
         public void Purchase(string key)
         {
             _body.SetActive(true);
 
             _key.text = $"key: {key}";
-            
+
             _current = key;
         }
 
         private void OnAcceptClicked()
         {
             Close();
-            
+
             _callbacks.OnPurchaseFailed("Closed");
         }
 

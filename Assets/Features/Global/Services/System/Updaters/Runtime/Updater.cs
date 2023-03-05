@@ -182,7 +182,7 @@ namespace Global.System.Updaters.Runtime
 
             _logger.OnSpeedModified(speed);
         }
-        
+
         public void Pause()
         {
             _setSpeed = _speed;

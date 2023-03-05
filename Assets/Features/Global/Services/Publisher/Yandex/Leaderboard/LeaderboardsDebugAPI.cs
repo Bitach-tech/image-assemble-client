@@ -4,7 +4,6 @@
     {
         public void SetLeaderBoard_Internal(string target, int score)
         {
-            
         }
     }
 }

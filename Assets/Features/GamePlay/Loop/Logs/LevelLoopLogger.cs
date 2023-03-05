@@ -20,13 +20,5 @@ namespace GamePlay.Loop.Logs
 
             _logger.Log("Loaded", _settings.LogParameters);
         }
-
-        public void OnPlayerSpawn()
-        {
-            if (_settings.IsAvailable(LevelLoopLogType.Loaded) == false)
-                return;
-
-            _logger.Log("Player spawned", _settings.LogParameters);
-        }
     }
 }

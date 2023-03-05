@@ -9,11 +9,11 @@ namespace Global.System.Pauses.Runtime
         {
             _updateSpeedSetter = updateSpeedSetter;
             _volumeSwitcher = volumeSwitcher;
-        } 
-        
+        }
+
         private readonly IUpdateSpeedSetter _updateSpeedSetter;
         private readonly IVolumeSwitcher _volumeSwitcher;
-        
+
         public void Pause()
         {
             _updateSpeedSetter.Pause();

@@ -19,31 +19,31 @@ namespace Global.Publisher.Yandex.Review
         private readonly IReviewsAPI _api;
 
         private bool _isReviewed;
-        
+
         public async UniTask Review()
         {
             if (_isReviewed == true)
                 return;
-            
+
             _pause.Pause();
-            
+
             var completion = new UniTaskCompletionSource();
-            
+
             void OnReviewed()
             {
                 completion.TrySetResult();
             }
-            
+
             _callbacks.Reviewed += OnReviewed;
-            
+
             _api.Review_Internal();
 
             _isReviewed = true;
 
             await completion.Task;
-            
+
             _callbacks.Reviewed -= OnReviewed;
-            
+
             _pause.Continue();
         }
     }

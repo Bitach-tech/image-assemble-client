@@ -11,7 +11,7 @@ namespace GamePlay.Overlays.SoundSwitches.Runtime
     {
         [SerializeField] private GameObject _cross;
         [SerializeField] private SoundState _state;
-        
+
         private Button _button;
 
         private void Awake()

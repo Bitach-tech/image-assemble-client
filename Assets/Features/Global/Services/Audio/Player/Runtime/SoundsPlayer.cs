@@ -18,7 +18,7 @@ namespace Global.Audio.Player.Runtime
             _musicVolume = _musicSource.volume;
             _soundVolume = _soundSources[0].volume;
         }
-        
+
         public void Mute()
         {
             SetVolume(0f, 0f);
@@ -28,7 +28,7 @@ namespace Global.Audio.Player.Runtime
         {
             SetVolume(_musicVolume, _soundVolume);
         }
-        
+
         private void SetVolume(float music, float sound)
         {
             _musicSource.volume = music;

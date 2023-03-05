@@ -23,7 +23,7 @@ namespace Global.Publisher.Yandex.Advertisement
         public async UniTask Show()
         {
             var completion = new UniTaskCompletionSource<InterstitialResult>();
-            
+
             void OnShown()
             {
                 completion.TrySetResult(InterstitialResult.Success);
@@ -34,12 +34,12 @@ namespace Global.Publisher.Yandex.Advertisement
                 Debug.LogError($"Interstitial failed: {message}");
                 completion.TrySetResult(InterstitialResult.Fail);
             }
-            
+
             _callbacks.InterstitialShown += OnShown;
             _callbacks.InterstitialFailed += OnFailed;
 
             _api.ShowInterstitial_Internal();
-            
+
             await completion.Task;
 
             _callbacks.InterstitialShown -= OnShown;

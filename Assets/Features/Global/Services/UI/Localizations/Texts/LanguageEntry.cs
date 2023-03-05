@@ -1,5 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using TMPro;
 using UnityEngine;
 
 namespace Global.UI.Localizations.Texts

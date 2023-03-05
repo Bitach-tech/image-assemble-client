@@ -7,7 +7,7 @@ namespace Global.Publisher.Yandex.DataStorages
     {
         [DllImport("__Internal")]
         private static extern void GetUserData();
-        
+
         [DllImport("__Internal")]
         private static extern void SaveUserData(string data);
 

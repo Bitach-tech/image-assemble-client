@@ -21,12 +21,13 @@ namespace GamePlay.Level.Assemble.Runtime
         [SerializeField] private Image[] _views;
 
         private bool _isCorrect;
-        
+
         private int _current;
         private int _viewsCount;
-        
+
         private float _width;
         private float _correctX;
+        private int _correctIndex;
 
         private Vector2 _targetPosition;
 
@@ -69,6 +70,7 @@ namespace GamePlay.Level.Assemble.Runtime
                     continue;
 
                 _correctX = -_width * i;
+                _correctIndex = i;
             }
 
             for (var i = 0; i < all.Count; i++)
@@ -95,6 +97,11 @@ namespace GamePlay.Level.Assemble.Runtime
         {
             _leftButton.gameObject.SetActive(true);
             _rightButton.gameObject.SetActive(true);
+        }
+
+        public void MoveToCorrect()
+        {
+            MoveTo(_correctIndex);
         }
 
         private void OnLeftClicked()
@@ -128,7 +135,7 @@ namespace GamePlay.Level.Assemble.Runtime
         public void OnUpdate(float delta)
         {
             var position = Vector2.MoveTowards(_root.anchoredPosition, _targetPosition, _speed * delta);
-            
+
             _root.anchoredPosition = position;
 
             var distance = Mathf.Abs(position.x - _correctX);

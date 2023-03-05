@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 using VContainer;
 using VContainer.Unity;
 using ContainerBuilder = Common.DiContainer.Runtime.ContainerBuilder;
-using Debug = UnityEngine.Debug;
 
 namespace Global.Bootstrappers
 {
@@ -27,6 +26,7 @@ namespace Global.Bootstrappers
             SceneManager.sceneLoaded += OnSceneLoaded;
 
             SceneManager.LoadScene(_servicesScene, LoadSceneMode.Additive);
+
             void OnSceneLoaded(Scene scene, LoadSceneMode mode)
             {
                 SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -74,7 +74,7 @@ namespace Global.Bootstrappers
             {
                 dependencyRegister.RegisterAll(builder);
             }
-            
+
             dependencyRegister.ResolveAllWithCallbacks(scope.Container, callbacks);
 
             await callbacks.InvokeFlowCallbacks();

@@ -30,7 +30,7 @@ namespace Common.Tools.Editor
 
                     ProcessObject(g);
                 }
-                
+
                 Debug.Log($"Scene: {scene.name} checked");
             }
         }
@@ -45,7 +45,7 @@ namespace Common.Tools.Editor
 
                 if (currentComponent != null)
                     continue;
-                
+
                 Selection.activeGameObject = gameObject;
                 Debug.Log(gameObject + " has a missing script!");
             }

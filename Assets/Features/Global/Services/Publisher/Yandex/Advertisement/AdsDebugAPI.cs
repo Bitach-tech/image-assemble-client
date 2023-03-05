@@ -8,9 +8,9 @@ namespace Global.Publisher.Yandex.Advertisement
         {
             _debug = debug;
         }
-     
+
         private readonly IAdsDebug _debug;
-        
+
         public void ShowInterstitial_Internal()
         {
             _debug.ShowInterstitial();

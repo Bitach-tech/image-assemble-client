@@ -10,13 +10,13 @@ namespace Global.Publisher.Yandex.DataStorages
         {
             _callbacks = callbacks;
         }
-        
+
         private readonly YandexCallbacks _callbacks;
-        
+
         public void Get_Internal()
         {
             var data = new Dictionary<string, object>();
-            
+
             var raw = JsonUtility.ToJson(data);
             _callbacks.OnUserDataReceived(raw);
         }

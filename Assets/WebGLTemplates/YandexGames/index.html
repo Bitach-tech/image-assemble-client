@@ -17,10 +17,10 @@
 </head>
 <body>
 
-<div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0%;  top: 0%;">
+<div id="unity-container" style="position: absolute; width: 100%; height: 100%; left: 0;  top: 0;">
     <canvas id="unity-canvas" style="position: absolute; width: 100%; height: 100%"></canvas>
 
-    <div style="position:absolute; width: 100%; height: 10%; bottom: 0%;">
+    <div style="position:absolute; width: 100%; height: 10%; bottom: 0;">
         <!-- Yandex.RTB R-A-1774866-27 -->
         <div id="yandex_rtb_R-A-1774866-27"></div>
         <script>
@@ -45,9 +45,9 @@
 </div>
 
 <script>
-    var lb;
-    var payments = null;
-    var player;
+    let lb;
+    let payments = null;
+    let player;
 
     YaGames
         .init()
@@ -73,8 +73,9 @@
                     ysdk.auth.openAuthDialog().then(() =>
                     {
                         // Игрок успешно авторизован
-                        initPlayer().catch(err =>
+                        initPlayer().catch(error =>
                         {
+                            console.log(error);
                             // Ошибка при инициализации объекта Player.
                         });
                     }).catch(() =>
@@ -83,8 +84,9 @@
                     });
                 }
             })
-            .catch(err =>
+            .catch(error =>
             {
+                console.log(error);
                 // Ошибка при инициализации объекта Player.
             });
     }
@@ -105,8 +107,10 @@
                 // Покупки доступны.
                 payments = _payments;
             })
-            .catch(err =>
+            .catch(error =>
             {
+                console.log(error);
+                
                 // Покупки недоступны. Включите монетизацию в консоли разработчика.
                 // Убедитесь, что на вкладке Покупки консоли разработчика присутствует таблица
                 // хотя бы с одним внутриигровым товаром и надписью «Покупки разрешены».
@@ -141,17 +145,17 @@
 </script>
 
 <script>
-    var container = document.querySelector("#unity-container");
-    var canvas = document.querySelector("#unity-canvas");
-    var loadingBar = document.querySelector("#unity-loading-bar");
-    var progressBarFull = document.querySelector("#unity-progress-bar-full");
-    var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-    var warningBanner = document.querySelector("#unity-warning");
+    let container = document.querySelector("#unity-container");
+    let canvas = document.querySelector("#unity-canvas");
+    let loadingBar = document.querySelector("#unity-loading-bar");
+    let progressBarFull = document.querySelector("#unity-progress-bar-full");
+    let fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    let warningBanner = document.querySelector("#unity-warning");
 
-    var buildUrl = "Build";
-    var loaderUrl = buildUrl + "/Build.loader.js";
+    let buildUrl = "Build";
+    let loaderUrl = buildUrl + "/Build.loader.js";
     
-    var config = {
+    let config = {
         dataUrl: buildUrl + "/Build.data.unityweb",
         frameworkUrl: buildUrl + "/Build.framework.js.unityweb",
         codeUrl: buildUrl + "/Build.wasm.unityweb",
@@ -172,7 +176,7 @@
     {
         // Mobile device style: fill the whole browser client area with the game canvas:
 
-        var meta = document.createElement('meta');
+        let meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
         document.getElementsByTagName('head')[0].appendChild(meta);
@@ -194,9 +198,9 @@
 
     loadingBar.style.display = "block";
 
-    var myGameInstance = null;
+    let myGameInstance = null;
 
-    var script = document.createElement("script");
+    let script = document.createElement("script");
     script.src = loaderUrl;
 
     console.log('load game');

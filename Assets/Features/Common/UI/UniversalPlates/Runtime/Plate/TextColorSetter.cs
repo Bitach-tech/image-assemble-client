@@ -8,7 +8,8 @@ namespace Common.UI.UniversalPlates.Runtime.Plate
     [Serializable]
     public class TextColorSetter : IFeature
     {
-        [SerializeField] [ColorPalette("Text")] private Color _color;
+        [SerializeField] [ColorPalette("Text")]
+        private Color _color;
 
         [SerializeField] private TMP_Text _text;
 

@@ -21,10 +21,10 @@ namespace Global.Publisher.Yandex.Advertisement
         public async UniTask<RewardAdResult> Show()
         {
             var completion = new UniTaskCompletionSource<RewardAdResult>();
-            
+
             void OnClosed()
             {
-                completion.TrySetResult(RewardAdResult.Canceled);
+                completion.TrySetResult(RewardAdResult.Applied);
             }
 
             void OnError(string message)
@@ -32,14 +32,14 @@ namespace Global.Publisher.Yandex.Advertisement
                 Debug.LogError($"Interstitial failed: {message}");
                 completion.TrySetResult(RewardAdResult.Error);
             }
-            
+
             _callbacks.RewardedAdClosed += OnClosed;
             _callbacks.RewardedAdError += OnError;
 
             _api.ShowRewarded_Internal();
-            
+
             var result = await completion.Task;
-            
+
             _callbacks.RewardedAdClosed -= OnClosed;
             _callbacks.RewardedAdError -= OnError;
 

@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using Common.UI.UniversalPlates.Setup;
 using UnityEngine;
 

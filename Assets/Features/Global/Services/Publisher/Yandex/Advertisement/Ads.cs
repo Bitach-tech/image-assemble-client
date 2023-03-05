@@ -2,7 +2,6 @@
 using Global.Publisher.Abstract.Advertisment;
 using Global.Publisher.Yandex.Common;
 using Global.System.Pauses.Runtime;
-using UnityEngine;
 
 namespace Global.Publisher.Yandex.Advertisement
 {

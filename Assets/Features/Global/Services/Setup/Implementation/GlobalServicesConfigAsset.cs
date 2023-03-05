@@ -28,51 +28,47 @@ namespace Global.Setup.Implementation
     [CreateAssetMenu(fileName = "GlobalConfig", menuName = "Global/Config")]
     public class GlobalServicesConfigAsset : GlobalServicesConfig
     {
-        [FoldoutGroup("Audio")]
-        [SerializeField] private SoundsPlayerAsset _soundsPlayer;
+        [FoldoutGroup("Audio")] [SerializeField]
+        private SoundsPlayerAsset _soundsPlayer;
 
-        [FoldoutGroup("Camera")]
-        [SerializeField] private CameraUtilsAsset _cameraUtils;
-        [FoldoutGroup("Camera")]
-        [SerializeField] private CurrentCameraAsset _currentCamera;
-        [FoldoutGroup("Camera")]
-        [SerializeField] private GlobalCameraAsset _globalCamera;
+        [FoldoutGroup("Camera")] [SerializeField]
+        private CameraUtilsAsset _cameraUtils;
+        [FoldoutGroup("Camera")] [SerializeField]
+        private CurrentCameraAsset _currentCamera;
+        [FoldoutGroup("Camera")] [SerializeField]
+        private GlobalCameraAsset _globalCamera;
 
-        [FoldoutGroup("Debugs")]
-        [SerializeField] private DebugConsoleAsset _debugConsole;
-        
-        [FoldoutGroup("Input")]
-        [SerializeField] private InputViewAsset _inputView;
-        
-        [FoldoutGroup("Publisher")]
-        [SerializeField] private PublisherSdkAsset _publisherSdk;
-        
-        [FoldoutGroup("Scenes")]
-        [SerializeField] private CurrentSceneHandlerAsset _currentSceneHandler;
-        [FoldoutGroup("Scenes")]
-        [SerializeField] private ScenesFlowAsset _scenesFlow;
+        [FoldoutGroup("Debugs")] [SerializeField]
+        private DebugConsoleAsset _debugConsole;
 
-        [FoldoutGroup("System")]
-        [SerializeField] private ApplicationProxyAsset _applicationProxy;
-        [FoldoutGroup("System")]
-        [SerializeField] private LoggerAsset _logger;
-        [FoldoutGroup("System")]
-        [SerializeField] private MessageBrokerAsset _messageBroker;
-        [FoldoutGroup("System")]
-        [SerializeField] private PauseAsset _pause;
-        [FoldoutGroup("System")]
-        [SerializeField] private ResourcesCleanerAsset _resourcesCleaner;
-        [FoldoutGroup("System")]
-        [SerializeField] private UpdaterAsset _updater;
+        [FoldoutGroup("Input")] [SerializeField]
+        private InputViewAsset _inputView;
 
-        [FoldoutGroup("UI")]
-        [SerializeField] private LoadingScreenAsset _loadingScreen;
-        [FoldoutGroup("UI")]
-        [SerializeField] private LocalizationAsset _localization;
-        [FoldoutGroup("UI")]
-        [SerializeField] private OverlayAsset _overlay;
-        [FoldoutGroup("UI")]
-        [SerializeField] private UiStateMachineAsset _uiStateMachine;
+        [FoldoutGroup("Publisher")] [SerializeField]
+        private PublisherSdkAsset _publisherSdk;
+
+        [FoldoutGroup("Scenes")] [SerializeField]
+        private CurrentSceneHandlerAsset _currentSceneHandler;
+        [FoldoutGroup("Scenes")] [SerializeField]
+        private ScenesFlowAsset _scenesFlow;
+
+        [FoldoutGroup("System")] [SerializeField]
+        private ApplicationProxyAsset _applicationProxy;
+        [FoldoutGroup("System")] [SerializeField]
+        private LoggerAsset _logger;
+        [FoldoutGroup("System")] [SerializeField]
+        private MessageBrokerAsset _messageBroker;
+        [FoldoutGroup("System")] [SerializeField]
+        private PauseAsset _pause;
+        [FoldoutGroup("System")] [SerializeField]
+        private ResourcesCleanerAsset _resourcesCleaner;
+        [FoldoutGroup("System")] [SerializeField]
+        private UpdaterAsset _updater;
+
+        [FoldoutGroup("UI")] [SerializeField] private LoadingScreenAsset _loadingScreen;
+        [FoldoutGroup("UI")] [SerializeField] private LocalizationAsset _localization;
+        [FoldoutGroup("UI")] [SerializeField] private OverlayAsset _overlay;
+        [FoldoutGroup("UI")] [SerializeField] private UiStateMachineAsset _uiStateMachine;
 
         public override IGlobalServiceFactory[] GetFactories()
         {

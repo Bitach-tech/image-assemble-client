@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Common.Local.Services.Abstract.Callbacks;
 using Cysharp.Threading.Tasks;
 using GamePlay.Level.ImageStorage.Runtime;
 using GamePlay.Loop.Difficulties;
+using Global.Publisher.Abstract.Advertisment;
 using Global.System.MessageBrokers.Runtime;
 using Global.System.Updaters.Runtime.Abstract;
 using Global.UI.UiStateMachines.Runtime;
@@ -14,11 +16,16 @@ using VContainer;
 namespace GamePlay.Level.Assemble.Runtime
 {
     [DisallowMultipleComponent]
-    public class Assembler : MonoBehaviour, IAssembler, IUiState
+    public class Assembler : MonoBehaviour, IAssembler, IUiState, ILocalSwitchListener
     {
         [Inject]
-        private void Construct(IUiStateMachine uiStateMachine, IUpdater updater, UiConstraints constraints)
+        private void Construct(
+            IUiStateMachine uiStateMachine,
+            IUpdater updater,
+            IAds ads,
+            UiConstraints constraints)
         {
+            _ads = ads;
             _updater = updater;
             _constraints = constraints;
             _uiStateMachine = uiStateMachine;
@@ -28,10 +35,14 @@ namespace GamePlay.Level.Assemble.Runtime
         [SerializeField] private Image _preview;
         [SerializeField] private ImageView _view;
 
+        private IAds _ads;
         private IUpdater _updater;
-        private CancellationTokenSource _cancellation;
         private IUiStateMachine _uiStateMachine;
         private UiConstraints _constraints;
+
+        private IDisposable _tipRequestListener;
+        private ImageView _current;
+        private CancellationTokenSource _cancellation;
 
         public UiConstraints Constraints => _constraints;
         public string Name => "Assembler";
@@ -39,6 +50,16 @@ namespace GamePlay.Level.Assemble.Runtime
         private void Awake()
         {
             _body.SetActive(false);
+        }
+
+        public void OnEnabled()
+        {
+            _tipRequestListener = Msg.Listen<TipRequestEvent>(OnTipRequested);
+        }
+
+        public void OnDisabled()
+        {
+            _tipRequestListener?.Dispose();
         }
 
         public void Recover()
@@ -83,17 +104,32 @@ namespace GamePlay.Level.Assemble.Runtime
                 for (var i = 0; i < list.Count; i++)
                     others[i] = PickSprites(list[i], difficulty);
 
-                view.Show(correct, others, _updater);
+                _current = view;
+                _current.Show(correct, others, _updater);
                 _preview.sprite = image.Preview;
 
-                await UniTask.WaitUntil(() => view.IsAssembled() == true, PlayerLoopTiming.Update, _cancellation.Token);
-                
-                view.Lock();
+                await UniTask.WaitUntil(() => _current.IsAssembled() == true, PlayerLoopTiming.Update,
+                    _cancellation.Token);
 
-                await view.Hide(_cancellation.Token, _updater);
+                _current.Lock();
+
+                await _current.Hide(_cancellation.Token, _updater);
             }
 
             Msg.Publish(new AssembledEvent());
+        }
+
+        private void OnTipRequested(TipRequestEvent data)
+        {
+            ProcessTip().Forget();
+        }
+
+        private async UniTaskVoid ProcessTip()
+        {
+            var result = await _ads.ShowRewarded();
+            Debug.Log(result);
+            if (result == RewardAdResult.Applied)
+                _current.Assemble();
         }
 
         private Sprite[] PickSprites(LevelImage image, LevelDifficulty difficulty)

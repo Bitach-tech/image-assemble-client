@@ -3,7 +3,6 @@ using Common.DiContainer.Abstract;
 using Cysharp.Threading.Tasks;
 using Global.Setup.Service;
 using Global.Setup.Service.Callbacks;
-using UnityEngine;
 
 namespace Global.Bootstrappers
 {
@@ -51,7 +50,7 @@ namespace Global.Bootstrappers
 
             for (var i = 0; i < _asyncAwakes.Count; i++)
                 asyncAwakes[i] = _asyncAwakes[i].OnAwakeAsync();
-            
+
             await UniTask.WhenAll(asyncAwakes);
 
             foreach (var bootstrap in _bootstraps)

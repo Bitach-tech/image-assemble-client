@@ -9,7 +9,7 @@ namespace Global.UI.Localizations.Texts
     public class LocalizedText : MonoBehaviour
     {
         [SerializeField] private LanguageTextData _data;
-        
+
         private TMP_Text _text;
 
         public event Action Changed;
@@ -17,7 +17,7 @@ namespace Global.UI.Localizations.Texts
         private void Awake()
         {
             _text = GetComponent<TMP_Text>();
-            
+
             _data.AttachText(OnLanguageChanged);
         }
 

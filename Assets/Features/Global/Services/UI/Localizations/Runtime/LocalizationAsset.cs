@@ -11,7 +11,7 @@ namespace Global.UI.Localizations.Runtime
     public class LocalizationAsset : ScriptableObject, IGlobalServiceFactory
     {
         [SerializeField] [Indent] private LocalizationStorage _storage;
-        
+
         public void Create(
             IDependencyRegister builder,
             IGlobalServiceBinder serviceBinder,

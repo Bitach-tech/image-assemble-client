@@ -8,7 +8,7 @@ namespace Global.Publisher.Yandex.Purchases
         {
             _debug = debug;
         }
-        
+
         private readonly IPurchaseDebug _debug;
 
         public void Purchase_Internal(string id)

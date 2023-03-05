@@ -8,7 +8,7 @@ namespace Global.Audio.Player.Common
 
         public const string ServicePath = _paths + "Service";
         public const string ServiceName = GlobalAssetsPrefixes.Service + "AudioPlayer";
-        
+
         public const string StatePath = _paths + "State";
         public const string StateName = GlobalAssetsPrefixes.Service + "AudioState";
     }
